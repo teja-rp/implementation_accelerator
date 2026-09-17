@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "1.0",
+  "products": [
+    {
+      "id": "onesite",
+      "name": "OneSite Leasing & Rents",
+      "group": "Core",
+      "core": true,
+      "requires": [],
+      "note": "Core product; primary dependency for most products",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "odes",
+      "name": "ODEs and SDEs",
+      "group": "Core & operations",
+      "withCore": true,
+      "requires": [],
+      "note": "Go live with OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "facilities",
+      "name": "Facilities",
+      "group": "Core & operations",
+      "withCore": true,
+      "requires": [],
+      "note": "Go live with OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "maint",
+      "name": "Maintenance Management",
+      "group": "Core & operations",
+      "withCore": true,
+      "requires": [],
+      "note": "Go live with OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "screening",
+      "name": "Screening",
+      "group": "Core & operations",
+      "withCore": true,
+      "requires": [],
+      "prereq": "A property must be identified to mirror the Screening scoring model",
+      "note": "Goes live with OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "acctg",
+      "name": "Accounting Entity",
+      "group": "Financial",
+      "early": true,
+      "requires": [],
+      "note": "Can be created anytime, but must be integrated with OneSite once OneSite is live",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "payments",
+      "name": "Payments",
+      "group": "Financial",
+      "early": true,
+      "requires": [
+        "onesite"
+      ],
+      "note": "Setup can begin early; activation requires OneSite to be live",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "loftliving",
+      "name": "Loft Living",
+      "group": "Renter engagement",
+      "requires": [
+        "onesite"
+      ],
+      "note": "Requires OneSite; can go live before Payments, but residents cannot pay online until Payments is activated",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "loftleasing",
+      "name": "Loft Leasing",
+      "group": "Renter engagement",
+      "requires": [
+        "payments"
+      ],
+      "note": "Requires Payments to be activated",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "renewals",
+      "name": "Online Renewals",
+      "group": "Renter engagement",
+      "requires": [
+        "onesite"
+      ],
+      "note": "Requires OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "loyalty",
+      "name": "Loft Loyalty",
+      "group": "Renter engagement",
+      "requires": [
+        "loftliving",
+        "payments"
+      ],
+      "lag": "Three to five days after Loft Living goes live",
+      "note": "Goes live three to five days after Loft Living, provided Payments is activated",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "loftmoving",
+      "name": "Loft Moving",
+      "group": "Renter engagement",
+      "requires": [
+        "loftliving",
+        "payments"
+      ],
+      "lag": "Three to five days after Loft Living goes live",
+      "note": "Goes live three to five days after Loft Living, provided Payments is activated",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "knock",
+      "name": "Knock",
+      "group": "Marketing & leads",
+      "early": true,
+      "requires": [],
+      "integrateAfter": [
+        "onesite"
+      ],
+      "note": "Can go live early, but must integrate with OneSite after OneSite is live",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "syndication",
+      "name": "Syndication",
+      "group": "Marketing & leads",
+      "requires": [
+        "onesite"
+      ],
+      "note": "Requires OneSite; floor plan information and availability come from OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "website",
+      "name": "G5 Website",
+      "group": "Marketing & leads",
+      "early": true,
+      "requires": [
+        "onesite",
+        "loftliving",
+        "loftleasing",
+        "knock"
+      ],
+      "note": "May be set up early, but final integration only after OneSite, Loft Living, Loft Leasing and Knock are live",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "ccaa",
+      "name": "Contact Center - Answer Automation",
+      "group": "Marketing & leads",
+      "early": true,
+      "requires": [],
+      "note": "Can go live before OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "ccleasing",
+      "name": "Contact Center - Leasing",
+      "group": "Marketing & leads",
+      "requires": [
+        "onesite"
+      ],
+      "note": "Requires OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "ccmm",
+      "name": "Contact Center - Missed Maintenance",
+      "group": "Marketing & leads",
+      "requires": [
+        "onesite"
+      ],
+      "note": "Requires OneSite",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "bi",
+      "name": "Business Intelligence",
+      "group": "Reporting & utilities",
+      "requires": [
+        "onesite"
+      ],
+      "prereq": "The property date must be current",
+      "note": "Setup can begin after OneSite is live",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "pa",
+      "name": "Performance Analytics",
+      "group": "Reporting & utilities",
+      "requires": [
+        "onesite"
+      ],
+      "prereq": "The property date must be current",
+      "note": "Setup can begin after OneSite is live",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "esupply",
+      "name": "eSupply",
+      "group": "Reporting & utilities",
+      "early": true,
+      "requires": [],
+      "note": "No product dependencies; can go live anytime",
+      "src": "<TODO: cite section of the product dependency document>"
+    },
+    {
+      "id": "rum",
+      "name": "RUM / RUSM",
+      "group": "Reporting & utilities",
+      "requires": [
+        "onesite"
+      ],
+      "timeline": "Deliverables due the 15th of the current month, or the 15th of the next month if past that. The build month is the full month following the due month, regardless of ICD date. First bills activate the 1st of the month after the build month.",
+      "note": "Usually last, because transferring ownership of utility accounts takes time",
+      "src": "<TODO: cite section of the product dependency document>"
+    }
+  ]
+}

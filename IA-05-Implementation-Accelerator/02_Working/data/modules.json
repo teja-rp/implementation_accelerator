@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0",
+  "modules": [
+    {
+      "id": "EC-01",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "assignment",
+      "day": 1,
+      "delivery": "self",
+      "owner": "<TODO: module owner name>",
+      "source": "<TODO: extract from the EC SOP and cite document name plus section number>",
+      "review": "<TODO: SME review status — drafted / in review / approved, plus reviewer name>",
+      "practice": "decision",
+      "title": "<TODO: module title, taken from the source section heading>",
+      "objective": "<TODO: one sentence, written from the learner's side — 'I can ...'>",
+      "sla": "<TODO: only if the source states an SLA; otherwise remove this field>",
+      "steps": [
+        {
+          "t": "<TODO: step text, extract from the EC SOP and cite section>",
+          "n": "<TODO: optional nuance note, or remove this key>"
+        },
+        {
+          "t": "<TODO: step text, extract from the EC SOP and cite section>"
+        },
+        {
+          "t": "<TODO: step text, extract from the EC SOP and cite section>",
+          "n": "<TODO: optional nuance note, or remove this key>"
+        }
+      ],
+      "scenario": {
+        "q": "<TODO: practice scenario question, grounded in a real situation described in the source; use PMC for any client name>",
+        "opts": [
+          {
+            "t": "<TODO: option text — the correct course of action>",
+            "verdict": "best",
+            "fb": "<TODO: why this is correct, in the source's own terms>",
+            "src": "<TODO: cite document name plus section number>"
+          },
+          {
+            "t": "<TODO: option text — defensible but not the documented path>",
+            "verdict": "ok",
+            "fb": "<TODO: why this is workable but not preferred>",
+            "src": "<TODO: cite document name plus section number>"
+          },
+          {
+            "t": "<TODO: option text — the common mistake>",
+            "verdict": "poor",
+            "fb": "<TODO: what goes wrong and what the source says instead>",
+            "src": "<TODO: cite document name plus section number>"
+          }
+        ]
+      },
+      "next": "<TODO: one sentence naming the next module and why it follows — e.g. 'EC-02, because ...'>"
+    },
+    {
+      "id": "EC-02",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "research",
+      "day": 1,
+      "delivery": "self",
+      "owner": "<TODO: module owner name>",
+      "source": "<TODO: extract from the EC SOP and cite document name plus section number>",
+      "review": "<TODO: SME review status — drafted / in review / approved, plus reviewer name>",
+      "practice": null,
+      "title": "<TODO: module title, taken from the source section heading>",
+      "objective": "<TODO: one sentence, written from the learner's side — 'I can ...'>",
+      "steps": [
+        {
+          "t": "<TODO: step text, extract from the EC SOP and cite section>"
+        },
+        {
+          "t": "<TODO: step text, extract from the EC SOP and cite section>",
+          "n": "<TODO: optional nuance note, or remove this key>"
+        }
+      ],
+      "scenario": null,
+      "next": "<TODO: one sentence naming the next module and why it follows>"
+    }
+  ]
+}
