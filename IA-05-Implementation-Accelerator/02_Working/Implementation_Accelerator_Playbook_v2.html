@@ -1,0 +1,1473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Realpage Implementation Accelerator prototype: a source-linked learning playbook for Engagement Coordinator onboarding and add-on customer work.">
+  <title>Implementation Accelerator | Realpage</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+    :root {
+      --ink: #101926;
+      --navy: #163a5f;
+      --blue: #21669a;
+      --blue-2: #3f7fac;
+      --blue-soft: #eaf3f8;
+      --blue-pale: #f4f8fb;
+      --orange: #f1623b;
+      --orange-soft: #fff1ec;
+      --green: #2f6f5e;
+      --green-soft: #eaf5f1;
+      --amber: #8a6500;
+      --amber-soft: #fff7d8;
+      --red: #9a3e3e;
+      --red-soft: #fdeeee;
+      --muted: #5d6b7a;
+      --line: #d8e0e7;
+      --line-dark: #c4ced8;
+      --surface: #ffffff;
+      --canvas: #f4f6f8;
+      --shadow: 0 10px 30px rgba(16, 25, 38, 0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --sidebar: 242px;
+      --topbar: 72px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Aptos, "Segoe UI", Arial, sans-serif;
+      line-height: 1.5;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--blue); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid rgba(241, 98, 59, 0.35);
+      outline-offset: 2px;
+    }
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: -50px;
+      z-index: 200;
+      background: var(--ink);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: top .2s;
+    }
+    .skip-link:focus-visible { top: 10px; }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--topbar);
+      background: rgba(255,255,255,.98);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 0 28px;
+      z-index: 100;
+    }
+    .brand-lockup {
+      min-width: 300px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand-lockup img { width: 104px; height: auto; display: block; }
+    .brand-divider { width: 1px; height: 30px; background: var(--line-dark); }
+    .product-name {
+      font-family: Poppins, Aptos, sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -.01em;
+      color: var(--ink);
+    }
+    .top-context {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .context-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+    .context-chip.scope { background: var(--blue-soft); border-color: #c7dfea; color: var(--navy); }
+    .context-chip.guardrail { background: var(--orange-soft); border-color: #f5c9ba; color: #8c3b24; }
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: var(--topbar);
+      bottom: 0;
+      width: var(--sidebar);
+      background: var(--ink);
+      color: white;
+      padding: 24px 16px;
+      overflow-y: auto;
+      z-index: 90;
+    }
+    .sidebar-label {
+      color: #aebcca;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 750;
+      padding: 0 12px 10px;
+    }
+    .nav-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .nav-button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #dfe8ee;
+      border-radius: 10px;
+      padding: 12px 12px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: center;
+      text-align: left;
+      gap: 8px;
+      font-weight: 650;
+      transition: background .15s, color .15s;
+    }
+    .nav-button:hover { background: rgba(255,255,255,.08); color: white; }
+    .nav-button.active { background: #244b6d; color: white; box-shadow: inset 3px 0 0 var(--orange); }
+    .nav-icon {
+      width: 26px;
+      height: 26px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .sidebar-footer {
+      margin-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      padding: 18px 12px 0;
+      color: #b6c3ce;
+      font-size: 12px;
+    }
+    .sidebar-footer strong { color: white; display: block; margin-bottom: 4px; }
+
+    main {
+      margin-left: var(--sidebar);
+      padding: calc(var(--topbar) + 30px) 36px 48px;
+      max-width: 1700px;
+    }
+    .view { display: none; }
+    .view.active { display: block; }
+
+    .page-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 750;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1, h2, h3, h4 {
+      font-family: Poppins, Aptos, sans-serif;
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    h1 { font-size: clamp(30px, 3vw, 44px); letter-spacing: -.035em; }
+    h2 { font-size: 24px; letter-spacing: -.02em; }
+    h3 { font-size: 18px; letter-spacing: -.01em; }
+    h4 { font-size: 15px; }
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 840px;
+      margin: 10px 0 0;
+    }
+    .prototype-note {
+      max-width: 340px;
+      border: 1px solid #f5c9ba;
+      background: var(--orange-soft);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #7c3823;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .prototype-note strong { display: block; color: #652a1a; margin-bottom: 3px; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(16,25,38,.035);
+    }
+    .card.pad { padding: 22px; }
+    .card-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .muted { color: var(--muted); }
+    .small { font-size: 12px; }
+    .section { margin-top: 28px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    .section-head p { margin: 4px 0 0; color: var(--muted); }
+
+    .hero-panel {
+      display: grid;
+      grid-template-columns: 1.35fr .8fr;
+      min-height: 245px;
+      overflow: hidden;
+    }
+    .hero-main { padding: 28px 30px; position: relative; }
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 28px;
+      bottom: 28px;
+      width: 5px;
+      border-radius: 0 5px 5px 0;
+      background: var(--orange);
+    }
+    .hero-main h2 { font-size: 30px; max-width: 720px; }
+    .hero-main p { color: var(--muted); font-size: 16px; max-width: 720px; }
+    .hero-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 750;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      text-decoration: none;
+      min-height: 42px;
+    }
+    .btn.primary { background: var(--orange); color: white; }
+    .btn.primary:hover { background: #d9532f; }
+    .btn.secondary { background: white; border-color: var(--line-dark); color: var(--ink); }
+    .btn.secondary:hover { background: var(--blue-pale); }
+    .btn.tertiary { background: var(--blue-soft); border-color: #c8dfe9; color: var(--navy); }
+    .hero-side {
+      background: var(--blue-pale);
+      border-left: 1px solid var(--line);
+      padding: 28px;
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+    .progress-ring-wrap { display: flex; align-items: center; gap: 18px; }
+    .progress-ring {
+      --pct: 50;
+      width: 98px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--blue) calc(var(--pct) * 1%), #dbe8ef 0);
+      display: grid;
+      place-items: center;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .progress-ring::after {
+      content: "";
+      position: absolute;
+      width: 72px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--blue-pale);
+    }
+    .progress-ring strong { position: relative; z-index: 1; font: 700 22px Poppins, Aptos, sans-serif; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .stat-mini { border-top: 1px solid var(--line); padding-top: 10px; }
+    .stat-mini strong { display: block; font: 700 19px Poppins, Aptos, sans-serif; }
+    .stat-mini span { color: var(--muted); font-size: 11px; }
+
+    .journey-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .journey-step {
+      padding: 16px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      min-height: 118px;
+    }
+    .journey-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: var(--navy);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .journey-step:nth-child(4) .journey-number { background: var(--orange-soft); color: #923a20; }
+    .journey-step strong { display: block; margin-bottom: 3px; }
+    .journey-step span { color: var(--muted); font-size: 12px; }
+
+    .module-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .module-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+    .module-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: #b9ccd8; }
+    .module-card.current { border-color: var(--blue-2); box-shadow: inset 0 0 0 1px var(--blue-2); }
+    .module-card.complete::before {
+      content: "Completed";
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      background: var(--green-soft);
+      color: var(--green);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .module-index {
+      font: 700 13px Poppins, Aptos, sans-serif;
+      color: var(--blue);
+    }
+    .module-card h3 { padding-right: 72px; }
+    .module-card p { color: var(--muted); margin: 0; font-size: 13px; }
+    .module-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tag {
+      border-radius: 999px;
+      background: var(--blue-pale);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: 750;
+    }
+    .tag.live { background: var(--amber-soft); border-color: #ead9a2; color: var(--amber); }
+    .tag.practice { background: var(--green-soft); border-color: #c5dfd6; color: var(--green); }
+    .module-open {
+      align-self: flex-start;
+      border: 0;
+      background: transparent;
+      color: var(--blue);
+      font-weight: 800;
+      padding: 0;
+    }
+
+    .metric-card { padding: 20px; }
+    .metric-label { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .metric-value { font: 700 30px Poppins, Aptos, sans-serif; margin-top: 4px; }
+    .metric-note { color: var(--muted); font-size: 11px; margin-top: 4px; }
+    .metric-accent { border-top: 4px solid var(--blue); }
+    .metric-accent.orange { border-top-color: var(--orange); }
+    .metric-accent.green { border-top-color: var(--green); }
+    .metric-accent.amber { border-top-color: #d0a521; }
+
+    .selector-panel { padding: 18px; margin-bottom: 18px; }
+    .selectors { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+    label.field-label { display: block; color: var(--muted); font-size: 11px; font-weight: 800; margin-bottom: 6px; }
+    select, input[type="text"], textarea {
+      width: 100%;
+      border: 1px solid var(--line-dark);
+      border-radius: 9px;
+      background: white;
+      color: var(--ink);
+      padding: 10px 11px;
+    }
+    select:disabled { color: var(--navy); background: var(--blue-pale); opacity: 1; }
+
+    .playbook-layout { display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 18px; align-items: start; }
+    .module-rail { padding: 10px; position: sticky; top: calc(var(--topbar) + 18px); }
+    .rail-item {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--ink);
+    }
+    .rail-item:hover { background: var(--blue-pale); }
+    .rail-item.active { background: var(--blue-soft); box-shadow: inset 3px 0 0 var(--blue); }
+    .rail-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: #edf1f4;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .rail-item.active .rail-num { background: var(--blue); color: white; }
+    .rail-title { display: block; font-weight: 750; font-size: 13px; line-height: 1.35; }
+    .rail-sub { display: block; color: var(--muted); font-size: 10px; line-height: 1.35; margin-top: 4px; }
+
+    .module-detail { overflow: hidden; }
+    .module-hero {
+      padding: 26px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .module-hero-top { display: flex; justify-content: space-between; gap: 22px; }
+    .module-hero h2 { font-size: 29px; }
+    .module-hero p { color: var(--muted); max-width: 840px; }
+    .status-badge {
+      white-space: nowrap;
+      align-self: flex-start;
+      background: var(--amber-soft);
+      color: var(--amber);
+      border: 1px solid #ead9a2;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .outcome-box {
+      margin-top: 18px;
+      background: var(--blue-pale);
+      border: 1px solid #cfdee7;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .outcome-box strong { color: var(--navy); font-size: 12px; }
+    .outcome-box span { font-weight: 650; }
+
+    .module-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 12px 18px 0;
+      background: white;
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto;
+    }
+    .tab-button {
+      border: 0;
+      background: transparent;
+      padding: 12px 16px;
+      color: var(--muted);
+      font-weight: 800;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+    }
+    .tab-button.active { color: var(--navy); border-bottom-color: var(--orange); }
+    .module-tab-panel { display: none; padding: 24px; }
+    .module-tab-panel.active { display: block; }
+
+    .lesson-layout { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(270px,.65fr); gap: 18px; }
+    .lesson-block { border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: white; }
+    .lesson-block + .lesson-block { margin-top: 14px; }
+    .lesson-block p { color: var(--muted); }
+    .key-steps { display: grid; gap: 10px; margin-top: 14px; }
+    .key-step { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; }
+    .key-step-num { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: var(--blue-soft); color: var(--navy); font-weight: 800; font-size: 12px; }
+    .key-step strong { display: block; }
+    .key-step span { color: var(--muted); font-size: 12px; }
+
+    .dependency-map {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 12px;
+      background: var(--blue-pale);
+      border: 1px solid #cfdee7;
+    }
+    .dep-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .dep-node {
+      min-width: 140px;
+      padding: 12px 14px;
+      background: white;
+      border: 1px solid var(--line-dark);
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .dep-node.core { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+    .dep-arrow { color: var(--blue); font-weight: 900; font-size: 18px; }
+    .dep-paths { display: grid; gap: 10px; margin-top: 12px; }
+    .dep-path {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+      padding: 10px;
+      background: rgba(255,255,255,.66);
+      border: 1px solid #cfdee7;
+      border-radius: 10px;
+    }
+    .dep-path-label { color: var(--navy); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; padding-top: 9px; }
+    .dep-sequence { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
+    .dep-sequence .dep-node { min-width: 0; padding: 8px; font-size: 10px; white-space: nowrap; }
+    .dep-caveat { grid-column: 2; margin-top: -2px; color: var(--muted); font-size: 10px; }
+    .dep-note { margin-top: 12px; color: var(--muted); font-size: 11px; }
+
+
+    .source-list { display: grid; gap: 10px; }
+    .source-item { border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+    .source-item a { font-weight: 750; text-decoration: none; }
+    .source-item a:hover { text-decoration: underline; }
+    .source-meta { display: flex; gap: 6px; flex-wrap: wrap; color: var(--muted); font-size: 10px; margin-top: 6px; }
+    .guardrail-box { background: var(--orange-soft); border: 1px solid #f5c9ba; color: #73321f; border-radius: 10px; padding: 12px; font-size: 12px; margin-top: 14px; }
+
+    .checklist { display: grid; gap: 10px; }
+    .check-row {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 13px 14px;
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      gap: 10px;
+      align-items: start;
+      background: white;
+    }
+    .check-row input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--blue); }
+    .check-row strong { display: block; }
+    .check-row span { color: var(--muted); font-size: 11px; }
+    .evidence-tag { color: var(--blue); font-size: 10px; font-weight: 800; background: var(--blue-soft); border-radius: 999px; padding: 4px 7px; }
+    .completion-box { margin-top: 16px; padding: 15px; border-radius: 12px; background: var(--blue-pale); border: 1px solid #cfdee7; display: flex; justify-content: space-between; gap: 14px; align-items: center; }
+    .completion-box strong { display: block; }
+    .completion-box span { color: var(--muted); font-size: 11px; }
+
+    .scenario {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .scenario-head { padding: 18px; background: var(--blue-pale); border-bottom: 1px solid var(--line); }
+    .scenario-body { padding: 18px; }
+    .scenario-context { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin: 14px 0; }
+    .context-fact { border: 1px solid var(--line); border-radius: 9px; padding: 10px; }
+    .context-fact strong { display: block; font-size: 11px; }
+    .context-fact span { color: var(--muted); font-size: 11px; }
+    .option-list { display: grid; gap: 9px; }
+    .scenario-option {
+      border: 1px solid var(--line-dark);
+      background: white;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--ink);
+    }
+    .scenario-option:hover { background: var(--blue-pale); }
+    .scenario-option.correct { border-color: var(--green); background: var(--green-soft); }
+    .scenario-option.incorrect { border-color: var(--red); background: var(--red-soft); }
+    .option-letter { width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; background: #edf1f4; font-weight: 800; }
+    .feedback { display: none; margin-top: 14px; padding: 14px; border-radius: 10px; }
+    .feedback.show { display: block; }
+    .feedback.good { background: var(--green-soft); border: 1px solid #c5dfd6; color: #245647; }
+    .feedback.bad { background: var(--red-soft); border: 1px solid #f0caca; color: #7b2f2f; }
+
+    .ask-layout { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 18px; }
+    .ask-card { padding: 18px; }
+    .ask-box { display: flex; gap: 8px; margin-top: 12px; }
+    .ask-box input { flex: 1; }
+    .answer-box { margin-top: 14px; border: 1px solid var(--line); background: var(--blue-pale); border-radius: 11px; padding: 14px; display: none; }
+    .answer-box.show { display: block; }
+    .answer-box strong { display: block; margin-bottom: 6px; }
+    .answer-box p { color: var(--muted); }
+    .answer-citations { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+
+    .practice-layout { display: grid; grid-template-columns: 330px minmax(0,1fr); gap: 18px; }
+    .scenario-list { padding: 10px; }
+    .scenario-list button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      text-align: left;
+      padding: 12px;
+      margin-bottom: 5px;
+    }
+    .scenario-list button:hover { background: var(--blue-pale); }
+    .scenario-list button.active { background: var(--blue-soft); box-shadow: inset 3px 0 0 var(--blue); }
+    .scenario-list strong { display: block; }
+    .scenario-list span { color: var(--muted); font-size: 11px; }
+
+    .field-hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .project-summary { padding: 22px; }
+    .project-badge { display: inline-flex; background: var(--blue-soft); color: var(--navy); border: 1px solid #c8dfe9; border-radius: 999px; padding: 5px 9px; font-size: 10px; font-weight: 800; }
+    .project-summary h2 { margin-top: 12px; }
+    .project-facts { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 18px; }
+    .project-fact { border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+    .project-fact strong { display: block; font: 700 17px Poppins, Aptos, sans-serif; }
+    .project-fact span { color: var(--muted); font-size: 10px; }
+    .next-action { padding: 22px; border-top: 4px solid var(--orange); }
+    .next-action h3 { margin-top: 6px; font-size: 22px; }
+    .why-box { margin-top: 14px; border-radius: 10px; background: var(--orange-soft); color: #72321f; padding: 12px; font-size: 12px; }
+
+    .stage-timeline { display: grid; grid-template-columns: repeat(6,1fr); gap: 8px; }
+    .stage { border: 1px solid var(--line); border-radius: 11px; padding: 12px; min-height: 118px; background: white; position: relative; }
+    .stage::after { content: ""; position: absolute; right: -9px; top: 50%; width: 9px; height: 1px; background: var(--line-dark); }
+    .stage:last-child::after { display: none; }
+    .stage.complete { border-color: #b9d6cb; background: var(--green-soft); }
+    .stage.current { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+    .stage strong { display: block; font-size: 12px; }
+    .stage span { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
+    .stage-status { margin-top: 10px; font-weight: 800; color: var(--blue); font-size: 10px; }
+    .stage.complete .stage-status { color: var(--green); }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+    th { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+    td { font-size: 12px; }
+    tr:last-child td { border-bottom: 0; }
+    .table-wrap { overflow-x: auto; }
+    .person-cell strong { display: block; }
+    .person-cell span { color: var(--muted); font-size: 10px; }
+    .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 5px 8px; font-size: 10px; font-weight: 800; white-space: nowrap; }
+    .pill.green { background: var(--green-soft); color: var(--green); }
+    .pill.amber { background: var(--amber-soft); color: var(--amber); }
+    .pill.blue { background: var(--blue-soft); color: var(--navy); }
+    .pill.red { background: var(--red-soft); color: var(--red); }
+    .confidence { display: flex; gap: 3px; }
+    .confidence i { display: block; width: 18px; height: 7px; border-radius: 99px; background: #dfe5ea; }
+    .confidence i.on { background: var(--blue); }
+
+    .readiness-rule { padding: 18px; }
+    .rule-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 14px; }
+    .rule-step { border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+    .rule-step strong { display: block; }
+    .rule-step span { color: var(--muted); font-size: 11px; }
+
+    .knowledge-layout { display: grid; grid-template-columns: minmax(0,1fr) 330px; gap: 18px; }
+    .workflow-steps { display: grid; gap: 10px; }
+    .workflow-step { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; }
+    .workflow-step .n { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--navy); font-weight: 800; }
+    .workflow-step strong { display: block; }
+    .workflow-step span { color: var(--muted); font-size: 11px; }
+    .source-status-note { padding: 14px; background: var(--orange-soft); border: 1px solid #f5c9ba; border-radius: 10px; color: #71321f; font-size: 12px; margin-top: 14px; }
+
+    .toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      background: var(--ink);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      z-index: 300;
+      max-width: 360px;
+      font-size: 12px;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    .mobile-menu { display: none; }
+
+    @media (max-width: 1180px) {
+      :root { --sidebar: 214px; }
+      .brand-lockup { min-width: 260px; }
+      .top-context .context-chip:nth-child(2) { display: none; }
+      .grid-4 { grid-template-columns: repeat(2,1fr); }
+      .module-grid { grid-template-columns: repeat(2,1fr); }
+      .hero-panel, .field-hero { grid-template-columns: 1fr; }
+      .hero-side { border-left: 0; border-top: 1px solid var(--line); }
+      .stage-timeline { grid-template-columns: repeat(3,1fr); }
+      .stage:nth-child(3)::after, .stage:nth-child(6)::after { display: none; }
+      .knowledge-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      :root { --sidebar: 0px; }
+      .sidebar { transform: translateX(-100%); width: 250px; transition: transform .2s; }
+      .sidebar.open { transform: translateX(0); }
+      main { margin-left: 0; padding-left: 18px; padding-right: 18px; }
+      .mobile-menu { display: inline-grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); background: white; border-radius: 9px; }
+      .brand-lockup { min-width: unset; }
+      .brand-lockup img { width: 90px; }
+      .brand-divider { display: none; }
+      .product-name { display: none; }
+      .top-context .context-chip:not(.guardrail) { display: none; }
+      .playbook-layout, .practice-layout, .lesson-layout, .ask-layout { grid-template-columns: 1fr; }
+      .module-rail { position: static; }
+      .selectors { grid-template-columns: repeat(2,1fr); }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .journey-strip { grid-template-columns: repeat(2,1fr); }
+      .project-facts { grid-template-columns: repeat(2,1fr); }
+      .rule-grid { grid-template-columns: repeat(2,1fr); }
+      .page-heading { flex-direction: column; }
+      .prototype-note { max-width: none; }
+    }
+    @media (max-width: 620px) {
+      .topbar { padding: 0 12px; gap: 10px; }
+      .top-context .context-chip { display: none !important; }
+      .module-grid, .grid-4, .selectors, .journey-strip, .stage-timeline, .rule-grid { grid-template-columns: 1fr; }
+      .stage::after { display: none; }
+      .scenario-context { grid-template-columns: 1fr; }
+      .module-hero-top { flex-direction: column; }
+      .outcome-box { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .dep-path { grid-template-columns: 1fr; }
+      .dep-path-label { padding-top: 0; }
+      .dep-sequence { flex-wrap: wrap; }
+      .dep-caveat { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="topbar">
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+    <div class="brand-lockup">
+      <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDM2My41OSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzEwMTkyNjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDYxLjQ1LDc2Ljc3djE1OC43N2MtOS4yLDAtMTYuMTctLjg4LTIyLjM3LTguNzYtNS42My03LjE2LTQuOTktMTMuODctNC45OS0xNy4yN1Y3Ni43N2gyNy4zNlpNMTYxLjMyLDIzNS41NGwtMzIuMDctNTdoLTI2LjM4djU3aC0yOC4zOVY4MS4xMmg1Ny42MmM0Ny4zNCwwLDUzLjY4LDM0LjQsNTMuNjgsNDguOTIsMCwyMi43NS0xMi41LDM3LjI0LTI3Ljk4LDQzLjczbDM1LjQ0LDYxLjc2aC0zMS45MlpNMTU3LjU5LDEyOS44NGMwLTE0Ljg5LTEwLjQ0LTIzLjg0LTI1LjA4LTIzLjg0aC0yOS42NHY0Ny42OGgyOS42NGMyMi45NiwwLDI1LjA4LTE4Ljc0LDI1LjA4LTIzLjgzTTMwNC4zMywxNzUuNDRjMCwyLjA3LS4xLDQuMTEtLjMxLDYuMTEtLjIxLDIuMDEtLjU5LDMuODQtMS4xNCw1LjQ5aC04MS4xOWMuMzgsMy43NywxLjI5LDcuMjcsMi43NCwxMC40Nyw0LjQsOS43LDEzLjY5LDE2LjY5LDI3LjI2LDE2LjY5LDEwLjg1LDAsMjAuMzktNC4zNCwyNi4xMS0xNC41MWwyMS45NiwxMC43OGMtNS4wOSwxMi40Mi0xNi4xNSwyMC4wNy0yNy4xNSwyNC4wNS02LjUsMi4zNS0xMy41NCwzLjUyLTIxLjE1LDMuNTItMTEuNiwwLTIxLjgtMi42Mi0zMC41Ny03Ljg4LTE3LjgzLTEwLjY4LTI3LjY2LTI5LjctMjcuNjYtNTEuMiwwLTMwLjU4LDE4LjYxLTQ1LjU2LDI3LjU2LTUwLjk5LDguNDMtNS4xMSwxNy45Ny03LjY3LDI4LjYxLTcuNjcsMTguMTksMCwzMS4zNCw2LjUxLDQwLjQyLDE2LjM3LDEwLjA4LDEwLjk3LDE0LjUsMjQuNzUsMTQuNSwzOC43N00yMjQuMjMsMTU5LjQ3Yy0uODYsMi4wNS0xLjUzLDQuMjYtMS45OCw2LjY0aDUzLjAzYy0uMTctMi41Ni0uNjctNC45OC0xLjUyLTcuMjYtMy43NS0xMC4wMi0xMi41Mi0xNi4xNi0yNC4zNS0xNi4xNi05LjA0LDAtMTkuODMsNC4xMy0yNS4xOCwxNi43OE05NjYuNTYsMTc1LjQ0YzAsMi4wNy0uMSw0LjExLS4zMSw2LjExLS4yMiwyLjAxLS41OSwzLjg0LTEuMTQsNS40OWgtODEuMTljLjM4LDMuNzcsMS4zLDcuMjcsMi43NCwxMC40Nyw0LjQxLDkuNywxMy43LDE2LjY5LDI3LjI2LDE2LjY5LDEwLjg2LDAsMjAuNC00LjM0LDI2LjExLTE0LjUxbDIxLjk3LDEwLjc4Yy01LjEsMTIuNDItMTYuMTUsMjAuMDctMjcuMTYsMjQuMDUtNi41LDIuMzUtMTMuNTQsMy41Mi0yMS4xNCwzLjUyLTExLjYxLDAtMjEuOC0yLjYyLTMwLjU3LTcuODgtMTcuODQtMTAuNjgtMjcuNjctMjkuNy0yNy42Ny01MS4yLDAtMzAuNTgsMTguNjItNDUuNTYsMjcuNTctNTAuOTksOC40My01LjExLDE3Ljk3LTcuNjcsMjguNi03LjY3LDE4LjE5LDAsMzEuMzUsNi41MSw0MC40MiwxNi4zNywxMC4wOSwxMC45NywxNC41MSwyNC43NSwxNC41MSwzOC43N004ODYuNDUsMTU5LjQ3Yy0uODYsMi4wNS0xLjUyLDQuMjYtMS45Nyw2LjY0aDUzLjAzYy0uMTgtMi41Ni0uNjctNC45OC0xLjUyLTcuMjYtMy43Ni0xMC4wMi0xMi41My0xNi4xNi0yNC4zNi0xNi4xNi05LjAzLDAtMTkuODIsNC4xMy0yNS4xOCwxNi43OE00MTQuNCwxNjAuNTF2NzUuMDNoLTI1Ljcxdi0xMS44NGMtMS40NSwxLjU3LTMsMy4wMy00LjY2LDQuMzctOS4xMyw3LjQzLTE5LjU3LDkuOTUtMzAuNTcsOS45NS03Ljg4LDAtMTQuNzYtMS4zMS0yMC42My0zLjkzLTkuNzItNC4zNS0xOC4zNC0xMy4zNy0xOC4zNC0yOC4zOSwwLTI4LjA1LDI3Ljc1LTM0LjI4LDM5LjE4LTM2LjA3bDMzLjM3LTUuNDZ2LTMuNjVjMC00LjgzLTEuODctOC44OC01LjU5LTEyLjEzLTMuNzQtMy4yNS04LjcxLTQuODctMTQuOTItNC44Ny0xMS4xOSwwLTIwLjk1LDYuNTgtMjUuMjksMTdsLTIyLjE4LTEwLjc4YzIuMjEtNS45NCw1LjctMTEuMSwxMC40Ny0xNS40NCwxMC45NS0xMC4wMSwyNC44MS0xNCwzOC4wMy0xNCwyMC40NSwwLDMzLjkzLDguNDUsNDAuOTMsMTkuMjgsMy45NCw2LjA4LDUuOTEsMTMuMDYsNS45MSwyMC45M00zODcuMDQsMTg5Ljczdi00LjhsLTI4LjE5LDVjLTguMzYsMS41LTE1Ljk3LDUuMDEtMTUuOTcsMTQuNzIsMCw3Ljg5LDYuNzksMTIuNjQsMTUuNTUsMTIuNjRzMTkuNDUtMy40MiwyNS4wNy0xMy42OGMyLjM2LTQuMjgsMy41My04LjkyLDMuNTMtMTMuODlNNzEwLjU5LDE2MC41MXY3NS4wM2gtMjUuN3YtMTEuODRjLTEuNDYsMS41Ny0zLjAxLDMuMDMtNC42Nyw0LjM3LTkuMTMsNy40My0xOS41Nyw5Ljk1LTMwLjU3LDkuOTUtNy44OCwwLTE0Ljc2LTEuMzEtMjAuNjItMy45My05LjcyLTQuMzUtMTguMzUtMTMuMzctMTguMzUtMjguMzksMC0yOC4wNSwyNy43NS0zNC4yOCwzOS4xOC0zNi4wN2wzMy4zNy01LjQ2di0zLjY1YzAtNC44My0xLjg3LTguODgtNS41OS0xMi4xMy0zLjc0LTMuMjUtOC43MS00Ljg3LTE0LjkyLTQuODctMTEuMTgsMC0yMC45NSw2LjU4LTI1LjI5LDE3bC0yMi4xOC0xMC43OGMyLjIyLTUuOTQsNS43LTExLjEsMTAuNDctMTUuNDQsMTAuOTYtMTAuMDEsMjQuODEtMTQsMzguMDMtMTQsMjAuNDUsMCwzMy45Myw4LjQ1LDQwLjkzLDE5LjI4LDMuOTQsNi4wOCw1LjkxLDEzLjA2LDUuOTEsMjAuOTNNNjgzLjIzLDE4OS43M3YtNC44bC0yOC4xOSw1Yy04LjM2LDEuNS0xNS45Niw1LjAxLTE1Ljk2LDE0LjcyLDAsNy44OSw2Ljc4LDEyLjY0LDE1LjU0LDEyLjY0czE5LjQ1LTMuNDIsMjUuMDgtMTMuNjhjMi4zNS00LjI4LDMuNTItOC45MiwzLjUyLTEzLjg5TTU5OS45LDE3OS4xNmMwLDI1Ljc5LTE0LjE3LDQyLjg3LTI3Ljc3LDUxLjA5LTguNTcsNS4xOC0xOC4zLDcuNzctMjkuMjIsNy43Ny0yMC4zMiwwLTMxLjAxLTkuNzEtMzQuNDEtMTMuMzJ2NTIuMjloLTI3LjM1VjEyMi43OWgyNS43djEzLjM0YzUuMjItNi41NiwxNi4wMS0xNS44MywzNi4yNy0xNS44MywxMC42NCwwLDIwLjI0LDIuNjMsMjguODEsNy44OCwxNy4zNSwxMC42MywyNy45OCwyOS4wMSwyNy45OCw1MC45OU01NzEuNzEsMTc5LjE2YzAtMTcuODYtMTEuNzgtMzMuNzgtMzEuOTEtMzMuNzgtMTguNDQsMC0zMS4zLDE0LjQzLTMxLjMsMzMuNzhzMTMuMjYsMzMuOTksMzEuMywzMy45OWM2LjIxLDAsMTEuNzEtMS40NSwxNi40Ny00LjM1LDEwLjkxLTYuNjQsMTUuNDQtMTguMTIsMTUuNDQtMjkuNjRNODQwLjM0LDEyMi43OXYxMDcuMTZjMCw5LjgxLTIuMzgsMTguNTktNy4xNSwyNi4zMi0xMC44NywxNy42Ni0yOS40MSwyNC44Ny00Ny45OCwyNC44Ny04LjQzLDAtMTYuMjQtMS4zOC0yMy40Mi00LjE0LTE2LjA5LTYuMTktMjUuNzItMTcuMTQtMjkuODUtMjguODJsMjUuMjktOS41M2MzLjg0LDEyLjE2LDE1LjY5LDE3LjYxLDI3Ljc3LDE3LjYxLDE0LjY0LDAsMjguMTktOC4xMywyOC4xOS0yNi4zMnYtMTIuNDdjLTMuOSw0LjQzLTEzLjU1LDEzLjUyLTMyLjc1LDEzLjUyLTEwLjM2LDAtMTkuNjktMi40Mi0yNy45OC03LjI2LTE0Ljk2LTguNzQtMjYuNzMtMjUuNDEtMjYuNzMtNDguMjlzMTAuODgtMzguODMsMjYuNTMtNDcuOThjOC4xNi00Ljc3LDE3LjQxLTcuMTUsMjcuNzctNy4xNSwxOC4zOSwwLDI4Ljc4LDguNjQsMzQuNjIsMTUuN3YtMTMuMjJoMjUuN1pNODEzLjE4LDE3NS42NGMwLTUuODEtMS4yOC0xMC45OS0zLjgzLTE1LjU0LTIuNTctNC41Ni02LjAyLTguMTYtMTAuMzctMTAuNzktNC4zNS0yLjYyLTkuMzYtMy45My0xNS4wMi0zLjkzcy0xMC43OSwxLjMxLTE1LjM0LDMuOTNjLTQuNTYsMi42My04LjEyLDYuMjItMTAuNjgsMTAuNzktMi41Niw0LjU1LTMuODMsOS43My0zLjgzLDE1LjU0czEuMjcsMTAuOTgsMy44MywxNS41NGMyLjU2LDQuNTYsNi4wOCw4LjE2LDEwLjU4LDEwLjc4LDQuNDgsMi42Myw5LjYzLDMuOTQsMTUuNDQsMy45NHMxMC44OC0xLjI4LDE1LjIzLTMuODRjNC4zNS0yLjU1LDcuNzctNi4xMSwxMC4yNi0xMC42NywyLjQ5LTQuNTYsMy43My05LjgxLDMuNzMtMTUuNzVNOTkxLjkxLDIwMS43NmMtMy45LDAtMTMuNzUsMi4xMy0xMy43NSwxNi4zOHYxNy40aDI3LjM2di0xNy40YzAtMTQuNDItMTAuMDctMTYuMzgtMTMuNjEtMTYuMzgiLz4KPC9zdmc+" alt="Realpage">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="product-name">Implementation Accelerator</span>
+    </div>
+    <div class="top-context" aria-label="Prototype context">
+      <span class="context-chip scope">Engagement Coordinator</span>
+      <span class="context-chip">Add-on customer work</span>
+      <span class="context-chip guardrail">Human SME validation required</span>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <div class="sidebar-label">Learning workspace</div>
+    <nav>
+      <ul class="nav-list">
+        <li><button class="nav-button active" data-view="path"><span class="nav-icon">1</span><span>My learning path</span></button></li>
+        <li><button class="nav-button" data-view="playbook"><span class="nav-icon">2</span><span>Playbook</span></button></li>
+        <li><button class="nav-button" data-view="practice"><span class="nav-icon">3</span><span>Practice lab</span></button></li>
+        <li><button class="nav-button" data-view="field"><span class="nav-icon">4</span><span>Apply to work</span></button></li>
+        <li><button class="nav-button" data-view="readiness"><span class="nav-icon">5</span><span>Team readiness</span></button></li>
+        <li><button class="nav-button" data-view="knowledge"><span class="nav-icon">6</span><span>Knowledge health</span></button></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <strong>Prototype scope</strong>
+      Engagement Coordinator onboarding for add-on customer work. Designed to extend to Engagement Managers and new-logo implementations.
+    </div>
+  </aside>
+
+  <main id="main-content" tabindex="-1">
+    <section class="view active" id="view-path" aria-labelledby="path-title">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">My learning path</div>
+          <h1 id="path-title">Build confidence before you own the work</h1>
+          <p class="lead">Follow a structured two-week path. Learn the standard, apply it to realistic work, practice decisions, and complete live validation with a manager or subject matter expert.</p>
+        </div>
+        <div class="prototype-note">
+          <strong>Sanitized prototype</strong>
+          Learning progress and project examples are fictional. Source content is linked for review; production guidance requires Professional Services validation.
+        </div>
+      </div>
+
+      <div class="card hero-panel">
+        <div class="hero-main">
+          <div class="eyebrow">Continue where you left off</div>
+          <h2>Module 3: Build the implementation plan</h2>
+          <p>Turn customer priorities, product dependencies, implementation timelines, and available deliverables into one realistic deployment sequence.</p>
+          <div class="hero-actions">
+            <button class="btn primary" data-open-module="2">Continue module</button>
+            <button class="btn secondary" data-view-jump="practice">Practice the decision</button>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="progress-ring-wrap">
+            <div class="progress-ring" id="overallRing" style="--pct: 42"><strong id="overallPct">42%</strong></div>
+            <div>
+              <h3>Your onboarding progress</h3>
+              <div class="muted small" id="overallProgressText">2 of 6 modules complete</div>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-mini"><strong id="completedModules">2</strong><span>Modules completed</span></div>
+            <div class="stat-mini"><strong>1 of 2</strong><span>Live checkpoints</span></div>
+            <div class="stat-mini"><strong>Medium</strong><span>Self-reported confidence</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div><h2>How the accelerator works</h2><p>One repeatable learning pattern across every module.</p></div>
+        </div>
+        <div class="journey-strip">
+          <div class="journey-step"><div class="journey-number">1</div><strong>Learn</strong><span>Understand the role, standard, timing, and source.</span></div>
+          <div class="journey-step"><div class="journey-number">2</div><strong>Apply</strong><span>Complete a role-, product-, and stage-aware checklist.</span></div>
+          <div class="journey-step"><div class="journey-number">3</div><strong>Practice</strong><span>Work through a realistic customer decision with feedback.</span></div>
+          <div class="journey-step"><div class="journey-number">4</div><strong>Validate</strong><span>Use live coaching where judgment or product nuance matters.</span></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div><h2>Your six-module playbook</h2><p>Sequenced from role orientation through engagement close.</p></div>
+          <span class="pill blue">Week 1 and Week 2</span>
+        </div>
+        <div class="module-grid" id="pathModuleGrid"></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-playbook" aria-labelledby="playbook-title">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Standardized modular playbook</div>
+          <h1 id="playbook-title">Guidance matched to role, product, and stage</h1>
+          <p class="lead">Select the context, then move through one module at a time. Each module uses the same pattern: objective, lesson, checklist, practice, evidence, escalation, and source.</p>
+        </div>
+      </div>
+
+      <div class="card selector-panel">
+        <div class="selectors">
+          <div><label class="field-label" for="roleSelect">Role</label><select id="roleSelect" disabled><option>Engagement Coordinator</option></select></div>
+          <div><label class="field-label" for="typeSelect">Implementation type</label><select id="typeSelect"><option>Add-on</option><option disabled>Expansion (future)</option><option disabled>New logo (future)</option></select></div>
+          <div><label class="field-label" for="productSelect">Product lens</label><select id="productSelect"><option>Cross-product planning</option><option>OneSite</option><option>Payments</option><option>Loft Living</option><option>Loft Leasing</option><option>Screening</option></select></div>
+          <div><label class="field-label" for="stageSelect">Project stage</label><select id="stageSelect"><option>Assignment and readiness</option><option>Kickoff</option><option selected>Plan and schedule</option><option>Deliverables and execution</option><option>Activation and close</option></select></div>
+        </div>
+      </div>
+
+      <div class="playbook-layout">
+        <aside class="card module-rail" id="moduleRail" aria-label="Playbook modules"></aside>
+        <article class="card module-detail" id="moduleDetail"></article>
+      </div>
+    </section>
+
+    <section class="view" id="view-practice" aria-labelledby="practice-title">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Scenario and practice lab</div>
+          <h1 id="practice-title">Practice judgment before the customer moment</h1>
+          <p class="lead">Realistic decisions reinforce product dependencies, role boundaries, communication, and escalation. Feedback explains why—not just whether—the answer is correct.</p>
+        </div>
+        <div class="prototype-note"><strong>Practice is not certification</strong>Scenario results inform coaching. Final readiness still requires live review and manager approval.</div>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card metric-card metric-accent"><div class="metric-label">Scenarios attempted</div><div class="metric-value">3</div><div class="metric-note">Across assignment, planning, and escalation</div></div>
+        <div class="card metric-card metric-accent green"><div class="metric-label">Decisions correct</div><div class="metric-value">2 of 3</div><div class="metric-note">Review the dependency scenario next</div></div>
+        <div class="card metric-card metric-accent amber"><div class="metric-label">Confidence</div><div class="metric-value">Medium</div><div class="metric-note">Self-reported after practice</div></div>
+        <div class="card metric-card metric-accent orange"><div class="metric-label">Live coaching</div><div class="metric-value">1 open</div><div class="metric-note">Product sequencing discussion</div></div>
+      </div>
+
+      <div class="section practice-layout">
+        <aside class="card scenario-list" id="scenarioList">
+          <button><strong>01 · Missing order information</strong><span>Start an add-on correctly · completed</span></button>
+          <button class="active"><strong>02 · Product dependency conflict</strong><span>Build the implementation plan · current</span></button>
+          <button><strong>03 · Client misses a deliverable</strong><span>Keep the project moving · completed</span></button>
+          <button><strong>04 · Scope question reaches the EC</strong><span>Handle problems · not started</span></button>
+        </aside>
+        <div id="practiceScenario"></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-field" aria-labelledby="field-title">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Apply to work</div>
+          <h1 id="field-title">Use the playbook on a sanitized implementation</h1>
+          <p class="lead">The field guide translates learning into a role-aware next move. It does not replace Professional Services judgment, product expertise, or customer-specific validation.</p>
+        </div>
+      </div>
+
+      <div class="field-hero">
+        <div class="card project-summary">
+          <span class="project-badge">Fictional demo account</span>
+          <h2>Northstar Residential</h2>
+          <p class="muted">Add-on program across Cedar Ridge, Harbor West, and Lakeview Commons.</p>
+          <div class="project-facts">
+            <div class="project-fact"><strong>3</strong><span>Properties</span></div>
+            <div class="project-fact"><strong>4</strong><span>Products in scope</span></div>
+            <div class="project-fact"><strong>Oct. 15</strong><span>Target completion</span></div>
+            <div class="project-fact"><strong>1</strong><span>Dependency at risk</span></div>
+          </div>
+        </div>
+        <div class="card next-action">
+          <div class="eyebrow">Next best action</div>
+          <h3>Confirm the OneSite go-live date before committing Loft Leasing</h3>
+          <p class="muted">Payments can be configured early, but activation requires OneSite. Loft Leasing follows Payments activation.</p>
+          <div class="why-box"><strong>Why this matters:</strong> The playbook connects the customer target to the dependency chain, then tells the EC what must be verified and who must validate it.</div>
+          <button class="btn primary" style="margin-top:14px" data-open-module="2">Open planning checklist</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><div><h2>Add-on lifecycle</h2><p>Learning modules align to the work without turning onboarding into a project dashboard.</p></div></div>
+        <div class="stage-timeline">
+          <div class="stage complete"><strong>1. Assignment</strong><span>Ownership and order identified</span><div class="stage-status">Complete</div></div>
+          <div class="stage complete"><strong>2. Research</strong><span>Order, account, products, and contacts reviewed</span><div class="stage-status">Complete</div></div>
+          <div class="stage complete"><strong>3. Kickoff</strong><span>Customer targets and deliverables aligned</span><div class="stage-status">Complete</div></div>
+          <div class="stage current"><strong>4. Plan and schedule</strong><span>Dependencies and go-live sequence</span><div class="stage-status">Current</div></div>
+          <div class="stage"><strong>5. Execute</strong><span>Deliverables, updates, risks, and activations</span><div class="stage-status">Upcoming</div></div>
+          <div class="stage"><strong>6. Close</strong><span>Pending work, handoff, and lessons learned</span><div class="stage-status">Upcoming</div></div>
+        </div>
+      </div>
+
+      <div class="section grid grid-2">
+        <div class="card pad">
+          <div class="card-title-row"><div><h3>Current stage gates</h3><p class="muted small">Plan and schedule</p></div><span class="pill amber">2 of 4 met</span></div>
+          <div class="checklist" style="margin-top:14px">
+            <div class="check-row"><input type="checkbox" checked disabled><div><strong>Customer target dates captured</strong><span>Kickoff recap and tracker agree.</span></div><span class="evidence-tag">Evidence linked</span></div>
+            <div class="check-row"><input type="checkbox" checked disabled><div><strong>Products and consulting orders confirmed</strong><span>Order review complete.</span></div><span class="evidence-tag">Evidence linked</span></div>
+            <div class="check-row"><input type="checkbox" disabled><div><strong>Dependency chain validated</strong><span>OneSite go-live date is not yet confirmed.</span></div><span class="pill amber">Open</span></div>
+            <div class="check-row"><input type="checkbox" disabled><div><strong>Consolidated sequence approved</strong><span>Requires EC plus product SME review.</span></div><span class="pill blue">Live checkpoint</span></div>
+          </div>
+        </div>
+        <div class="card pad">
+          <div class="card-title-row"><div><h3>Escalate when</h3><p class="muted small">Role boundary and risk triggers</p></div></div>
+          <div class="key-steps">
+            <div class="key-step"><div class="key-step-num">1</div><div><strong>A prerequisite has no owner</strong><span>Name the blocker, impact, and owner needed.</span></div></div>
+            <div class="key-step"><div class="key-step-num">2</div><div><strong>The target date conflicts with a product dependency</strong><span>Do not promise a date that the dependency chain cannot support.</span></div></div>
+            <div class="key-step"><div class="key-step-num">3</div><div><strong>A scope or product decision exceeds the EC role</strong><span>Route to the correct SME and keep the decision visible.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-readiness" aria-labelledby="readiness-title">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Onboarding progress and confidence view</div>
+          <h1 id="readiness-title">See progress, practice, and live validation together</h1>
+          <p class="lead">Leaders can identify who is moving, where coaching is needed, and which knowledge gaps affect the cohort—without treating module completion as automatic readiness.</p>
+        </div>
+        <div class="prototype-note"><strong>Leadership demo view</strong>All learner names and metrics below are fictional and sanitized.</div>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card metric-card metric-accent"><div class="metric-label">Cohort completion</div><div class="metric-value">63%</div><div class="metric-note">Six-module path</div></div>
+        <div class="card metric-card metric-accent green"><div class="metric-label">Scenario proficiency</div><div class="metric-value">78%</div><div class="metric-note">Correct decisions with rationale</div></div>
+        <div class="card metric-card metric-accent amber"><div class="metric-label">Live checkpoints due</div><div class="metric-value">4</div><div class="metric-note">Manager or SME action</div></div>
+        <div class="card metric-card metric-accent orange"><div class="metric-label">Knowledge blockers</div><div class="metric-value">2</div><div class="metric-note">Sources awaiting validation</div></div>
+      </div>
+
+      <div class="section card pad">
+        <div class="card-title-row"><div><h2>Cohort readiness</h2><p class="muted small">Completion + practice + live validation + manager decision</p></div><span class="pill blue">Sanitized demo</span></div>
+        <div class="table-wrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>Learner</th><th>Modules</th><th>Practice</th><th>Confidence</th><th>Live checkpoint</th><th>Readiness</th></tr></thead>
+            <tbody>
+              <tr><td class="person-cell"><strong>Maya Chen</strong><span>Week 1</span></td><td>2 of 6</td><td>2 of 3</td><td><div class="confidence" aria-label="Medium confidence"><i class="on"></i><i class="on"></i><i></i></div></td><td><span class="pill amber">Planning review due</span></td><td><span class="pill blue">Building capability</span></td></tr>
+              <tr><td class="person-cell"><strong>Jordan Lee</strong><span>Week 2</span></td><td>5 of 6</td><td>4 of 4</td><td><div class="confidence" aria-label="High confidence"><i class="on"></i><i class="on"></i><i class="on"></i></div></td><td><span class="pill green">Complete</span></td><td><span class="pill amber">Manager review</span></td></tr>
+              <tr><td class="person-cell"><strong>Sam Rivera</strong><span>Week 2</span></td><td>6 of 6</td><td>5 of 5</td><td><div class="confidence" aria-label="High confidence"><i class="on"></i><i class="on"></i><i class="on"></i></div></td><td><span class="pill green">Complete</span></td><td><span class="pill green">Ready with mentor</span></td></tr>
+              <tr><td class="person-cell"><strong>Priya Nair</strong><span>Week 1</span></td><td>3 of 6</td><td>1 of 3</td><td><div class="confidence" aria-label="Low confidence"><i class="on"></i><i></i><i></i></div></td><td><span class="pill red">Coaching needed</span></td><td><span class="pill blue">Building capability</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section card readiness-rule">
+        <h2>Readiness is a human decision</h2>
+        <p class="muted">The accelerator organizes evidence and highlights gaps. It does not independently approve a learner for customer work.</p>
+        <div class="rule-grid">
+          <div class="rule-step"><strong>1. Learn</strong><span>Required modules and source-linked checks completed.</span></div>
+          <div class="rule-step"><strong>2. Practice</strong><span>Scenario decisions demonstrate reasoning, not memorization.</span></div>
+          <div class="rule-step"><strong>3. Validate</strong><span>Manager or SME observes judgment in live or shadowed work.</span></div>
+          <div class="rule-step"><strong>4. Approve</strong><span>Leader determines readiness and assigns mentor support.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-knowledge" aria-labelledby="knowledge-title">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Fast update and versioning workflow</div>
+          <h1 id="knowledge-title">Keep guidance current, owned, and traceable</h1>
+          <p class="lead">Every lesson, checklist item, scenario, and answer should point to a source, owner, version, validation state, and effective date.</p>
+        </div>
+      </div>
+
+      <div class="knowledge-layout">
+        <div class="card pad">
+          <div class="card-title-row"><div><h2>Source register</h2><p class="muted small">Prototype inventory used by this playbook</p></div><span class="pill amber">2 need validation</span></div>
+          <div class="table-wrap" style="margin-top:14px">
+            <table>
+              <thead><tr><th>Source</th><th>Owner</th><th>Version / updated</th><th>Used for</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><a href="https://realpage.sharepoint.com/sites/realpage-global/Corporate%20Communications/Global%20Portal%20Resources/2608_AI%20Hackathon/Non-Technical%20Challenge%20Use%20Case%20Brief/04_Implementation_Accelerator_Brief.pdf?web=1" target="_blank" rel="noopener">Implementation Accelerator brief</a></td><td>Professional Services</td><td>Aug. 30, 2026</td><td>Scope and hero features</td><td><span class="pill green">Authoritative</span></td></tr>
+                <tr><td><a href="https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7BB56A000F-FC52-4E87-B2A5-6AC214E78253%7D&file=EC+SOP+-+V3+%281%29.docx&action=default&mobileredirect=true&web=1" target="_blank" rel="noopener">EC SOP</a></td><td>Engagement Management</td><td>V3 · effective date missing</td><td>Role, lifecycle, SLAs, escalation</td><td><span class="pill amber">Owner review</span></td></tr>
+                <tr><td><a href="https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7B76AD4651-3F0E-4846-B4DF-73C28D0B6973%7D&file=Onboarding+Training+Agenda_Calendar+for+EC+Role+V2.xlsx&action=default&mobileredirect=true&web=1" target="_blank" rel="noopener">EC onboarding agenda</a></td><td>Onboarding team</td><td>V2 · Sep. 16, 2026</td><td>Two-week sequence</td><td><span class="pill blue">Source linked</span></td></tr>
+                <tr><td><a href="https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7BFC2F1C72-7716-487C-8C29-B62765E6628D%7D&file=PH+EC+-+Product+Dependencies+Workflow.docx&action=default&mobileredirect=true&web=1" target="_blank" rel="noopener">Product dependency workflow</a></td><td>Product SME</td><td>Sep. 10, 2026</td><td>Planning logic and scenarios</td><td><span class="pill amber">SME validation</span></td></tr>
+                <tr><td><a href="https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7B0C04BC86-1C73-4870-A1D6-2093C748DABD%7D&file=PH+EC+-+Add-on+Projects+and+Processes+Review.pptx&action=edit&mobileredirect=true&web=1" target="_blank" rel="noopener">Add-on process review</a></td><td>Engagement Management</td><td>Sep. 10, 2026</td><td>Add-on lifecycle and challenges</td><td><span class="pill blue">Source linked</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="source-status-note"><strong>Important:</strong> “Source linked” means the material is traceable in the prototype. It does not imply final production approval. Owners and SMEs must validate current guidance before launch.</div>
+        </div>
+
+        <aside class="card pad">
+          <h2>Update workflow</h2>
+          <p class="muted small">A simple path from change request to published guidance.</p>
+          <div class="workflow-steps" style="margin-top:16px">
+            <div class="workflow-step"><div class="n">1</div><div><strong>Propose</strong><span>Submit the changed step, reason, affected role/product/stage, and source.</span></div></div>
+            <div class="workflow-step"><div class="n">2</div><div><strong>Owner review</strong><span>Professional Services owner confirms the process change.</span></div></div>
+            <div class="workflow-step"><div class="n">3</div><div><strong>SME validate</strong><span>Product or process expert checks nuance, timing, and exceptions.</span></div></div>
+            <div class="workflow-step"><div class="n">4</div><div><strong>Publish</strong><span>Version, effective date, and affected modules are updated together.</span></div></div>
+            <div class="workflow-step"><div class="n">5</div><div><strong>Notify</strong><span>Learners and leaders see what changed and whether retraining is needed.</span></div></div>
+          </div>
+          <button class="btn secondary" style="width:100%;margin-top:18px" id="requestChange">Preview change request</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const sources = {
+      brief: { title: 'Implementation Accelerator brief', owner: 'Professional Services', version: 'Aug. 30, 2026', status: 'Authoritative', url: 'https://realpage.sharepoint.com/sites/realpage-global/Corporate%20Communications/Global%20Portal%20Resources/2608_AI%20Hackathon/Non-Technical%20Challenge%20Use%20Case%20Brief/04_Implementation_Accelerator_Brief.pdf?web=1' },
+      sop: { title: 'EC SOP', owner: 'Engagement Management', version: 'V3 · effective date missing', status: 'Owner review', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7BB56A000F-FC52-4E87-B2A5-6AC214E78253%7D&file=EC+SOP+-+V3+%281%29.docx&action=default&mobileredirect=true&web=1' },
+      agenda: { title: 'EC onboarding agenda', owner: 'Onboarding team', version: 'V2 · Sep. 16, 2026', status: 'Source linked', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7B76AD4651-3F0E-4846-B4DF-73C28D0B6973%7D&file=Onboarding+Training+Agenda_Calendar+for+EC+Role+V2.xlsx&action=default&mobileredirect=true&web=1' },
+      job: { title: 'Engagement Coordinator job description', owner: 'PH Implementation', version: 'Updated Sep. 16, 2026', status: 'Source linked', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7BB81F46DB-80C4-430C-BDF8-C6A57657A463%7D&file=Job+Description_Engagement+Coordinator+%281%29.docx&action=default&mobileredirect=true&web=1' },
+      intro: { title: 'EC introduction to onboarding', owner: 'Engagement Management', version: 'Sep. 10, 2026', status: 'Source linked', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7BF1770564-8F8C-4599-A764-5E9467168221%7D&file=PH+EC+Intro+to+Onboarding%2C+Team+Channels.pptx&action=edit&mobileredirect=true&web=1' },
+      orders: { title: 'Orders review and Sales prep', owner: 'Engagement Management', version: 'Sep. 10, 2026', status: 'Source linked', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7B91B2A4B8-13D1-42C5-B95E-C97D70D8578C%7D&file=PH+EC+-+Orders+Review+%26+Sales+Prep+Questionnaire.pptx&action=edit&mobileredirect=true&web=1' },
+      planning: { title: 'Project planning process', owner: 'Engagement Management', version: 'Sep. 10, 2026', status: 'Source linked', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7B10441F4B-5F1E-40DF-930C-0A2D3C0D2F67%7D&file=PH+EC+-+Project+Planning+Process.pptx&action=edit&mobileredirect=true&web=1' },
+      dependencies: { title: 'Product dependency workflow', owner: 'Product SME', version: 'Sep. 10, 2026', status: 'SME validation', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7BFC2F1C72-7716-487C-8C29-B62765E6628D%7D&file=PH+EC+-+Product+Dependencies+Workflow.docx&action=default&mobileredirect=true&web=1' },
+      addon: { title: 'Add-on process review', owner: 'Engagement Management', version: 'Sep. 10, 2026', status: 'Source linked', url: 'https://realpage.sharepoint.com/teams/Q3AIHackathon/_layouts/15/Doc.aspx?sourcedoc=%7B0C04BC86-1C73-4870-A1D6-2093C748DABD%7D&file=PH+EC+-+Add-on+Projects+and+Processes+Review.pptx&action=edit&mobileredirect=true&web=1' }
+    };
+
+    const modules = [
+      {
+        title: 'Understand your role',
+        short: 'Role, scope, tools, stakeholders, and operating expectations.',
+        days: 'Day 1', duration: '35 min', sources: ['job','sop','intro','agenda'],
+        outcome: 'Explain the EC role, stay within the role boundary, and identify the correct partner for product, scope, or delivery decisions.',
+        modality: ['Self-paced','Live checkpoint'],
+        steps: [
+          ['Define the role', 'Coordinate the work, maintain visibility, and connect the right people without presenting yourself as the product expert.'],
+          ['Know the operating standard', 'Use approved timelines, communication expectations, documentation, and escalation paths.'],
+          ['Map the partner network', 'Client, Sales, Success, Solution Consultants, scheduling, product teams, billing, training, and Support.'],
+          ['Set up the tools', 'Complete access and onboarding requirements before owning customer work.']
+        ],
+        checklist: [
+          ['Describe the EC role in one minute', 'Manager observation'],
+          ['Identify two decisions that require an SME', 'Scenario evidence'],
+          ['Confirm required system access', 'Access checklist'],
+          ['Complete role-boundary coaching', 'Live checkpoint']
+        ],
+        scenario: { prompt: 'A client asks the EC to confirm a product configuration and guarantee an activation date. What should the EC do?', options: [
+          'Provide the likely configuration and commit to the date to maintain confidence.',
+          'Acknowledge the question, route the product decision to the correct SME, and communicate the dependency and next confirmation point.',
+          'Tell the client the EC cannot help and ask them to contact Support.'
+        ], correct: 1, good: 'Correct. The EC owns coordination and clear follow-through, but product configuration and final delivery commitments require the appropriate expert.', bad: 'The EC should not make an unsupported product or delivery commitment. Coordinate the expert, document the question, and state the next confirmation point.' }
+      },
+      {
+        title: 'Start an add-on correctly',
+        short: 'Assignment, order research, Sales prep, readiness, and customer introduction.',
+        days: 'Day 2', duration: '45 min', sources: ['sop','orders','addon','agenda'],
+        outcome: 'Begin an add-on with accurate order context, complete contacts, known dependencies, and a documented readiness signal.',
+        modality: ['Self-paced','Practice'],
+        steps: [
+          ['Review the assignment', 'Confirm how the project entered the queue and who owns the assignment decision.'],
+          ['Research the account and orders', 'Review order documentation, products, billing, consulting orders, account history, and missing items.'],
+          ['Prepare with Sales', 'Use the Sales prep questions before contacting the customer.'],
+          ['Establish readiness', 'Confirm client contacts, target timing, Solution Consultant needs, DataHub questionnaires, and known risks.']
+        ],
+        checklist: [
+          ['Order documentation reviewed', 'Order evidence'],
+          ['Products and consulting orders confirmed', 'Order evidence'],
+          ['Sales prep completed', 'Email or notes'],
+          ['Readiness gaps named and routed', 'Decision log']
+        ],
+        scenario: { prompt: 'The price schedule is available, but one product appears in an email thread and not in the implementation orders. What is the best next move?', options: [
+          'Include it in the plan because the customer expects it.',
+          'Pause that product in the plan, verify the signed order and Salesforce records, and contact Sales about the discrepancy.',
+          'Ask the Solution Consultant to implement it while Sales corrects the paperwork later.'
+        ], correct: 1, good: 'Correct. The EC should validate the order before planning or scheduling the product and make the discrepancy visible to Sales.', bad: 'Do not plan or promise work that is not supported by the order record. Verify the signed order, Salesforce details, and Sales ownership first.' }
+      },
+      {
+        title: 'Build the implementation plan',
+        short: 'Customer priorities, dependencies, timelines, deliverables, and consolidated sequencing.',
+        days: 'Day 3', duration: '50 min', sources: ['planning','dependencies','sop','addon'],
+        outcome: 'Build a credible sequence that connects customer targets, product dependencies, implementation timelines, deliverable due dates, and named owners.',
+        modality: ['Self-paced','Practice','Live checkpoint'],
+        steps: [
+          ['Identify core and standalone products', 'Separate what can start early from what depends on OneSite or another product.'],
+          ['Capture customer priorities and readiness', 'Distinguish what the customer needs now, what can wait, and what deliverables take time.'],
+          ['Map the dependency chain', 'Use dependency rules to determine the feasible order of activation.'],
+          ['Validate and communicate the plan', 'Align with Solution Consultants and scheduling before committing dates to the customer.']
+        ],
+        checklist: [
+          ['Customer target dates documented', 'Kickoff recap'],
+          ['Products and dependencies mapped', 'Dependency plan'],
+          ['Deliverables and owners assigned', 'Project tracker'],
+          ['Sequence reviewed with the correct SME', 'Live checkpoint']
+        ],
+        scenario: { prompt: 'Northstar wants Loft Leasing live on Oct. 5. OneSite is not yet live, and Payments is configured but cannot be activated. What should the EC do?', options: [
+          'Keep the Loft Leasing date and ask the teams to work in parallel.',
+          'Move Loft Leasing after Payments activation, confirm the OneSite date and owners, and explain the dependency impact to the customer.',
+          'Remove Payments from the plan so Loft Leasing can proceed.'
+        ], correct: 1, good: 'Correct. OneSite must be live before Payments activation, and Loft Leasing follows Payments. The EC should surface the dependency, confirm owners and dates, and reset expectations.', bad: 'The date cannot be treated independently of the dependency chain. Confirm OneSite, then Payments activation, then Loft Leasing, with named owners and customer communication.' }
+      },
+      {
+        title: 'Keep the project moving',
+        short: 'Kickoff, DataHub, follow-up, weekly updates, tracking, and activation visibility.',
+        days: 'Days 4–6', duration: '60 min', sources: ['sop','addon','agenda'],
+        outcome: 'Maintain one current view of dates, deliverables, decisions, risks, customer actions, and next steps throughout execution.',
+        modality: ['Self-paced','Practice'],
+        steps: [
+          ['Run a clear kickoff', 'Set the role, discuss products and dependencies, confirm targets, and establish the update cadence.'],
+          ['Track deliverables and dates', 'Use DataHub and the project tracker to maintain due dates, acceptance, forecast, and actions.'],
+          ['Send one consolidated update', 'Show what changed, what is outstanding, who owns it, and what it means for timing.'],
+          ['Maintain activation visibility', 'Monitor implementation comments, backlog reason, implementation items, and activation communications.']
+        ],
+        checklist: [
+          ['Kickoff recap sent within 24 hours', 'Email evidence'],
+          ['Deliverables and due dates current', 'DataHub / tracker'],
+          ['Weekly update sent', 'Customer update'],
+          ['Decisions and timing changes logged', 'Decision log']
+        ],
+        scenario: { prompt: 'A required customer deliverable is three days late and the target activation is now at risk. What should the weekly update say?', options: [
+          'Keep the original date and remind the customer that the item is overdue.',
+          'Name the missing deliverable, owner, revised action date, affected activation, and the decision needed to protect the plan.',
+          'Wait until the Solution Consultant confirms the final impact before mentioning the delay.'
+        ], correct: 1, good: 'Correct. The update should make the blocker, owner, date, impact, and required decision explicit. Do not hide or overstate the risk.', bad: 'A useful update makes the risk actionable. State the blocker, owner, next date, impact, and required decision, using SME input where needed.' }
+      },
+      {
+        title: 'Handle problems',
+        short: 'Risks, delays, scope questions, role boundaries, escalation, and customer sentiment.',
+        days: 'Day 7', duration: '40 min', sources: ['sop','addon','intro'],
+        outcome: 'Identify risk early, document impact, follow the correct escalation path, and keep customer communication factual and coordinated.',
+        modality: ['Self-paced','Practice','Live checkpoint'],
+        steps: [
+          ['Recognize the signal', 'Delayed data, repeated rescheduling, low responsiveness, scope confusion, assignment delay, or implementation errors.'],
+          ['Document the issue', 'State what happened, impact, owner, timeline, and evidence.'],
+          ['Route the decision', 'Engage the team lead, Sales, Success, Solution Consultant, scheduling, or Support as appropriate.'],
+          ['Track through closure', 'Maintain visible ownership and communicate the resolution or next checkpoint.']
+        ],
+        checklist: [
+          ['Risk described with impact', 'Risk log'],
+          ['Correct escalation path selected', 'Scenario evidence'],
+          ['Customer language reviewed', 'Manager coaching'],
+          ['Resolution tracked to closure', 'Action item tracker']
+        ],
+        scenario: { prompt: 'A customer asks whether an out-of-scope request can be included without a new order. What should the EC do?', options: [
+          'Say yes if the team has capacity.',
+          'Document the request, avoid committing scope, and route it to the team lead and Sales with the customer impact and timing need.',
+          'Tell the customer to submit a Support ticket and close the question.'
+        ], correct: 1, good: 'Correct. The EC coordinates the decision and keeps the request visible but does not approve scope.', bad: 'Scope approval sits outside the EC role. Document the request, route it to the right owners, and communicate the next decision point.' }
+      },
+      {
+        title: 'Close the engagement',
+        short: 'End-of-engagement planning, pending work, handoff, customer communication, and lessons learned.',
+        days: 'Days 7–10', duration: '30 min', sources: ['sop','addon','agenda'],
+        outcome: 'Close cleanly with pending work accounted for, stakeholders informed, the customer transitioned, and lessons captured.',
+        modality: ['Self-paced','Live checkpoint'],
+        steps: [
+          ['Start early', 'Begin end-of-engagement awareness during the second half of the project.'],
+          ['Notify stakeholders', 'Send the notice two weeks before the estimated end date and include Sales and Success.'],
+          ['Account for pending work', 'List each open product, owner, status, and next point of contact.'],
+          ['Capture learning', 'Record challenges, resolutions, and accomplishments for continuous improvement.']
+        ],
+        checklist: [
+          ['End-of-engagement notice sent', 'Email evidence'],
+          ['Pending orders accounted for', 'Closure checklist'],
+          ['Customer handoff complete', 'Handoff record'],
+          ['Lessons learned captured', 'Lessons learned file']
+        ],
+        scenario: { prompt: 'The planned end date is two weeks away, but one product is still pending consultant assignment. What should the EC do?', options: [
+          'Delay all end-of-engagement communication until every product is complete.',
+          'Send the notice, clearly identify the pending product and owner, confirm the post-engagement contact, and align Sales and Success.',
+          'Close the engagement and remove the pending product from the tracker.'
+        ], correct: 1, good: 'Correct. Closeout communication should be transparent about pending work and establish a clear owner and handoff.', bad: 'Do not hide or drop pending work. Communicate the planned close, show what remains, and confirm ownership after the EC engagement ends.' }
+      }
+    ];
+
+    const storage = (() => {
+      try {
+        const candidate = window.localStorage;
+        const testKey = '__ia_storage_test__';
+        candidate.setItem(testKey, '1');
+        candidate.removeItem(testKey);
+        return candidate;
+      } catch (error) {
+        const memory = Object.create(null);
+        return {
+          getItem: key => Object.prototype.hasOwnProperty.call(memory, key) ? memory[key] : null,
+          setItem: (key, value) => { memory[key] = String(value); },
+          removeItem: key => { delete memory[key]; },
+          clear: () => { Object.keys(memory).forEach(key => delete memory[key]); }
+        };
+      }
+    })();
+
+    let selectedModule = Number(storage.getItem('ia-selected-module') || 2);
+    let completed = JSON.parse(storage.getItem('ia-completed-modules') || '[0,1]');
+    const checklistState = JSON.parse(storage.getItem('ia-checklists') || '{}');
+
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
+
+    function showToast(message) {
+      const toast = $('#toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    function setView(viewName) {
+      $$('.view').forEach(v => v.classList.remove('active'));
+      $$('.nav-button').forEach(b => b.classList.toggle('active', b.dataset.view === viewName));
+      const view = $('#view-' + viewName);
+      if (view) view.classList.add('active');
+      $('#sidebar').classList.remove('open');
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      storage.setItem('ia-view', viewName);
+    }
+
+    function renderPathModules() {
+      const grid = $('#pathModuleGrid');
+      grid.innerHTML = modules.map((m, i) => {
+        const isComplete = completed.includes(i);
+        const isCurrent = i === selectedModule;
+        const tags = m.modality.map(x => `<span class="tag ${x.includes('Live') ? 'live' : x.includes('Practice') ? 'practice' : ''}">${x}</span>`).join('');
+        return `<article class="module-card ${isComplete ? 'complete' : ''} ${isCurrent ? 'current' : ''}">
+          <div class="module-index">Module ${i+1} · ${m.days}</div>
+          <h3>${m.title}</h3>
+          <p>${m.short}</p>
+          <div class="module-meta"><span class="tag">${m.duration}</span>${tags}</div>
+          <button class="module-open" data-open-module="${i}">${isComplete ? 'Review module' : isCurrent ? 'Continue module' : 'Open module'} →</button>
+        </article>`;
+      }).join('');
+      updateOverallProgress();
+    }
+
+    function updateOverallProgress() {
+      const pct = Math.round((completed.length / modules.length) * 100);
+      $('#overallRing').style.setProperty('--pct', pct);
+      $('#overallPct').textContent = pct + '%';
+      $('#completedModules').textContent = completed.length;
+      $('#overallProgressText').textContent = `${completed.length} of ${modules.length} modules complete`;
+    }
+
+    function renderRail() {
+      $('#moduleRail').innerHTML = modules.map((m,i) => `<button class="rail-item ${i===selectedModule?'active':''}" data-rail-module="${i}">
+        <span class="rail-num">${i+1}</span><span><span class="rail-title">${m.title}</span><span class="rail-sub">${m.days} · ${m.duration}</span></span>
+      </button>`).join('');
+    }
+
+    function sourceHtml(keys) {
+      return keys.map(k => {
+        const s = sources[k];
+        return `<div class="source-item"><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a><div class="source-meta"><span>${s.owner}</span><span>•</span><span>${s.version}</span><span>•</span><span>${s.status}</span></div></div>`;
+      }).join('');
+    }
+
+    function scenarioHtml(scenario, scope='module') {
+      return `<div class="scenario" data-scenario-scope="${scope}">
+        <div class="scenario-head"><div class="eyebrow">Decision moment</div><h3>${scenario.prompt}</h3></div>
+        <div class="scenario-body">
+          <div class="scenario-context">
+            <div class="context-fact"><strong>Role</strong><span>Engagement Coordinator</span></div>
+            <div class="context-fact"><strong>Implementation type</strong><span>Add-on</span></div>
+            <div class="context-fact"><strong>Rule</strong><span>Human review for product nuance</span></div>
+          </div>
+          <div class="option-list">${scenario.options.map((opt,idx)=>`<button class="scenario-option" data-answer="${idx}" data-correct="${scenario.correct}"><span class="option-letter">${String.fromCharCode(65+idx)}</span><span>${opt}</span></button>`).join('')}</div>
+          <div class="feedback good" data-good><strong>Good decision.</strong><div>${scenario.good}</div></div>
+          <div class="feedback bad" data-bad><strong>Review the reasoning.</strong><div>${scenario.bad}</div></div>
+        </div>
+      </div>`;
+    }
+
+    function renderModuleDetail() {
+      const m = modules[selectedModule];
+      const tags = m.modality.map(x => `<span class="tag ${x.includes('Live')?'live':x.includes('Practice')?'practice':''}">${x}</span>`).join('');
+      const state = checklistState[selectedModule] || [];
+      const completeClass = completed.includes(selectedModule) ? 'green' : 'amber';
+      const completeText = completed.includes(selectedModule) ? 'Module complete' : 'In progress';
+      $('#moduleDetail').innerHTML = `
+        <header class="module-hero">
+          <div class="module-hero-top">
+            <div><div class="eyebrow">Module ${selectedModule+1} · ${m.days}</div><h2>${m.title}</h2><p>${m.short}</p><div class="module-meta"><span class="tag">${m.duration}</span>${tags}</div></div>
+            <span class="status-badge">${completeText}</span>
+          </div>
+          <div class="outcome-box"><strong>Practical outcome</strong><span>${m.outcome}</span></div>
+        </header>
+        <div class="module-tabs" role="tablist" aria-label="Module sections">
+          <button class="tab-button active" data-tab="learn" role="tab">Learn</button>
+          <button class="tab-button" data-tab="do" role="tab">Do</button>
+          <button class="tab-button" data-tab="practice" role="tab">Practice</button>
+          <button class="tab-button" data-tab="ask" role="tab">Ask Accelerator</button>
+        </div>
+        <section class="module-tab-panel active" data-panel="learn">
+          <div class="lesson-layout">
+            <div>
+              <div class="lesson-block"><h3>What good looks like</h3><div class="key-steps">${m.steps.map((s,i)=>`<div class="key-step"><div class="key-step-num">${i+1}</div><div><strong>${s[0]}</strong><span>${s[1]}</span></div></div>`).join('')}</div></div>
+              ${selectedModule===2 ? `<div class="dependency-map"><h3>Flagship dependency example</h3><p class="muted small">The customer date is credible only when the dependency path is credible.</p><div class="dep-paths"><div class="dep-path"><div class="dep-path-label">Leasing path</div><div class="dep-sequence"><div class="dep-node core">OneSite live</div><span class="dep-arrow">→</span><div class="dep-node">Payments activated</div><span class="dep-arrow">→</span><div class="dep-node">Loft Leasing live</div></div></div><div class="dep-path"><div class="dep-path-label">Resident path</div><div class="dep-sequence"><div class="dep-node core">OneSite live</div><span class="dep-arrow">→</span><div class="dep-node">Loft Living live</div></div><div class="dep-caveat">Residents can use Loft Living before Payments, but online payments remain unavailable until Payments is activated.</div></div></div><div class="dep-note">Use this as a learning example, then validate the actual customer sequence, exceptions, and dates with the appropriate SME.</div></div>` : ''}
+            </div>
+            <aside>
+              <div class="lesson-block"><h3>Source links</h3><p class="muted small">Open the underlying material, owner, and version.</p><div class="source-list">${sourceHtml(m.sources)}</div><div class="guardrail-box"><strong>Production guardrail:</strong> Source-linked content must be validated by the accountable Professional Services owner and relevant SME before deployment.</div></div>
+            </aside>
+          </div>
+        </section>
+        <section class="module-tab-panel" data-panel="do">
+          <div class="card-title-row"><div><h3>Role, product, and stage checklist</h3><p class="muted small">Evidence is required—not just a checked box.</p></div><span class="pill ${completeClass}" id="moduleProgressPill">${state.filter(Boolean).length} of ${m.checklist.length} complete</span></div>
+          <div class="checklist" style="margin-top:14px">${m.checklist.map((item,i)=>`<label class="check-row"><input type="checkbox" data-check-index="${i}" ${state[i]?'checked':''}><div><strong>${item[0]}</strong><span>${item[1]}</span></div><span class="evidence-tag">Evidence</span></label>`).join('')}</div>
+          <div class="completion-box"><div><strong>Complete the module</strong><span>All checklist items plus any live checkpoint must be verified.</span></div><button class="btn primary" id="completeModule">Mark module complete</button></div>
+        </section>
+        <section class="module-tab-panel" data-panel="practice">${scenarioHtml(m.scenario,'module')}</section>
+        <section class="module-tab-panel" data-panel="ask">
+          <div class="ask-layout">
+            <div class="card ask-card"><h3>Ask a source-grounded question</h3><p class="muted">Try: “What should I verify before I confirm the implementation sequence?”</p><div class="ask-box"><input id="askInput" type="text" placeholder="Ask about this module"><button class="btn primary" id="askButton">Ask</button></div><div class="answer-box" id="answerBox"><strong>Source-grounded response</strong><p id="answerText"></p><div class="answer-citations" id="answerCitations"></div></div></div>
+            <aside class="card ask-card"><h3>What the assistant will not do</h3><div class="key-steps" style="margin-top:12px"><div class="key-step"><div class="key-step-num">1</div><div><strong>Invent a product rule</strong><span>Unclear guidance is routed to the SME.</span></div></div><div class="key-step"><div class="key-step-num">2</div><div><strong>Approve readiness</strong><span>Managers and SMEs make the decision.</span></div></div><div class="key-step"><div class="key-step-num">3</div><div><strong>Commit a customer date</strong><span>The EC validates dependencies and owners first.</span></div></div></div></aside>
+          </div>
+        </section>`;
+      wireModuleDetail();
+    }
+
+    function wireModuleDetail() {
+      $$('.tab-button', $('#moduleDetail')).forEach(btn => btn.addEventListener('click', () => {
+        $$('.tab-button', $('#moduleDetail')).forEach(b => b.classList.toggle('active', b===btn));
+        $$('.module-tab-panel', $('#moduleDetail')).forEach(p => p.classList.toggle('active', p.dataset.panel===btn.dataset.tab));
+      }));
+      $$('[data-check-index]', $('#moduleDetail')).forEach(cb => cb.addEventListener('change', () => {
+        const idx = Number(cb.dataset.checkIndex);
+        checklistState[selectedModule] = checklistState[selectedModule] || [];
+        checklistState[selectedModule][idx] = cb.checked;
+        storage.setItem('ia-checklists', JSON.stringify(checklistState));
+        const count = checklistState[selectedModule].filter(Boolean).length;
+        $('#moduleProgressPill').textContent = `${count} of ${modules[selectedModule].checklist.length} complete`;
+      }));
+      $('#completeModule')?.addEventListener('click', () => {
+        const done = (checklistState[selectedModule] || []).filter(Boolean).length;
+        if (done < modules[selectedModule].checklist.length) {
+          showToast('Complete every checklist item and live checkpoint before marking the module complete.');
+          return;
+        }
+        if (!completed.includes(selectedModule)) completed.push(selectedModule);
+        completed = [...new Set(completed)].sort((a,b)=>a-b);
+        storage.setItem('ia-completed-modules', JSON.stringify(completed));
+        renderPathModules();
+        renderModuleDetail();
+        showToast('Module completed. Progress and leadership views are now updated.');
+      });
+      $('#askButton')?.addEventListener('click', () => {
+        const question = ($('#askInput').value || '').trim();
+        const m = modules[selectedModule];
+        if (!question) { showToast('Enter a question about this module.'); return; }
+        let answer = `For ${m.title.toLowerCase()}, use the module checklist to verify the required context, evidence, owners, timing, and escalation path. `;
+        if (selectedModule === 2) answer += 'Before confirming the sequence, identify the core product, separate early-start work from activation dependencies, confirm customer targets and deliverables, and validate the final plan with the relevant product SME.';
+        else answer += 'Where the source does not resolve product nuance or customer-specific timing, keep the decision open and route it to the accountable SME.';
+        $('#answerText').textContent = answer;
+        $('#answerCitations').innerHTML = m.sources.slice(0,3).map(k=>`<a class="tag" href="${sources[k].url}" target="_blank" rel="noopener">${sources[k].title}</a>`).join('');
+        $('#answerBox').classList.add('show');
+      });
+      wireScenario($('#moduleDetail'));
+    }
+
+    function wireScenario(root=document) {
+      $$('[data-answer]', root).forEach(btn => btn.addEventListener('click', () => {
+        const scenarioRoot = btn.closest('.scenario');
+        const answer = Number(btn.dataset.answer);
+        const correct = Number(btn.dataset.correct);
+        $$('.scenario-option', scenarioRoot).forEach(o => o.classList.remove('correct','incorrect'));
+        $('[data-good]', scenarioRoot).classList.remove('show');
+        $('[data-bad]', scenarioRoot).classList.remove('show');
+        if (answer === correct) {
+          btn.classList.add('correct');
+          $('[data-good]', scenarioRoot).classList.add('show');
+        } else {
+          btn.classList.add('incorrect');
+          $('[data-bad]', scenarioRoot).classList.add('show');
+          const correctBtn = $(`[data-answer="${correct}"]`, scenarioRoot);
+          if (correctBtn) correctBtn.classList.add('correct');
+        }
+      }));
+    }
+
+    function renderPractice() {
+      $('#practiceScenario').innerHTML = scenarioHtml(modules[2].scenario,'practice');
+      wireScenario($('#practiceScenario'));
+    }
+
+    function openModule(index) {
+      selectedModule = Number(index);
+      storage.setItem('ia-selected-module', selectedModule);
+      renderRail();
+      renderModuleDetail();
+      renderPathModules();
+      setView('playbook');
+    }
+
+    document.addEventListener('click', (e) => {
+      const nav = e.target.closest('[data-view]');
+      if (nav && nav.classList.contains('nav-button')) setView(nav.dataset.view);
+      const jump = e.target.closest('[data-view-jump]');
+      if (jump) setView(jump.dataset.viewJump);
+      const mod = e.target.closest('[data-open-module]');
+      if (mod) openModule(mod.dataset.openModule);
+      const rail = e.target.closest('[data-rail-module]');
+      if (rail) { selectedModule = Number(rail.dataset.railModule); storage.setItem('ia-selected-module', selectedModule); renderRail(); renderModuleDetail(); }
+    });
+
+    $('#mobileMenu').addEventListener('click', () => $('#sidebar').classList.toggle('open'));
+    $('#requestChange').addEventListener('click', () => showToast('Change request preview: source, proposed change, affected role/product/stage, owner, SME, effective date, and learner impact.'));
+    $('#productSelect').addEventListener('change', () => showToast(`Product lens changed to ${$('#productSelect').value}. The prototype keeps the same cross-product lesson while the checklist and sources would adapt in production.`));
+    $('#stageSelect').addEventListener('change', () => showToast(`Stage context changed to ${$('#stageSelect').value}.`));
+
+    renderPathModules();
+    renderRail();
+    renderModuleDetail();
+    renderPractice();
+    const savedView = storage.getItem('ia-view');
+    if (savedView && document.getElementById('view-' + savedView)) setView(savedView);
+  </script>
+</body>
+</html>
