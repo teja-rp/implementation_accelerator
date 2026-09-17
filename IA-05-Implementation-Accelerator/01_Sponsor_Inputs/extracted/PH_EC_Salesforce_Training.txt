@@ -1,0 +1,116 @@
+Source: PH EC - Salesforce Training.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+SALESFORCE TRAINING
+
+=== Slide 2 ===
+PMC / Property / Orders Review
+Review these sections in Salesforce as part of your pre-kick off research
+
+=== Slide 3 ===
+PMC PAGE
+
+=== Slide 4 ===
+PMC PAGE (cont.)
+
+=== Slide 5 ===
+TEAM MEMBERS (RealPage)
+RP Members assigned to this PMC
+Look for () under Active = engaged
+
+=== Slide 6 ===
+Contacts(PMC)
+
+=== Slide 7 ===
+Good to Know: Client Health Events (CHEs)
+Escalations Raised by clients
+Risks flagged by Sales or Customer Success
+
+=== Slide 8 ===
+Client Health Events (CHEs)
+Reviewing recent CHE can help understand client sentiments
+Focus on any implementation related risks/escalations
+
+=== Slide 9 ===
+Important: Order Requests (PMC)
+All Orders Raised by the PMC
+Check for Order Notes or upcoming acquisitions (long term)
+Take note of Revisions/Rebill
+
+=== Slide 10 ===
+Order Requests (PMC)
+Docusign Recipient Status – track order signature (Sales > Client)
+Files – order form drafts
+Implementation Orders – list down all solutions included in that order
+
+=== Slide 11 ===
+Order Requests (PMC)
+Order Details – sometimes includes property information which can be useful when you are doing your pre-kick off research
+Especially helpful for OneSite takeovers
+
+=== Slide 12 ===
+Implementation Orders (per Order Request)
+
+=== Slide 13 ===
+Docusign Recipient Status
+
+=== Slide 14 ===
+Additional Info: CASES (PMC)
+Support cases raised at the PMC level
+Also includes Billing/Cancellation Inquiries
+
+=== Slide 15 ===
+Additional Info: CANCELLATIONS (PMC)
+Cancellations placed by the clients (drafts, completed)
+Can be per site or per product
+
+=== Slide 16 ===
+CANCELLATIONS (PMC)
+Review Cancellation details by clicking Cancellation ID
+Useful for OneSite Takeovers
+
+=== Slide 17 ===
+Property Page
+
+=== Slide 18 ===
+PROPERTY PAGE (Current Solutions)
+Quick glance on solutions ordered
+Tells you the property Flavor
+Quickly identify product bundles
+
+=== Slide 19 ===
+Implementation Orders (Property)
+All solutions ordered for that property
+More updated than signed order forms (due to revisions or additional orders)
+ACS vs ILF
+
+=== Slide 20 ===
+Implementation Order Details
+Good to review before and during implementations
+
+=== Slide 21 ===
+Implementation Orders (Details)
+Click on SF Order Number to access Implementation Order Details
+
+=== Slide 22 ===
+Implementation Orders (Details)
+Click on SF Order Number to access Implementation Order Details
+
+=== Slide 23 ===
+Implementation Orders (Details)
+Click on SF Order Number to access Implementation Order Details
+
+=== Slide 24 ===
+Implementation Orders (Details)
+Click on SF Order Number to access Implementation Order Details
+
+=== Slide 25 ===
+Implementation Orders (Details)
+Click on SF Order Number to access Implementation Order Details
+
+=== Slide 26 ===
+Implementation Orders (Details)
+Click on SF Order Number to access Implementation Order Details

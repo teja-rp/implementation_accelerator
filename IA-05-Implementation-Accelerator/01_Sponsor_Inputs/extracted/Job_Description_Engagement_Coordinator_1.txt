@@ -1,0 +1,44 @@
+Source: Job Description_Engagement Coordinator (1).docx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+JOB DESCRIPTION
+
+JOB TITLE:Engagement CoordinatorGRADE:
+DEPARTMENT:PH Implementation JOB CODE:
+LOCATION:Manila - PHICOST CENTER:
+REPORTS TO:Onboarding Lead/DirectorDATE:
+
+SUMMARY
+The Engagement Coordinator (EC) is responsible for overseeing the successful deployment of the RealPage platform. The EC partners with each assigned customer to understand their desired implementation timeline then creates a deployment schedule to meet that timeline. The EC works with each Implementation resource assigned to the project to ensure the RealPage products are scheduled to deploy concurrently, and as efficiently as possible.
+
+The EC is responsible for providing weekly updates to the customer via email on the status of the project. This includes the agreed upon deployment schedule, as well as the status of the deliverables needed to deploy each product. The EC will streamline the deliverable collection process and provide a comprehensive update on what has been received and what is still outstanding.
+
+PRIMARY RESPONSIBILITIES
+Oversee deployment/implementation of RealPage products for assigned clients
+Manage project management plans for Add-on and SMB Customers
+Partner with RP implementation resources to provide a streamlined onboarding experience
+Create consolidated deployment schedule
+Provide deliverables tracking across the RealPage solutions
+Provide weekly project updates to customers via email
+
+REQUIRED KNOWLEDGE/SKILLS/ABILITIES
+BA/BS degree or equivalent experience within industry
+Proficiency with MS Office Tools
+Strong project management skills required; ability to manage multiple priorities simultaneously
+One year of proven effectiveness leading and facilitating meetings
+Ability to prioritize, multitask and perform effectively under pressure
+Strong attention to detail
+Ability to adapt to change and work well in a dynamic environment
+
+PREFERRED KNOWLEDGE/SKILLS/ABILITIES
+Understanding of and experience with multifamily industry operations and marketing
+Knowledge of RealPage products and platform features, integrations and best practices
+
+REQUIRED COMPETENCIES
+Customer Focus: Leverage customer’s perspective to drive priorities and decisions that meet customers’ and own organization’s needs
+Communication: Speak, listen and write in a clear, thorough and timely manner using appropriate and effective communication tools and techniques
+Collaborating: Work cooperatively and effectively with others to set goals, resolve problems, and make decisions that enhance organizational effectiveness
+Planning and Organizing: Set priorities, develop an action plan, monitor progress towards goals and track details/data/information/activities as directed
+Adaptability: Maintain effectiveness and adjust accordingly when major change occurs

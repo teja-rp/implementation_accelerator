@@ -1,0 +1,143 @@
+Source: PH EC - Intro to EM Onboarding, Team Channels.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+Welcome to the
+Engagement
+Management (Add-on)
+Team!
+
+=== Slide 2 ===
+Agenda
+Introductions
+General Position Overview
+Job Responsibilities
+Expectations with Manager
+PTO guidelines
+PTO Request Form and Calendar
+Confirm job schedule & hours
+Recurring 1:1
+Annual and Mid-Year Review Process
+Onboarding Calendar and Training Plan
+Team Review
+Navigation
+Teams Channels and Files
+
+=== Slide 3 ===
+Introductions
+
+=== Slide 4 ===
+Your Leaders
+
+=== Slide 5 ===
+Position Overview
+
+=== Slide 6 ===
+Position Overview
+
+=== Slide 7 ===
+Expectations with Manager
+UPDATE & BE ORGANIZED
+Project Trackers
+Smartsheet trackers
+EC Action Item Tracker
+EC Lessons Learned
+DOCUMENT
+Conversations
+Agenda
+Recap
+Meetings
+
+=== Slide 8 ===
+Expectations with Manager
+RISK MITIGATION
+Possible Escalations/Issues
+Client Sentiment/Temperature
+Implementation Errors
+Upcoming projects
+COMMUNICATE (ASK & RESPOND)
+If it takes more than 5 mins ask
+Utilize Teams chats
+Don’t hesitate to reach out to other teams
+Respond to clients emails asap (acknowledgement)
+
+=== Slide 9 ===
+Expectations with Manager
+PROBLEM SOLVING MINDSET
+You’re not the SME but you can help gather the experts to resolve the issue
+STAY WITHIN YOUR SWIMLANE
+Help Organize but call out if you feel like it is already outside your scope
+Point them to the right direction
+Teach them how to fish
+
+=== Slide 10 ===
+Expectations with Manager
+BE PROACTIVE
+Ask to shadow EMs/ECs
+Share best practices and lessons learned
+INNOVATE
+Suggestions to improve processes
+Utilize Lumina, Co-pilot other AI Tools
+TRAINING
+Attend trainings even those not specific for EM/ECs (Winzday, SC Milestones etc)
+
+=== Slide 11 ===
+Expectations with Manager
+ACCOUNTABILITY
+You are bound to make mistakes
+Own up, focus on what you’ve learned and next steps
+BE CREATIVE BUT FOLLOW STRUCTURE AND TIMELINES
+Find your style follow our set guidelines
+Set proper expectations with clients (timelines)
+
+=== Slide 12 ===
+Business Hours
+9PM - 6AM / 10PM - 7AM
+Onboarding - 2 Weeks
+Shadowing - 2 or more projects
+WIO - Mon – Wed (3 months*)
+
+=== Slide 13 ===
+Work From Home
+Be Productive (Integrity)
+Team Meetings
+Listen
+Participate
+Ask Questions
+Client Meetings
+Record
+Be Warm and Friendly but keep it Polite and Professional
+Turn on Camera (Be Presentable)
+Agenda 24 hrs before meeting
+Recap within 24 hrs after meeting
+
+=== Slide 14 ===
+PTO Guidelines
+EM PTO Request Form and Calendar
+PH PSG PTO Process
+OOO Buddy/Endorsements
+Calendar and Auto-Replies
+Client and SC Notifications
+Dayforce
+
+=== Slide 15 ===
+Coaching & Team Meetings
+Weekly / Bi-weekly 1:1
+Discuss Projects
+Raise Questions
+Share Observations/Clarifications (Shadowing)
+Weekly Project Update (Email)
+Annual & Mid-Year Performance Review
+Bi-Weekly EM Meetings (Mondays 10AM CT)
+Bi-Weekly Cluster Meetings (Wednesdays* 10 AM CT)
+PH EC Connect (TBD)
+
+=== Slide 16 ===
+Onboarding Calendar
+Teams Review
+
+=== Slide 17 ===
+Q&A
+?

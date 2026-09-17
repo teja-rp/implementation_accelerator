@@ -1,0 +1,92 @@
+Source: PH EC - Product Dependencies Workflow.docx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+Engagement Coordinator Training Module: Product Dependency Workflow
+Core Principle
+OneSite Leasing and Rents is the core product and the primary dependency for most products. Some products may be set up early, but activation may depend on OneSite or another product being live.
+Phase 1: Products That Can Be Started Early
+The following products may be set up or launched before OneSite:
+
+Product | Requirement
+Accounting Entity | Can be created anytime but must be integrated with OneSite.
+Payments | Setup can begin early, but OneSite must be live before Payments can be activated.
+Knock | Can go live early but must integrate with OneSite after OneSite is live.
+Website | Can be set up early but requires final integrations after the dependent products are live.
+Contact Center Answer Automation | Can go live before OneSite.
+eSupply | Has no product dependencies and can go live anytime.
+
+Phase 2: OneSite Go-Live
+The following products go live with or after OneSite Leasing and Rents:
+ODEs and SDEs
+Facilities
+Maintenance Management
+Screening (Need property to mirror screening scoring model)
+Contact Center Leasing
+Contact Center Missed Maintenance
+Phase 3: OneSite-Dependent Products
+Once OneSite is live, the following products can proceed:
+
+Product | Requirement
+Payments | Setup may begin early, but activation requires OneSite to be live.
+Loft Living | Requires OneSite. It may go live before Payments, but residents cannot pay online until Payments is activated.
+Online Renewals | Requires OneSite.
+Syndication | Requires OneSite.
+Contact Center Leasing | Requires OneSite.
+Contact Center Missed Maintenance | Requires OneSite.
+Business Intelligence | Setup can begin after OneSite is live and the property date is current.
+Performance Analytics | Setup can begin after OneSite is live and the property date is current.
+
+Phase 4: Payments-Dependent Products
+After OneSite is live, Payments can be activated once its setup is complete.
+The following sequence then applies:
+Payments setup may begin before OneSite.
+OneSite must go live.
+Payments can be activated.
+Loft Leasing can go live after Payments is activated.
+Loft Loyalty and Loft Moving can go live three to five days after Loft Living, provided Payments is activated.
+Residents can make online payments through Loft Living only after Payments is activated.
+Phase 5: Final Website Integration
+The Website may be set up early, but final integration should occur after all of the following products are live:
+OneSite
+Loft Living
+Loft Leasing
+Knock
+Product Dependency Reference
+
+Product | Dependency or Requirement
+OneSite | Core product
+ODEs and SDEs | Go live with OneSite
+Facilities | Go live with OneSite
+Maintenance Management | Go live with OneSite
+Screening | Goes live with OneSite; requires a property to mirror the screening scoring model
+Accounting Entity | Can be created anytime; must be integrated with OneSite
+Payments | Setup can begin early; activation requires OneSite to be live
+Loft Living | Requires OneSite; can go live before Payments
+Loft Leasing | Requires Payments to be activated
+Online Renewals | Requires OneSite
+Loft Loyalty | Goes live three to five days after Loft Living, provided Payments is activated
+Loft Moving | Goes live three to five days after Loft Living, provided Payments is activated
+Knock | Can go live early; must integrate with OneSite
+Syndication | Requires OneSite
+Website | Can be set up early; final integration requires OneSite, Loft Living, Loft Leasing, and Knock to be live
+Contact Center Answer Automation | Can go live before OneSite
+Contact Center Leasing | Requires OneSite
+Contact Center Missed Maintenance | Requires OneSite
+Business Intelligence | Requires OneSite to be live and the property date to be current before setup begins
+Performance Analytics | Requires OneSite to be live and the property date to be current before setup begins
+eSupply | No product dependencies; can go live anytime
+
+Coordinator Validation Checklist
+Before finalizing the implementation schedule, confirm the following:
+Is OneSite scheduled or already live?
+Has the property for mirroring the Screening scoring model been identified?
+Can Accounting Entity, Payments setup, Knock, Website setup, Contact Center Answer Automation, or eSupply begin early?
+Is OneSite live before activating Payments?
+Is OneSite live before launching Loft Living, Online Renewals, Syndication, Contact Center Leasing, and Contact Center Missed Maintenance?
+Is Payments activated before launching Loft Leasing?
+Are Loft Loyalty and Loft Moving scheduled three to five days after Loft Living?
+Is the property date current before beginning BI and Performance Analytics setup?
+Are OneSite, Loft Living, Loft Leasing, and Knock live before completing Website integration?
+Have all required product integrations been included in the implementation timeline?

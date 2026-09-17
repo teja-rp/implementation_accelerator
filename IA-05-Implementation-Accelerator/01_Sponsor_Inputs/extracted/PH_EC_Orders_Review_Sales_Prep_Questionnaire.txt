@@ -1,0 +1,90 @@
+Source: PH EC - Orders Review & Sales Prep Questionnaire.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+UNDERSTANDING CUSTOMER ORDERS, PRODUCTS AND IMPLEMENTATION DOCUMENTS
+Professional Services Group
+Engagement Management
+Order Review Process
+
+=== Slide 2 ===
+AGENDA
+Agenda 1
+Order Review
+Agenda 2
+Resident Direct (if applicable)
+Agenda 3
+Consulting Orders
+Agenda 4
+Sales Prep Questionnaire
+Agenda 5
+Action Items
+
+=== Slide 3 ===
+ORDER REVIEW
+RealPage Price Schedule (Salesforce)​
+Sample Price Schedule Email​
+PMC Name, Address & Phone Number​
+Site ID & Site Name​
+Site Count​
+Units vs. Beds​
+Order Number​
+Default License Term Start Date​
+01 Review the Order Documentation
+02 Verify Customer Information​
+03 Review Order Details
+
+=== Slide 4 ===
+ORDER REVIEW
+Product Bundles (confirm billing)​
+Ordered Products: ILF, Access, Measure & Billing​
+Review any product or implementationdependencies before proceeding
+04 Review Products & Billing
+05 Identify Dependencies
+
+=== Slide 5 ===
+RESIDENT
+DIRECT
+GOAL 1
+GOAL 2
+Was Resident Direct Purchased?
+Does it require additonal setup?
+GOAL 3
+Are there dependencies?
+
+=== Slide 6 ===
+CONSULTING
+ORDERS
+IDENTIFY
+IDENTIFY
+ORDERS
+WHERE TO CHECK
+IDENTIFY
+ASSIGNMENT TIMELINES
+REVIEW CONSULTING SERVICES PURCHASED
+
+=== Slide 7 ===
+Why is it important to reach out to Sales before contacting clients?​
+SALES PREP QUESTIONNAIRE
+
+=== Slide 8 ===
+ACTION ITEMS
+GOAL 1
+GOAL 2
+PROJECT TRACKER
+REACH OUT TO SALES
+GOAL 3
+REACH OUT TO SCHEDULING TEAM
+GOAL 3
+SEND INTRO EMAIL TO CLIENTS
+AFTER COMPLETING THE REVIEW
+
+=== Slide 9 ===
+QUESTIONS?
+
+=== Slide 10 ===
+Thank you.
+Engagement Management
+Professional Services Group

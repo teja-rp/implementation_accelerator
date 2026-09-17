@@ -1,0 +1,238 @@
+Source: EC SOP - V3 (1).docx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+Standard Operating Procedure (SOP)
+Role: Engagement Coordinator (EC)
+Function: Professional Services – Engagement ManagementCompany: RealPage
+
+1. Purpose
+This SOP defines the responsibilities, workflows, tools, and quality standards for the Engagement Coordinator role at RealPage. The goal is to ensure consistent engagement readiness, accurate coordination, and high-quality client experience across all Professional Services engagements.
+2. Scope
+This SOP applies to all Engagement Coordinators supporting RealPage Professional Services engagements, including:
+Add-ons with up to 3 functional groups
+3. Role Overview
+The Engagement Coordinator provides operational and coordination support to assigned projects. The role focuses on:
+Engagement setup and readiness
+Scheduling and coordination
+Client-facing communication (predominantly email)
+Documentation, tracking, and follow-through
+Early risk identification and escalation
+Throughout the deployment, the EC is responsible for coordinating implementations across all RealPage teams. They partner with the Solution Consultants to provide support and guidance for technical implementations, serving as the point of escalation to ensure deadlines are met, and client expectations are satisfied. The EC does not own scope or delivery strategy but plays a critical role in enabling on-time, high-quality execution.
+4. Key Responsibilities
+Support Add-on PMCs with day-to-day coordination activities
+Maintain accurate engagement records in RealPage systems
+Coordinate any project or product calls as needed
+Communicate with clients regarding scheduling, next steps, and logistics
+Coordinate with internal teams – Solution Consultants, configuration teams, Sales, CS Organization and/or Support to ensure timely implementations and activations
+Track client dependencies and follow up as needed.
+Monitor deliverables submission through DataHub and/or other deliverables collection tools
+Escalate risks, delays, or readiness gaps promptly
+5. Key Stakeholders
+Clients (Property Management Companies and Stakeholders)
+Implementation Consultants
+Success Managers (CSM, SAM, DSAM, etc)
+Account Reps (Sales)
+Billing, Training, Support, Cancellations and Product Teams
+6. Tools & Systems
+Engagement Coordinators are expected to use the following RealPage-aligned tools:
+Salesforce – engagement records, order details, key dates
+Project tracking tools (e.g., Smartsheet, Excel)
+Outlook – client and internal meeting coordination
+SharePoint / OneDrive – project documentation and artifacts
+Microsoft Teams – internal collaboration and updates
+7. Training and Onboarding
+7.1. Training Overview
+All newly hired Engagement Coordinators (ECs) are required to complete a two-week structured onboarding training program designed to build foundational knowledge, tools proficiency, and execution readiness.
+The training program follows the EC Onboarding Training Agenda and training sessions will be delivered through a combination of:
+Live sessions facilitated by an assigned Manager, and/or
+Recorded training modules available within onboarding materials
+7.2. Shadowing and Hands-On Application
+During Training
+ECs will shadow ongoing EM-led Add-on Implementations
+Purpose:
+Reinforce training concepts through real-world application
+Gain visibility into client interactions, deliverables, and timelines
+Observe execution of project workflows and coordination practices
+Post-Training
+Designated Engagement Manager (EM) mentor/s will shadow the first 2-3 projects assigned to the EC. The assigned mentor is responsible for guiding the EC on:
+Internal and external communications (client, stakeholders, Sales Consultants)
+Execution of daily and weekly EC responsibilities
+Management of implementation schedules and deliverables
+Proper documentation and adherence to SOPs
+7.3. Compliance Requirements
+All ECs must complete:
+Required system access setup (e.g., Salesforce, DataHub, OMS, Teams)
+Mandatory RealPage compliance trainings (e.g., InfoSec, Anti-Harassment, Antitrust)
+Onboarding checklist requirements prior to full project ownership
+
+8. Project Assignment and Capacity Tracking
+(Coming soon)
+Alphabetical assignment will not work since there may be more projects per letter than what each EC can handle
+Will have to create a queue where all identified projects to be assigned will go
+Leader will have to assign each project depending on current EC Capacity
+Leader will have to manually assign all applicable orders to EC’s name
+
+9. Standard Operating Procedures
+9.1 Engagement Intake & Readiness
+Objective: Ensure engagements are fully prepared before kickoff.
+Steps:
+Review assigned orders
+Send Sales Rep the EC Sales Prep Questionnaire (Sales Prep Questionnaire)
+Confirm product(s), scope type, number of properties, and timelines.
+Validate key client contacts and escalation paths.
+Confirm consultant assignment as needed.
+Determine assignment timelines.
+Ensure required DataHub questionnaires are turned on.
+Flag gaps, missing information, or readiness risks to leader, Sales Rep and /or CSM.
+Prepare Project Tracker
+SLA: Within 1–2 business days of assignment.
+
+9.2 Scheduling & Coordination Project
+Objective: Ensure timely and accurate scheduling of engagement activities.
+Steps:
+
+Send EC Intro email to the client. (Email Templates Folder)
+SLA 1-3 business days from assignment,
+Always copy assigned SalesRep
+It is strongly encouraged for ECs to schedule a kickoff call with the clients. This allows for a more efficient data gathering at the start of the project vs multiple emails
+Coordinate availability with client. (Email Templates Folder)
+Send calendar invite (include your SalesRep)
+Send meeting agenda at least 1 business day before the meeting
+Kickoff call workflow
+Get permission to record the call
+EC introduction highlighting role and that we are not product experts
+Discuss client readiness and targets
+Go through each product ordered discussing deliverables needed, due dates, product dependencies, implementation timelines and forecast dates
+Set schedule for weekly implementation updates to be sent via email
+Answer or take note of any questions
+Close the meeting
+Send recap email within 24 hours after the meeting
+Confirm client timing needs (GO LIVE and readiness)
+Affirm deliverable due dates to align with client requested GO LIVES, ensuring dependence alignment.
+Confirm proposed timing with SC’s/Scheduling
+Update trackers based on confirmation of dates
+Send weekly Updates – Mainly through email but can set up weekly calls if needed (PMC Weekly Update Template)
+Monitor deliverables submission and/or changes in timing. Notify internal teams and update project plan accordingly. Re-set client expectations on impact of missed timelines/targets.
+Respond to emails and Inquiries, looping in appropriate Subject Matter Experts as necessary. SLA for response to client emails (acknowledge emails): 24 hours.
+Schedule additional calls with the clients as needed
+If a Solution Consultant or any other RealPage stakeholder is required to attend a call, please ensure you coordinate their availability before sharing time options with the client. As a best practice, place 2–3 tentative holds on their calendar and confirm alignment in advance prior to finalizing the meeting schedule with the client.
+Always copy your assigned SalesRep
+Send agenda before the meeting and recap after the meeting.
+Identify client’s training needs and provide recommended available training options and resources with the help of the implementation teams/SCs.
+
+9.3 Client Communication
+Objective: Maintain professional, clear, and consistent communication.
+Guidelines:
+Use RealPage-approved tone: professional, neutral, client-focused.
+Respond or acknowledge client emails within 1 business day.
+Keep communications factual and process-oriented.
+Typical EC Communications:
+EC Introductions/Kick off (Email Templates Folder)
+Weekly implementation updates (PMC Weekly Update Template)
+DLSD communications
+Consultant introductions
+Scheduling coordination, confirmations and reminders
+Data or document requests
+Meeting agenda and recap
+Client Email Communications (i.e. email replies)
+Activations and Next-step summaries
+End of Engagement
+Meeting Invites:
+Confirm SC availability before providing schedule options to the clients.
+Send calendar invites with:
+Subject Line – include purpose of call (ZRS – RealPage | Payments Kick Off)
+Clear agenda – can be general if invite sent well in advance, but agenda to be refined/updated 24hrs prior to call.
+Dial-in / Teams links
+All required attendees
+Escalation Rule: Scope, timeline, or delivery concerns must be sent to team leader copying Sales and CSM.
+
+9.4 Project Tracking & Documentation
+Objective: Maintain accurate engagement records at all times.
+Steps:
+Keep project tracker organized and up to date.
+Document and update as information is known/changes:
+Assigned SC
+Deliverables Due - date
+Deliverables Accepted - date
+Forecasted go-live date
+Key decisions (i.e. - ON HOLD, CANCELLED, etc )
+Action items
+Client dependencies
+Ensure meetings are recorded and meeting notes/recaps are sent to the clients via email within 24 hours.
+
+9.5 Risk & Issue Escalation
+Objective: Identify risks early to protect delivery timelines.
+Common Risk Indicators:
+Delayed client data or prerequisites
+Repeated rescheduling
+Low client responsiveness
+Confusion around scope or deliverables
+Delayed Consulting assignment
+Delayed handoff and implementation
+Process:
+Document the issue clearly.
+Notify team lead with impact and context.
+Track resolution status until closed (EC Action Item Tracker).
+
+9.6 Billing & Administrative Support
+Objective: Support accurate engagement execution and billing readiness.
+Support Activities:
+Monitor backlog report – review statuses, forecast dates, etc. ensuring downstream communication to those needed when ..
+ICD missing when product activation communicated, incorrect due to Cancellation, On Hold, Shelfware, etc
+Connect with Sales for any missing orders
+Ensure DLSD is clearly communicated with the client especially if there are delays in implementation
+
+9.7 End of Engagement
+Objective: Ensure clean and complete engagement closure.
+Steps:
+Notify client of upcoming end of engagement, 2 weeks prior to estimated EoE date, including Sales Rep and CSM
+Confirm all pending orders are completed or accounted for.
+Send End of Engagement email. Include any pending products with assigned SC or POC. (End of Engagement Resources)
+Log all challenges, issues encountered and accomplishments in our lessons learned file (EC Lessons Learned).
+
+10. Out of Office Policy
+Objective: Ensure coverage while EC is out of office
+
+10.1 Planned Leaves Checklist
+
+Get approval from Team Lead
+Once approved log request in the PH PTO Request Portal
+Secure out of office buddy/ies
+Send OOO calendar invite to Leader and all ECs
+Notify client at least a week in advance about upcoming leave
+1-2 days before PTO
+Notify SCs especially those with activations scheduled. Endorse expected activations or deliverables accordingly
+Remind client about the upcoming PTO via email. Include pending items and OOO buddy details.
+Setup a meeting with your buddy/ies to go over endorsements. Send a recap email detailing endorsements. Make sure TL is copied.
+Setup your external and Internal OOO response. Template below.
+
+Hello,
+Thank you for reaching out. I am currently out of the office and will not be able to respond to emails until {date of return}. If you need assistance in the meantime, please contact {name, job title, cell phone number and email for alternative point of contact}. They will be able to assist you while I am away.
+I appreciate your understanding and will respond to your message as soon I can upon my return.
+
+Best regards,
+{Your name}
+
+10.2 Unplanned Leave Checklist
+
+Notify your team leader
+If with access and capacity
+Setup OOO notification if possible (use standard OOO template)
+Put an OOO blocker on your calendar
+Notify your clients and SCs
+Reach out to colleagues who can be your out of office buddy/ies
+
+Note: Make calendar visible to your EC colleagues and editable to your team lead.
+
+11. Continuous Improvement
+Engagement Coordinators are expected to:
+Identify process inefficiencies
+Recommend workflow or tracking improvements
+Participate in team training and knowledge sharing (Lessons Learned)
+
+Document Control
+Owner: RealPage Professional Services – Engagement Management
+Effective Date: [Insert Date]
+Review Cycle: Annual or as process changes

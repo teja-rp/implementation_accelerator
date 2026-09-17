@@ -1,5 +1,58 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
+  "validationChecklist": [
+    {
+      "id": "VC-01",
+      "q": "Is OneSite scheduled or already live?",
+      "appliesTo": ["onesite"]
+    },
+    {
+      "id": "VC-02",
+      "q": "Has the property for mirroring the Screening scoring model been identified?",
+      "appliesTo": ["screening"]
+    },
+    {
+      "id": "VC-03",
+      "q": "Can Accounting Entity, Payments setup, Knock, Website setup, Contact Center Answer Automation, or eSupply begin early?",
+      "appliesTo": ["acctg", "payments", "knock", "website", "ccaa", "esupply"]
+    },
+    {
+      "id": "VC-04",
+      "q": "Is OneSite live before activating Payments?",
+      "appliesTo": ["payments"]
+    },
+    {
+      "id": "VC-05",
+      "q": "Is OneSite live before launching Loft Living, Online Renewals, Syndication, Contact Center Leasing, and Contact Center Missed Maintenance?",
+      "appliesTo": ["loftliving", "renewals", "syndication", "ccleasing", "ccmm"]
+    },
+    {
+      "id": "VC-06",
+      "q": "Is Payments activated before launching Loft Leasing?",
+      "appliesTo": ["loftleasing"]
+    },
+    {
+      "id": "VC-07",
+      "q": "Are Loft Loyalty and Loft Moving scheduled three to five days after Loft Living?",
+      "appliesTo": ["loyalty", "loftmoving"]
+    },
+    {
+      "id": "VC-08",
+      "q": "Is the property date current before beginning BI and Performance Analytics setup?",
+      "appliesTo": ["bi", "pa"]
+    },
+    {
+      "id": "VC-09",
+      "q": "Are OneSite, Loft Living, Loft Leasing, and Knock live before completing Website integration?",
+      "appliesTo": ["website"]
+    },
+    {
+      "id": "VC-10",
+      "q": "Have all required product integrations been included in the implementation timeline?",
+      "appliesTo": []
+    }
+  ],
+  "checklistSrc": "Product Dependency Workflow (EC Training Module), Coordinator Validation Checklist",
   "products": [
     {
       "id": "onesite",
@@ -7,8 +60,10 @@
       "group": "Core",
       "core": true,
       "requires": [],
-      "note": "Core product; primary dependency for most products",
-      "src": "<TODO: cite section of the product dependency document>"
+      "note": "Core product",
+      "why": "Core. Houses all resident and property information.",
+      "whySrc": "Project Planning Process deck, slide 3",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "odes",
@@ -17,7 +72,7 @@
       "withCore": true,
       "requires": [],
       "note": "Go live with OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "facilities",
@@ -26,7 +81,7 @@
       "withCore": true,
       "requires": [],
       "note": "Go live with OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "maint",
@@ -35,7 +90,7 @@
       "withCore": true,
       "requires": [],
       "note": "Go live with OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "screening",
@@ -43,9 +98,10 @@
       "group": "Core & operations",
       "withCore": true,
       "requires": [],
-      "prereq": "A property must be identified to mirror the Screening scoring model",
-      "note": "Goes live with OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "prereq": "Identify a property whose screening scoring model can be mirrored before scheduling the go-live",
+      "prereqSrc": "Product Dependency Workflow deck, slide 4 (Screening readiness gate)",
+      "note": "Goes live with OneSite; requires a property to mirror the screening scoring model",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "acctg",
@@ -53,73 +109,72 @@
       "group": "Financial",
       "early": true,
       "requires": [],
-      "note": "Can be created anytime, but must be integrated with OneSite once OneSite is live",
-      "src": "<TODO: cite section of the product dependency document>"
+      "integrateAfter": ["onesite"],
+      "note": "Can be created anytime; must be integrated with OneSite",
+      "why": "All payments collected come into OneSite and flow to Accounting.",
+      "whySrc": "Project Planning Process deck, slide 2",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "payments",
       "name": "Payments",
       "group": "Financial",
       "early": true,
-      "requires": [
-        "onesite"
-      ],
+      "requires": ["onesite"],
       "note": "Setup can begin early; activation requires OneSite to be live",
-      "src": "<TODO: cite section of the product dependency document>"
+      "why": "Payment information flows into OneSite Leasing & Rents through transaction codes.",
+      "whySrc": "Project Planning Process deck, slide 2",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "loftliving",
       "name": "Loft Living",
       "group": "Renter engagement",
-      "requires": [
-        "onesite"
-      ],
-      "note": "Requires OneSite; can go live before Payments, but residents cannot pay online until Payments is activated",
-      "src": "<TODO: cite section of the product dependency document>"
+      "requires": ["onesite"],
+      "note": "Requires OneSite; can go live before Payments",
+      "caution": "Residents cannot pay online until Payments is activated",
+      "cautionSrc": "Product Dependency Workflow (EC Training Module), Phase 3 and Phase 4",
+      "why": "Resident information (email addresses, names) comes from OneSite.",
+      "whySrc": "Project Planning Process deck, slide 2",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "loftleasing",
       "name": "Loft Leasing",
       "group": "Renter engagement",
-      "requires": [
-        "payments"
-      ],
+      "requires": ["payments"],
       "note": "Requires Payments to be activated",
-      "src": "<TODO: cite section of the product dependency document>"
+      "why": "Floor plan information, units and availability all come from OneSite.",
+      "whySrc": "Project Planning Process deck, slide 2",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "renewals",
       "name": "Online Renewals",
       "group": "Renter engagement",
-      "requires": [
-        "onesite"
-      ],
+      "requires": ["onesite"],
       "note": "Requires OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "loyalty",
       "name": "Loft Loyalty",
       "group": "Renter engagement",
-      "requires": [
-        "loftliving",
-        "payments"
-      ],
-      "lag": "Three to five days after Loft Living goes live",
+      "requires": ["loftliving", "payments"],
+      "lag": "Three to five days after Loft Living",
+      "lagSrc": "Product Dependency Workflow deck, slide 6",
       "note": "Goes live three to five days after Loft Living, provided Payments is activated",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "loftmoving",
       "name": "Loft Moving",
       "group": "Renter engagement",
-      "requires": [
-        "loftliving",
-        "payments"
-      ],
-      "lag": "Three to five days after Loft Living goes live",
+      "requires": ["loftliving", "payments"],
+      "lag": "Three to five days after Loft Living",
+      "lagSrc": "Product Dependency Workflow deck, slide 6",
       "note": "Goes live three to five days after Loft Living, provided Payments is activated",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "knock",
@@ -127,35 +182,30 @@
       "group": "Marketing & leads",
       "early": true,
       "requires": [],
-      "integrateAfter": [
-        "onesite"
-      ],
-      "note": "Can go live early, but must integrate with OneSite after OneSite is live",
-      "src": "<TODO: cite section of the product dependency document>"
+      "integrateAfter": ["onesite"],
+      "note": "Can go live early; must integrate with OneSite",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "syndication",
       "name": "Syndication",
       "group": "Marketing & leads",
-      "requires": [
-        "onesite"
-      ],
-      "note": "Requires OneSite; floor plan information and availability come from OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "requires": ["onesite"],
+      "note": "Requires OneSite",
+      "why": "Floor plan information and availability all come from OneSite.",
+      "whySrc": "Project Planning Process deck, slide 2",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "website",
       "name": "G5 Website",
       "group": "Marketing & leads",
       "early": true,
-      "requires": [
-        "onesite",
-        "loftliving",
-        "loftleasing",
-        "knock"
-      ],
-      "note": "May be set up early, but final integration only after OneSite, Loft Living, Loft Leasing and Knock are live",
-      "src": "<TODO: cite section of the product dependency document>"
+      "requires": ["onesite", "loftliving", "loftleasing", "knock"],
+      "note": "Can be set up early; final integration requires OneSite, Loft Living, Loft Leasing, and Knock to be live",
+      "caution": "Most products collect deliverables through DataHub; G5 Website uses Onboarder instead",
+      "cautionSrc": "Add-on Projects and Processes Review deck, slide 11",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "ccaa",
@@ -164,49 +214,45 @@
       "early": true,
       "requires": [],
       "note": "Can go live before OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "ccleasing",
       "name": "Contact Center - Leasing",
       "group": "Marketing & leads",
-      "requires": [
-        "onesite"
-      ],
+      "requires": ["onesite"],
       "note": "Requires OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "ccmm",
       "name": "Contact Center - Missed Maintenance",
       "group": "Marketing & leads",
-      "requires": [
-        "onesite"
-      ],
+      "requires": ["onesite"],
       "note": "Requires OneSite",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "bi",
       "name": "Business Intelligence",
       "group": "Reporting & utilities",
-      "requires": [
-        "onesite"
-      ],
+      "requires": ["onesite"],
       "prereq": "The property date must be current",
-      "note": "Setup can begin after OneSite is live",
-      "src": "<TODO: cite section of the product dependency document>"
+      "prereqSrc": "Product Dependency Workflow deck, slide 7",
+      "note": "Requires OneSite to be live and the property date to be current before setup begins",
+      "why": "All data used for reporting comes from OneSite.",
+      "whySrc": "Project Planning Process deck, slide 2",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "pa",
       "name": "Performance Analytics",
       "group": "Reporting & utilities",
-      "requires": [
-        "onesite"
-      ],
+      "requires": ["onesite"],
       "prereq": "The property date must be current",
-      "note": "Setup can begin after OneSite is live",
-      "src": "<TODO: cite section of the product dependency document>"
+      "prereqSrc": "Product Dependency Workflow deck, slide 7",
+      "note": "Requires OneSite to be live and the property date to be current before setup begins",
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "esupply",
@@ -215,18 +261,47 @@
       "early": true,
       "requires": [],
       "note": "No product dependencies; can go live anytime",
-      "src": "<TODO: cite section of the product dependency document>"
+      "src": "Product Dependency Workflow (EC Training Module), Product Dependency Reference table"
     },
     {
       "id": "rum",
-      "name": "RUM / RUSM",
+      "name": "RUM / RUSM (RealPage Utility and Sustainability Management)",
       "group": "Reporting & utilities",
-      "requires": [
-        "onesite"
+      "requires": ["onesite"],
+      "requiresSrc": "<TODO: RUM/RUSM is absent from the Product Dependency Reference table. The OneSite prerequisite is inferred from the Project Planning Process deck timeline, not stated as a dependency. Confirm with SME before a learner relies on it.>",
+      "components": [
+        "Resident Billing (RB, bill back)",
+        "Utility Expense Management (UEM, bill pay)",
+        "Vacant Cost Recovery (VCR)"
       ],
-      "timeline": "Deliverables due the 15th of the current month, or the 15th of the next month if past that. The build month is the full month following the due month, regardless of ICD date. First bills activate the 1st of the month after the build month.",
-      "note": "Usually last, because transferring ownership of utility accounts takes time",
-      "src": "<TODO: cite section of the product dependency document>"
+      "componentsSrc": "RUM Onboarding deck, slide 3",
+      "deliverables": {
+        "RB": [
+          "DataHub Questionnaire",
+          "Lease with Utilities Addendum",
+          "Utility bills the client wants to bill back",
+          "Supporting information — SUBS: submeter information; RUBS: amount"
+        ],
+        "UEM": [
+          "DataHub Questionnaire",
+          "Utility bills the client wants RealPage to pay",
+          "Recurring Debit Authorization Form (RDAF)",
+          "Letter of Authorization on company letterhead"
+        ],
+        "VCR": [
+          "DataHub Questionnaire",
+          "Lease with Utilities Addendum",
+          "Utility bills the client wants transferred to the residents' names"
+        ]
+      },
+      "deliverablesSrc": "RUM Onboarding deck, slides 4-6",
+      "timeline": "Deliverables are due the 15th of the current month, or the 15th of the following month if past that. The build month is always a full month following the due month, despite the ICD date. First bills activate the 1st day of the month following the build month.",
+      "timelineSrc": "RUM Onboarding deck, slide 7",
+      "clientQuestion": "When will you be able to provide utility bills and a lease with utility addendum?",
+      "caution": "Utility bills should be under the property name, not the construction company (for new construction)",
+      "cautionSrc": "RUM Onboarding deck, slide 8",
+      "note": "Usually the last to be implemented because transferring ownership for utility accounts takes time",
+      "src": "Project Planning Process deck, slide 3 (Timeline)"
     }
   ]
 }
