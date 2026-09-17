@@ -697,6 +697,18 @@
     .workflow-step .n { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--navy); font-weight: 800; }
     .workflow-step strong { display: block; }
     .workflow-step span { color: var(--muted); font-size: 11px; }
+    .phase2-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .phase2-card { display: block; width: 100%; text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px dashed var(--line-dark); border-radius: var(--radius-sm); padding: 16px; cursor: pointer; transition: border-color .15s, background .15s; }
+    .phase2-card:hover { border-color: var(--blue); background: var(--blue-pale); }
+    .phase2-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .p2-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .p2-top strong { font-size: 14px; }
+    .p2-desc { display: block; color: var(--muted); font-size: 12px; margin-top: 6px; }
+    .ask-match { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 12px; margin-top: 10px; }
+    .ask-match-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .ask-match p { margin: 6px 0 0; color: var(--ink); font-size: 13px; }
+    .ask-match-src { display: block; color: var(--muted); font-size: 11px; margin-top: 6px; }
+    .ask-note { color: var(--muted); font-size: 11px; margin: 0 0 4px; }
     .source-status-note { padding: 14px; background: var(--orange-soft); border: 1px solid #f5c9ba; border-radius: 10px; color: #71321f; font-size: 12px; margin-top: 14px; }
 
     .toast {
@@ -756,7 +768,7 @@
     @media (max-width: 620px) {
       .topbar { padding: 0 12px; gap: 10px; }
       .top-context .context-chip { display: none !important; }
-      .module-grid, .grid-4, .selectors, .journey-strip, .stage-timeline, .rule-grid { grid-template-columns: minmax(0,1fr); }
+      .module-grid, .grid-4, .selectors, .journey-strip, .stage-timeline, .rule-grid, .phase2-grid { grid-template-columns: minmax(0,1fr); }
       .stage::after { display: none; }
       .scenario-context { grid-template-columns: minmax(0,1fr); }
       .module-hero-top { flex-direction: column; }
@@ -862,6 +874,23 @@
           <span class="pill blue">Week 1 and Week 2</span>
         </div>
         <div class="module-grid" id="pathModuleGrid"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div><h2>Phase 2 preview</h2><p>Other implementation types are scoped but not built in this prototype.</p></div>
+          <span class="pill amber">Not yet built</span>
+        </div>
+        <div class="phase2-grid">
+          <button type="button" class="phase2-card" data-phase2="Expansion">
+            <span class="p2-top"><strong>Expansion</strong><span class="pill amber">Not yet built</span></span>
+            <span class="p2-desc">Tagged in the implementation type selector. No approved source content has been mapped to this type yet, so the playbook shows it as a gap rather than filling it in.</span>
+          </button>
+          <button type="button" class="phase2-card" data-phase2="New logo">
+            <span class="p2-top"><strong>New logo</strong><span class="pill amber">Not yet built</span></span>
+            <span class="p2-desc">Tagged in the implementation type selector. No approved source content has been mapped to this type yet, so the playbook shows it as a gap rather than filling it in.</span>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -1063,6 +1092,19 @@
           </div>
           <button class="btn secondary" style="width:100%;margin-top:18px" id="requestChange">Preview change request</button>
         </aside>
+      </div>
+
+      <div class="card pad" style="margin-top:18px">
+        <div class="card-title-row">
+          <div><h2>Phase 2 roadmap</h2><p class="muted small">Scoped in this prototype, not built</p></div>
+          <span class="pill amber">Not yet built</span>
+        </div>
+        <div class="workflow-steps" style="margin-top:16px">
+          <div class="workflow-step"><div class="n">1</div><div><strong>Expansion implementation type</strong><span>Tagged in the implementation type selector. No approved source content mapped yet.</span></div></div>
+          <div class="workflow-step"><div class="n">2</div><div><strong>New logo implementation type</strong><span>Tagged in the implementation type selector. No approved source content mapped yet.</span></div></div>
+          <div class="workflow-step"><div class="n">3</div><div><strong>Roles beyond Engagement Coordinator</strong><span>The role selector is fixed to Engagement Coordinator for this phase.</span></div></div>
+        </div>
+        <div class="source-status-note"><strong>Important:</strong> These items are listed so the gap is visible. Nothing above has been authored, reviewed, or validated, and none of it should be treated as guidance.</div>
       </div>
     </section>
   </main>
@@ -1365,11 +1407,54 @@
         <section class="module-tab-panel" data-panel="practice">${scenarioHtml(m.scenario,'module')}</section>
         <section class="module-tab-panel" data-panel="ask">
           <div class="ask-layout">
-            <div class="card ask-card"><h3>Ask a source-grounded question</h3><p class="muted">Try: “What should I verify before I confirm the implementation sequence?”</p><div class="ask-box"><input id="askInput" type="text" placeholder="Ask about this module"><button class="btn primary" id="askButton">Ask</button></div><div class="answer-box" id="answerBox"><strong>Source-grounded response</strong><p id="answerText"></p><div class="answer-citations" id="answerCitations"></div></div></div>
+            <div class="card ask-card"><h3>Ask a source-grounded question</h3><p class="muted">Try: “What should I verify before I confirm the implementation sequence?”</p><div class="ask-box"><input id="askInput" type="text" placeholder="Ask about this module"><button class="btn primary" id="askButton">Ask</button></div><div class="answer-box" id="answerBox"><strong>Source-grounded response</strong><div id="answerText"></div><div class="answer-citations" id="answerCitations"></div></div></div>
             <aside class="card ask-card"><h3>What the assistant will not do</h3><div class="key-steps" style="margin-top:12px"><div class="key-step"><div class="key-step-num">1</div><div><strong>Invent a product rule</strong><span>Unclear guidance is routed to the SME.</span></div></div><div class="key-step"><div class="key-step-num">2</div><div><strong>Approve readiness</strong><span>Managers and SMEs make the decision.</span></div></div><div class="key-step"><div class="key-step-num">3</div><div><strong>Commit a customer date</strong><span>The EC validates dependencies and owners first.</span></div></div></div></aside>
           </div>
         </section>`;
       wireModuleDetail();
+    }
+
+    // ---- Ask Accelerator (deterministic keyword retrieval) ----
+    // Answers are never generated. Every passage shown below is existing
+    // module step or checklist text, returned verbatim, with its module and
+    // sources cited. If nothing matches, the question is routed to an SME.
+    const ASK_STOPWORDS = new Set(['the','and','for','are','does','what','when','how','should','that','this','with','before','after','can','from','need','must','you','your','into','its','was','were','has','have','had','not','but','all','any','who','why','which','their','them','there','then','than','about','over','under','each','more','most','some','such','only','own','same','too','very','just','also','may','might','will','would','could','been','being','they','she','him','her','his','our','out','off','per','via','use','used','using']);
+
+    function askTokens(text) {
+      return (String(text).toLowerCase().match(/[a-z]+/g) || [])
+        .filter(w => w.length > 2 && !ASK_STOPWORDS.has(w));
+    }
+
+    function askEscape(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function askCorpus() {
+      const entries = [];
+      modules.forEach((m, mi) => {
+        (m.steps || []).forEach(([head, body]) => entries.push({ mi, kind: 'Step', label: head, text: body }));
+        (m.checklist || []).forEach(([item, evidence]) => entries.push({ mi, kind: 'Checklist', label: item, text: 'Evidence expected: ' + evidence + '.' }));
+      });
+      return entries;
+    }
+
+    function askSearch(question, limit = 3) {
+      const qt = [...new Set(askTokens(question))];
+      if (!qt.length) return [];
+      return askCorpus().map(e => {
+        const hay = new Set(askTokens(e.label + ' ' + e.text + ' ' + modules[e.mi].title + ' ' + modules[e.mi].short));
+        let score = 0;
+        qt.forEach(t => {
+          for (const h of hay) {
+            if (h === t) { score += 2; return; }
+            if (h.startsWith(t) || t.startsWith(h)) { score += 1; return; }
+          }
+        });
+        return Object.assign({}, e, { score });
+      })
+      .filter(e => e.score > 0)
+      .sort((a, b) => b.score - a.score || a.mi - b.mi)
+      .slice(0, limit);
     }
 
     function wireModuleDetail() {
@@ -1400,13 +1485,25 @@
       });
       $('#askButton')?.addEventListener('click', () => {
         const question = ($('#askInput').value || '').trim();
-        const m = modules[selectedModule];
         if (!question) { showToast('Enter a question about this module.'); return; }
-        let answer = `For ${m.title.toLowerCase()}, use the module checklist to verify the required context, evidence, owners, timing, and escalation path. `;
-        if (selectedModule === 2) answer += 'Before confirming the sequence, identify the core product, separate early-start work from activation dependencies, confirm customer targets and deliverables, and validate the final plan with the relevant product SME.';
-        else answer += 'Where the source does not resolve product nuance or customer-specific timing, keep the decision open and route it to the accountable SME.';
-        $('#answerText').textContent = answer;
-        $('#answerCitations').innerHTML = m.sources.slice(0,3).map(k=>`<a class="tag" href="${sources[k].url}" target="_blank" rel="noopener">${sources[k].title}</a>`).join('');
+        const matches = askSearch(question);
+        const answerEl = $('#answerText');
+        if (!matches.length) {
+          answerEl.innerHTML = '<p class="ask-note">No approved step or checklist text in this playbook matches that question.</p>'
+            + '<p>Treat this as a gap, not an answer. Route the question to the accountable SME and record the outcome before acting on it.</p>';
+          const m = modules[selectedModule];
+          $('#answerCitations').innerHTML = m.sources.slice(0, 3)
+            .map(k => '<a class="tag" href="' + sources[k].url + '" target="_blank" rel="noopener">' + askEscape(sources[k].title) + '</a>').join('');
+        } else {
+          answerEl.innerHTML = '<p class="ask-note">' + matches.length + ' matching passage' + (matches.length > 1 ? 's' : '')
+            + ' from approved module text, shown verbatim. Nothing here is generated.</p>'
+            + matches.map(e => '<div class="ask-match"><div class="ask-match-head"><span class="pill blue">'
+                + e.kind + '</span><strong>' + askEscape(e.label) + '</strong></div><p>' + askEscape(e.text)
+                + '</p><span class="ask-match-src">Module ' + (e.mi + 1) + ' · ' + askEscape(modules[e.mi].title) + '</span></div>').join('');
+          const keys = [...new Set(matches.flatMap(e => modules[e.mi].sources))].slice(0, 4);
+          $('#answerCitations').innerHTML = keys
+            .map(k => '<a class="tag" href="' + sources[k].url + '" target="_blank" rel="noopener">' + askEscape(sources[k].title) + '</a>').join('');
+        }
         $('#answerBox').classList.add('show');
       });
       wireScenario($('#moduleDetail'));
@@ -1457,6 +1554,10 @@
       if (rail) { selectedModule = Number(rail.dataset.railModule); storage.setItem('ia-selected-module', selectedModule); renderRail(); renderModuleDetail(); }
     });
 
+    document.addEventListener('click', (e) => {
+      const p2 = e.target.closest('[data-phase2]');
+      if (p2) showToast(p2.dataset.phase2 + ' is a Phase 2 implementation type. It is scoped but not built: no approved source content has been mapped to it, so the playbook shows it as a gap.');
+    });
     $('#mobileMenu').addEventListener('click', () => $('#sidebar').classList.toggle('open'));
     $('#requestChange').addEventListener('click', () => showToast('Change request preview: source, proposed change, affected role/product/stage, owner, SME, effective date, and learner impact.'));
     $('#productSelect').addEventListener('change', () => showToast(`Product lens changed to ${$('#productSelect').value}. The prototype keeps the same cross-product lesson while the checklist and sources would adapt in production.`));
