@@ -1,0 +1,212 @@
+Source: PH EC - Add-on Projects and Processes Review.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+Engagement Management Add-On Process
+RealPage Philippines
+
+=== Slide 2 ===
+New Logo vs Expansion vs Add-on
+New Logo
+A customer that is completely new to RealPage and has not previously licensed or utilized any RealPage products or services.
+Expansion
+An existing RealPage client (Property Management Company) that is adopting an additional solution for the first time, expanding beyond their currently licensed products.
+Add-On
+An existing RealPage client that already licenses a specific product and is extending its use by onboarding additional properties or sites to that same solution.
+Add-On with Expansion
+An existing RealPage client that is both expanding usage of an existing product to additional properties while also implementing a new solution for the first time.
+
+=== Slide 3 ===
+CATEGORY
+NEW LOGO
+ADD-ONS
+EXPANSION
+CLIENT TYPE
+New to RealPage
+Existing client
+Existing client
+SCOPE
+Initial Platform adoption
+New property with same or smaller product stack
+Adding new products or solutions
+CONSULTING ORDERS
+Required
+Usually not required
+Required
+DISCOVERY CALLS
+Yes
+Typically not needed
+Yes
+ADOPTION MILESTONES
+Yes
+No
+Yes
+CLIENT SUPPORT LEVEL
+High touch
+Typically Low Touch
+High/Medium Touch
+TRAINING / WORKSHOPS
+Almost always needed
+If needed
+Highly Recommended
+DELIVERABLES
+Heavy lift
+Lighter; can mirror other sites
+Heavy lift
+TIMELINE
+Longer
+Faster (sometimes ASAP)
+Depends on number of products and site
+New Logo vs Expansion vs
+Add-On​
+
+=== Slide 4 ===
+Add-On Journey
+New Project Assignment​
+Research
+Introduction
+Data Collection
+Scheduling Implementations​
+Issues, Questions. Escalations​
+End of Engagement
+
+=== Slide 5 ===
+New Project Assignment
+Your manager informs you of a new assignment​
+You receive an email from RealPageEngaged​***
+Your current PMC informs you of a new acquisition​
+You takeover a project from another EM/EC
+
+=== Slide 6 ===
+PMC & Order
+Review (Research)
+Signed order forms
+Watch out for consulting orders
+Determine assignment timelines
+SALESFORCE
+Order Request
+details, chatter, revisions​
+Property Implementation Orders
+Backlog Report
+Create/Update project tracker
+Review order history check for any ‘missing’ products​
+DATAHUB Questionnaires
+Review Orders
+Get insights from previous EM
+Connect with your Sales Rep – Sales prep email template/call
+Review PMC account page in Salesforce
+Review ongoing email threads with scheduling or sales
+Get to know your client
+Conversion may be scheduled before you get assigned
+Check CSR (Conversion Service Request) in the Property Page
+Determine assigned IA (Implementation Analyst)
+Reach out to IA to loop you in on all emails
+RP CONVERSIONS
+
+=== Slide 7 ===
+EC Intro
+Scheduling team will introduce you to the client
+KO Email Template
+Always include Sales Rep
+Offer a KO meeting
+Kick off Email
+Client POC
+Takeover Date
+Vacant or with Residents
+Client timeline (asap, long term)
+Priority Solutions
+Important Information Relevant to Implementations
+
+=== Slide 8 ===
+Kickoff Meeting
+Introduce yourself and your role​
+Discuss project plan
+Introduction
+Determine takeover/closing date​
+Schedule conversion​
+You can obtain available conversion schedules prior to the call​
+Take note of schedules that have limited slots
+Conversion
+Discuss product dependencies and timelines​
+Discuss deliverables needed and provide due dates​
+Check for any missing orders
+Ancillary Products
+Quick demo if needed​
+Set the due dates in datahub
+DataHub
+If consulting is needed set expectations on assignment wait time​
+Consulting Assignment Timelines
+Schedule recurring calls/emails
+Weekly Updates
+
+=== Slide 9 ===
+Data Collection and
+Scheduling Implementations
+Reach out to scheduling team to schedule conversion/migration and push orders​
+Add Due Dates in DataHub based on agreed timelines with the clients​
+Align with Solution Consultants on Deliverables and Timelines:
+Provide client target dates
+Update on status of deliverables
+Monitor progress
+Follow up... Follow up.. Follow up..
+
+=== Slide 10 ===
+OneSite Conversion
+Ask the client to notify you once they have completed their conversion – this would also be your OneSite go live date
+Self-Start Conversion
+RP Migrations will send a KO email before their scheduled conversion (1-2 weeks)
+Take note of deadlines, make sure client is aware, follow up if needed​
+Data Validation – 1st 3 days of conversion schedule (Crucial)
+Once data is validated it will be checked in for conversion and conversion completion date will be provided.​
+Conversion team may still reach out to client for additional questions
+RP assisted Conversion/Transfer
+
+=== Slide 11 ===
+Ancillary Products
+Once OneSite go live date is determined you can work on scheduling the ancillary products​
+Important: implementation timelines and product dependencies​
+Monitor deliverables completion
+Most products use DataHub, a few exemptions
+G5 Website > Onboarder
+Monitor orders status in SalesForce.
+Implementation Comments
+Backlog Reason
+Implementation Items
+Activation Emails
+
+=== Slide 12 ===
+Issues, Questions, Escalations
+Reach out to the assigned SC if client has any product-related questions and any issues reported after go live. Schedule calls if needed​.
+Any client escalations or possible client escalations –notify your manager right away. ​
+Follow proper escalation path if SC is unresponsive or is unable to follow agreed Go Live date.
+
+=== Slide 13 ===
+End of Engagement
+Half-way through the project start notifying your clients of your impending end of engagement​
+2 weeks prior to intended EOE, send an EOE notice to your client
+Give a summary of what is pending
+Ask for upcoming properties
+Notify SCs and Sales Rep of upcoming EOE.
+Cover all pending implementations
+Send your End of Engagement email
+
+=== Slide 14 ===
+Add-On Challenges
+Time Sensitivity/ Client Demands​
+Planning go-live dates​
+Clients have different processes​
+Incorrect or Missing Orders​
+Consulting Assignment Wait Time​
+New POC/Staff​
+Product Specific Questions – who should answer?​
+Issues/Questions involving multiple products​
+No Consultant - will need support ticket​
+Questions on deliverables
+
+=== Slide 15 ===
+Engagement Management
+Professional Services Group
+Thank You
+Very Much

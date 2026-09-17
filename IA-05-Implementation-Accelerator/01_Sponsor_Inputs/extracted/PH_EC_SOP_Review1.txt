@@ -1,0 +1,245 @@
+Source: PH EC - SOP Review1.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+Engagement CoordinatorStandard Operating Procedure
+July 5, 2026
+
+=== Slide 2 ===
+Agenda
+2
+[Speaker notes]
+21
+
+=== Slide 3 ===
+Objectives
+3
+
+=== Slide 4 ===
+Engagement Coordinator Role
+Purpose & Overview
+
+=== Slide 5 ===
+Why Is There a Need For EC?
+5
+
+=== Slide 6 ===
+Role Overview
+6
+
+=== Slide 7 ===
+Stakeholder and Collaboration
+7
+7
+
+=== Slide 8 ===
+Tools and Systems
+Essential tools used to manage, coordinate, track, and deliver successful implementations
+8
+Tool
+Purpose
+Salesforce
+Orders
+Source of Truth
+key dates
+DataHub
+Deliverables Collection
+Client Questionnaires
+Due Dates
+Outlook
+Client communication
+Meeting Coordination
+Follow-ups
+Teams
+Internal Collaboration
+Project Discussions
+Cross-Functional Coordination
+SharePoint / OneDrive
+Documentation Storage
+File Management
+Project Records
+Excel / Smartsheet
+Project Tracking
+Milestone Management
+Status Reporting
+
+=== Slide 9 ===
+Training & Onboarding
+9
+
+=== Slide 10 ===
+Project Assignment and Capacity Tracking
+Coming Soon
+10
+
+=== Slide 11 ===
+Standard Operating Procedure
+11
+
+=== Slide 12 ===
+Engagement Intake & Readiness
+Objectives/Goal
+Ensure engagements are fully prepared before kickoff.
+SLA: Within 1–2 business days of assignment.
+Steps:
+Review assigned orders
+Send Sales Rep the EC Sales Prep Questionnaire (Sales Prep Questionnaire)
+Confirm product(s), scope type, number of properties, and timelines.
+Validate key client contacts and escalation paths.
+Confirm consultant assignment as needed.
+Determine assignment timelines.
+Ensure required DataHub questionnaires are turned on.
+Flag gaps, missing information, or readiness risks to leader, Sales Rep and /or CSM.
+Prepare Project Tracker
+12
+
+=== Slide 13 ===
+Scheduling & Coordination Project
+Objective/Goal:Ensure timely and accurate scheduling of engagement activities.
+Steps:
+Send EC Intro email to the client. (Email Templates Folder)
+SLA 1-3 business days from assignment,
+Always copy assigned SalesRep
+Schedule a kickoff call with the client to efficiently gather project information and minimize email back-and-forth.
+Coordinate availability with client. (Email Templates Folder)
+Send calendar invite (include your SR)
+Send meeting agenda at least 1 business day before the meeting
+Kickoff call workflow (will have a separate discussion)
+Send Recap Email within 24 hours after conclusion
+13
+
+=== Slide 14 ===
+Scheduling & Coordination Project, Cont’d
+3. Confirm client timing needs (GO LIVE and readiness)
+4. Affirm deliverable due dates to align with client requested GO LIVES, ensuring dependence alignment.
+5. Confirm proposed timing with SC’s/Scheduling
+6. Update trackers based on confirmation of dates
+7. Send weekly Updates – Mainly through email but can set up weekly calls if needed (PMC Weekly Update Template)
+14
+8. Monitor deliverables submission and/or changes in timing. Notify internal teams and update project plan accordingly. Re-set client expectations on impact of missed timelines/targets.
+9. Respond to emails and Inquiries, looping in appropriate Subject Matter Experts as necessary. SLA for response to client emails (acknowledge emails): 24 hours.
+10. Schedule additional calls with the clients as needed
+11. Identify client’s training needs and provide recommended available training options and resources with the help of the implementation teams/SCs.
+
+=== Slide 15 ===
+Client Communication
+Objective/Goal:Maintain professional, clear, and consistent communication.
+Guidelines:
+Use RealPage-approved tone: professional, neutral, client-focused.
+Respond or acknowledge client emails within 1 business day.
+Keep communications factual and process-oriented.
+Typical EC Communications:
+EC Introductions/Kick off (Email Templates Folder)
+Weekly implementation updates (PMC Weekly Update Template)
+DLSD communications
+Consultant introductions
+Scheduling coordination, confirmations and reminders
+Data or document requests
+Meeting agenda and recap
+Client Email Communications (i.e. email replies)
+Activations and Next-step summaries
+End of Engagement
+15
+
+=== Slide 16 ===
+Client Communication
+Cont’d
+Meeting Invites
+Confirm SC availability before providing schedule options to the clients.
+Send calendar invites with:
+Subject Line – include purpose of call (ZRS – RealPage | Payments Kick Off)
+Clear agenda – can be general if invite sent well in advance, but agenda to be refined/updated 24hrs prior to call.
+Dial-in / Teams links
+All required attendees
+16
+
+=== Slide 17 ===
+Project Tracking & Documentation
+Objectives/Goal
+Maintain accurate engagement records at all times.
+Steps:
+Keep project tracker organized and up to date.
+Document and update as information is known/changes:
+Assigned SC
+Deliverables Due - date
+Deliverables Accepted - date
+Forecasted go-live date
+Key decisions (i.e. - ON HOLD, CANCELLED, etc )
+Action items
+Client dependencies
+3. Ensure meetings are recorded and meeting notes/recaps are sent to the clients via email within 24 hours.
+17
+
+=== Slide 18 ===
+Risk & Issue Escalation
+Objectives/Goal
+Identify risks early to protect delivery timelines.
+Common Risk Indicators:
+Delayed client data or prerequisites
+Repeated rescheduling
+Low client responsiveness
+Confusion around scope or deliverables
+Delayed Consulting assignment
+Delayed handoff and implementation
+Process:
+Document the issue clearly.
+Notify team lead with impact and context.
+Track resolution status until closed (EC Action Item Tracker).
+18
+
+=== Slide 19 ===
+Billing & Administrative Support
+Objectives/Goal
+Support accurate engagement execution and billing readiness.
+Support Activities:
+Monitor backlog report – review statuses, forecast dates, etc. ensuring downstream communication to those needed when ..
+ICD missing when product activation communicated, incorrect due to Cancellation, On Hold, Shelfware, etc
+Connect with Sales for any missing orders
+Ensure DLSD is clearly communicated with the client especially if there are delays in implementation
+19
+
+=== Slide 20 ===
+End of Engagement
+Objectives/Goal:
+Ensure clean and complete engagement closure.
+Steps:
+Notify client of upcoming end of engagement, 2 weeks prior to estimated EoE date, including Sales Rep and CSM
+Confirm all pending orders are completed or accounted for.
+Send End of Engagement email. Include any pending products with assigned SC or POC. (End of Engagement Resources)
+Log all challenges, issues encountered and accomplishments in our lessons learned file (EC Lessons Learned).
+20
+
+=== Slide 21 ===
+Out of Office Policy
+Planned Leaves Checklist
+Get approval from Team Lead
+Once approved log request in the PH PTO Request Portal
+Secure out of office buddy/ies
+Send OOO calendar invite to Leader and all ECs
+Notify client at least a week in advance about upcoming leave (1-2 days before PTO)
+Notify SCs especially those with activations scheduled. Endorse expected activations or deliverables accordingly
+Remind client about the upcoming PTO via email. Include pending items and OOO buddy details.
+Setup a meeting with your buddy/ies to go over endorsements. Send a recap email detailing endorsements. Make sure TL is copied.
+Setup your external and Internal OOO response. Template below.
+Unplanned Leaves Checklist
+Notify your team leader
+If with access and capacity
+Setup OOO notification if possible (use standard OOO template)
+Put an OOO blocker on your calendar
+Notify your clients and SCs
+Reach out to colleagues who can be your out of office buddy/ies
+21
+21
+
+=== Slide 22 ===
+Continuous Improvement
+Engagement Coordinators are expected to:
+Identify process inefficiencies
+Recommend workflow or tracking improvements
+Participate in team training and knowledge sharing (Lessons Learned)
+22
+
+=== Slide 23 ===
+Q & A

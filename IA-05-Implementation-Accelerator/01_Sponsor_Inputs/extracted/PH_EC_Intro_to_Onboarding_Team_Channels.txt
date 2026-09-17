@@ -1,0 +1,191 @@
+Source: PH EC Intro to Onboarding, Team Channels.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+Welcome to Engagement Management (Add-On)
+Professional Services Group
+
+=== Slide 2 ===
+RealPage is a leading global provider of AI-enabled software platforms for the real estate industry, founded in 1998 and headquartered in Richardson, Texas. It offers cloud-based property management software for leasing, operations, and notably, algorithmic rent setting, serving over 24 million rental units worldwide. ​
+Our suite of solutions benefits owners and managers of various rental property types, including conventional, affordable, military, student, single-family, senior and vacation housing. We also provide commercial and mixed use property management solutions. We’ve evolved our products from the desktop to the cloud, with many available both online and for mobile devices. Our products manage everything from marketing to pricing and other property operations, such as: Property Management, Sales &Marketing, Applicant Screening, Revenue Management, Spend Management, Utility Management, Renters Insurance, Resident Services, and Contact Center.​
+Welcome to RealPage!
+
+=== Slide 3 ===
+1
+2
+4
+3
+5
+7
+8
+6
+Agenda Overview
+Introductions
+General Position Overview
+Job Schedule & Hours
+PTO Guidelines
+Recurring 1:1
+Onboarding Calendar and Training Plan
+Team Review
+Annual and Mid-Year Review Process
+
+=== Slide 4 ===
+Our Leaders
+Blake Goodwin
+Vice President, Delivery Leadership
+Sarah Jackson
+Director, Engagement Management
+Becky Tiner
+Senior Manager
+Kat Ragudos
+Team Leader, Engagement Management
+
+=== Slide 5 ===
+Project Coordination & Administrative Support
+I’ll help coordinate project activities and ensure key tasks are tracked and completed on time.
+I’ll assist with managing documentation, project records, and implementation deliverables.
+I’ll help keep your project organized by monitoring action items and follow-ups.
+As Your Scheduling & Logistics Partner
+I’ll coordinate meetings, project calls, and stakeholder communications
+I’ll distribute meeting invitations, agendas, and meeting notes to keep everyone aligned.
+I’ll help manage implementation schedules and support milestone planning activities
+Position Overview
+Engagement Coordinator Partnership
+Providing Coordination, communication and administrative support throughout your implementation journey
+Key Responsibilities:
+
+=== Slide 6 ===
+Position Overview
+Engagement Coordinator Partnership
+Providing Coordination, communication and administrative support throughout your implementation journey
+Key Responsibilities:
+As Your Communication Coordinator
+I’ll serve as a day-to-day point of contact for project-related coordination needs.
+I’ll facilitate communications between your team and the RealPage implementation team.
+I’ll ensure questions, requests, and outstanding items are routed to the appropriate resources for resolution.
+As Your Project Support Resource
+I’ll help track project progress and maintain implementation documentation.
+I’ll provide status updates on open tasks, dependencies, and upcoming activities.
+I’ll assist the Engagement manager in ensuring a smooth and successful implementation experience.
+
+=== Slide 7 ===
+Position Overview
+Client
+Implementation Team
+Engagement Coordinator
+
+=== Slide 8 ===
+Expectations with Manager
+Conversations
+Agenda
+Recap
+Meetings
+DOCUMENT
+Project Trackers
+Smartsheet Trackers
+EC Action Item Tracker
+EC Lessons Learned
+UPDATE & BE ORGANIZED
+
+=== Slide 9 ===
+Expectations with Manager
+If it takes more than 5 mins, ask
+Utilize MS Teams chats
+Don’t hesitate to reach out to other teams
+Respond to client emails ASAP (acknowledgement)
+COMMUNICATE (ASK & RESPOND)
+Possible Escalations/Issues
+Client Sentiment/Temperature
+Implementation Errors
+Upcoming Projects
+RISK MITIGATION
+
+=== Slide 10 ===
+Expectations with Manager
+Help organize but call out if you feel like it is already outside your scope
+Point them to the right direction
+Teach them how to fish
+STAY WITHIN YOUR SWIMLANE
+You’re not the Subject Matter Expert but you can help gather the experts to resolve the issue
+PROBLEM SOLVING MINDSET
+
+=== Slide 11 ===
+Expectations with Manager
+Ask to shadow EMs/ECs
+Share best practices and lessons learned
+BE PROACTIVE
+Attend trainings even those not specific for EMs/ECs (Winzday, SC Milestones etc)
+TRAINING
+INNOVATE
+Suggestions to improve processes
+Utilize Lumina, Co-Pilot and other AI Tools
+
+=== Slide 12 ===
+Expectations with Manager
+Find your style but follow our set guidelines
+Set proper expectations with clients (timelines)
+BE CREATIVE BUT FOLLOW STRUCTURE AND TIMELINES
+You are bound to make mistakes
+Own up, focus on what you’ve learned and next steps
+ACCOUNTABILITY
+
+=== Slide 13 ===
+9PM - 6AM / 10PM - 7AM​ (DST)
+​
+Onboarding - 2 Weeks​
+​
+Shadowing - 2 or more projects​
+​
+WIO - Mon – Wed (3 months*)
+Business Hours
+
+=== Slide 14 ===
+Work From Home
+Team Meetings​
+Listen​
+Participate​
+Ask Questions​
+​
+Client Meetings​
+Record​
+Be Warm and Friendly but keep it Polite and Professional​
+Turn on Camera (Be Presentable)​
+Agenda 24 hrs before meeting​
+Recap within 24 hrs after meeting
+Be Productive (Integrity)
+
+=== Slide 15 ===
+EM PTO Request Form and Calendar​
+PH PSG PTO Process ​
+OOO Buddy/Endorsements​
+Calendar and Auto-Replies​
+Client and SC Notifications​
+Dayforce
+PTO Guidelines
+
+=== Slide 16 ===
+Weekly / Bi-weekly 1:1​
+Discuss Projects​
+Raise Questions​
+Share Observations/Clarifications (Shadowing)​
+Weekly Project Update (Email)​
+Annual & Mid-Year Performance Review​
+Bi-Weekly EM Meetings (Mondays 10AM CT)​
+Bi-Weekly Cluster Meetings (Wednesdays* 10 AM CT)​
+PH EC Connect (TBD)​
+Coaching & Team Meetings
+
+=== Slide 17 ===
+Onboarding Calendar
+Teams Review
+
+=== Slide 18 ===
+Any Questions?
+As we conclude your onboarding, we want to address any remaining questions you may have. This is your chance to seek clarification on any aspect of your role, company culture, or about our company. Your questions are valuable, and we're here to ensure you feel confident and well-informed. Let's make sure you're ready for the exciting journey ahead.
+
+=== Slide 19 ===
+Thank you!
+Engagement Management
+Professional Services Group

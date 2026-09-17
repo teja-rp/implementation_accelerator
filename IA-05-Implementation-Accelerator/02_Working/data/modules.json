@@ -1,5 +1,22 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
+  "stages": [
+    { "id": "assignment", "label": "New Project Assignment" },
+    { "id": "research", "label": "Research" },
+    { "id": "introduction", "label": "Introduction" },
+    { "id": "data", "label": "Data Collection" },
+    { "id": "scheduling", "label": "Scheduling Implementations" },
+    { "id": "escalation", "label": "Issues, Questions, Escalations" },
+    { "id": "eoe", "label": "End of Engagement" }
+  ],
+  "stagesSrc": "Add-on Projects and Processes Review deck, slide 4 (Add-On Journey)",
+  "types": [
+    { "id": "add-on", "label": "Add-On" },
+    { "id": "add-on-expansion", "label": "Add-On with Expansion" },
+    { "id": "expansion", "label": "Expansion" },
+    { "id": "new-logo", "label": "New Logo" }
+  ],
+  "typesSrc": "Add-on Projects and Processes Review deck, slide 2",
   "modules": [
     {
       "id": "EC-01",
@@ -8,51 +25,51 @@
       "product": "any",
       "stage": "assignment",
       "day": 1,
-      "delivery": "self",
+      "delivery": "live",
       "owner": "<TODO: module owner name>",
-      "source": "<TODO: extract from the EC SOP and cite document name plus section number>",
-      "review": "<TODO: SME review status — drafted / in review / approved, plus reviewer name>",
-      "practice": "decision",
-      "title": "<TODO: module title, taken from the source section heading>",
-      "objective": "<TODO: one sentence, written from the learner's side — 'I can ...'>",
-      "sla": "<TODO: only if the source states an SLA; otherwise remove this field>",
+      "source": "EC SOP v3, §9.1 Engagement Intake & Readiness; SOP Review1 deck, slide 12",
+      "review": "drafted — awaiting SME review",
+      "practice": null,
+      "title": "Engagement Intake & Readiness",
+      "objective": "I can take a newly assigned Add-On order from assignment to kickoff-ready without waiting to be told what is missing.",
+      "sla": "Within 1–2 business days of assignment.",
       "steps": [
         {
-          "t": "<TODO: step text, extract from the EC SOP and cite section>",
-          "n": "<TODO: optional nuance note, or remove this key>"
+          "t": "Review assigned orders.",
+          "n": "Assignment reaches you four ways: your manager informs you, you receive an email from RealPage Engaged, your current PMC informs you of a new acquisition, or you take over a project from another EM/EC. (Add-on Projects and Processes Review deck, slide 5)"
         },
         {
-          "t": "<TODO: step text, extract from the EC SOP and cite section>"
+          "t": "Send the Sales Rep the EC Sales Prep Questionnaire."
         },
         {
-          "t": "<TODO: step text, extract from the EC SOP and cite section>",
-          "n": "<TODO: optional nuance note, or remove this key>"
+          "t": "Confirm product(s), scope type, number of properties, and timelines."
+        },
+        {
+          "t": "Validate key client contacts and escalation paths."
+        },
+        {
+          "t": "Confirm consultant assignment as needed."
+        },
+        {
+          "t": "Determine assignment timelines."
+        },
+        {
+          "t": "Ensure required DataHub questionnaires are turned on."
+        },
+        {
+          "t": "Flag gaps, missing information, or readiness risks to your leader, the Sales Rep and/or the CSM.",
+          "n": "This is the step new ECs skip. The SOP makes surfacing a gap part of intake, not a later escalation."
+        },
+        {
+          "t": "Prepare the Project Tracker."
+        },
+        {
+          "t": "<TODO: extract from EC SOP v3 §8 Project Assignment and Capacity Tracking once it exists — the section is marked \"(Coming soon)\" and states no current process for how projects reach you or how capacity is weighed. Confirmed also at SOP Review1 deck, slide 10.>",
+          "n": "Genuine gap in the source set. See 00_Admin/SME_QUESTIONS.md."
         }
       ],
-      "scenario": {
-        "q": "<TODO: practice scenario question, grounded in a real situation described in the source; use PMC for any client name>",
-        "opts": [
-          {
-            "t": "<TODO: option text — the correct course of action>",
-            "verdict": "best",
-            "fb": "<TODO: why this is correct, in the source's own terms>",
-            "src": "<TODO: cite document name plus section number>"
-          },
-          {
-            "t": "<TODO: option text — defensible but not the documented path>",
-            "verdict": "ok",
-            "fb": "<TODO: why this is workable but not preferred>",
-            "src": "<TODO: cite document name plus section number>"
-          },
-          {
-            "t": "<TODO: option text — the common mistake>",
-            "verdict": "poor",
-            "fb": "<TODO: what goes wrong and what the source says instead>",
-            "src": "<TODO: cite document name plus section number>"
-          }
-        ]
-      },
-      "next": "<TODO: one sentence naming the next module and why it follows — e.g. 'EC-02, because ...'>"
+      "scenario": null,
+      "next": "EC-02, because you cannot validate scope or contacts without first reading the order and PMC history in Salesforce."
     },
     {
       "id": "EC-02",
@@ -60,25 +77,525 @@
       "type": "add-on",
       "product": "any",
       "stage": "research",
-      "day": 1,
-      "delivery": "self",
+      "day": 2,
+      "delivery": "live",
       "owner": "<TODO: module owner name>",
-      "source": "<TODO: extract from the EC SOP and cite document name plus section number>",
-      "review": "<TODO: SME review status — drafted / in review / approved, plus reviewer name>",
+      "source": "Orders Review & Sales Prep Questionnaire deck, slides 3-8; Salesforce Training deck, slides 2-19; Add-on Projects and Processes Review deck, slide 6",
+      "review": "drafted — awaiting SME review",
       "practice": null,
-      "title": "<TODO: module title, taken from the source section heading>",
-      "objective": "<TODO: one sentence, written from the learner's side — 'I can ...'>",
+      "title": "PMC & Order Review (Research)",
+      "objective": "I can read an order and a PMC's Salesforce history well enough to know what was bought, what is missing, and what the client's recent experience of RealPage has been.",
       "steps": [
         {
-          "t": "<TODO: step text, extract from the EC SOP and cite section>"
+          "t": "Review the order documentation: RealPage Price Schedule in Salesforce and the sample price schedule email.",
+          "n": "Orders Review deck, slide 3."
         },
         {
-          "t": "<TODO: step text, extract from the EC SOP and cite section>",
-          "n": "<TODO: optional nuance note, or remove this key>"
+          "t": "Verify customer information: PMC name, address and phone number; Site ID and Site Name; site count; units vs. beds."
+        },
+        {
+          "t": "Review order details: order number and Default License Term Start Date."
+        },
+        {
+          "t": "Review products and billing: confirm product bundles, and the ordered products across ILF, Access, Measure & Billing."
+        },
+        {
+          "t": "Identify dependencies before proceeding.",
+          "n": "Orders Review deck, slide 4. This is the hand-off point into the dependency workflow — see EC-ONESITE-01."
+        },
+        {
+          "t": "Check whether Resident Direct was purchased, whether it needs additional setup, and whether it carries dependencies.",
+          "n": "Orders Review deck, slide 5."
+        },
+        {
+          "t": "Identify consulting orders, where to check them, and the assignment timelines.",
+          "n": "Orders Review deck, slide 6. Add-Ons usually do not require consulting orders, unlike New Logo and Expansion — so a consulting order on an Add-On is worth a second look. (Add-on deck, slide 3)"
+        },
+        {
+          "t": "In Salesforce, review the PMC page, the RealPage team members assigned to the PMC, and the PMC contacts.",
+          "n": "Salesforce Training deck, slides 3-6. Under Team Members, an active flag means engaged."
+        },
+        {
+          "t": "Review recent Client Health Events (CHEs) — escalations raised by clients and risks flagged by Sales or Customer Success.",
+          "n": "Salesforce Training deck, slides 7-8. Focus on implementation-related risks and escalations; recent CHEs tell you the client's sentiment before you ever email them."
+        },
+        {
+          "t": "Review Order Requests at PMC level: order notes, upcoming acquisitions, revisions and rebills, DocuSign recipient status, files, and the implementation orders list.",
+          "n": "Salesforce Training deck, slides 9-11. Order details sometimes include property information that is especially helpful for OneSite takeovers."
+        },
+        {
+          "t": "Check Cases and Cancellations at PMC level.",
+          "n": "Salesforce Training deck, slides 14-16. Cancellations can be per site or per product and are useful for OneSite takeovers."
+        },
+        {
+          "t": "On the Property page, review current solutions to see the property flavor and identify product bundles quickly.",
+          "n": "Salesforce Training deck, slides 18-19. Property-level implementation orders are more up to date than signed order forms, because of revisions and additional orders."
+        },
+        {
+          "t": "Review order history and check for any 'missing' products; connect with your Sales Rep using the Sales prep email template or call.",
+          "n": "Add-on deck, slide 6."
+        },
+        {
+          "t": "Create or update the Project Tracker, then reach out to Sales and the Scheduling team before sending the intro email.",
+          "n": "Orders Review deck, slide 8 (Action Items)."
         }
       ],
       "scenario": null,
-      "next": "<TODO: one sentence naming the next module and why it follows>"
+      "next": "EC-03, because the intro email and kickoff agenda are only as good as the order review behind them."
+    },
+    {
+      "id": "EC-03",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "introduction",
+      "day": 2,
+      "delivery": "live",
+      "owner": "<TODO: module owner name>",
+      "source": "EC SOP v3, §9.2 Scheduling & Coordination (intro and kickoff); SOP Review1 deck, slide 13; Add-on Projects and Processes Review deck, slides 7-8",
+      "review": "drafted — awaiting SME review",
+      "practice": "guardrail",
+      "title": "EC Intro & Kickoff Call",
+      "objective": "I can introduce myself to a client and run a kickoff call that gathers what the project needs in one sitting instead of over ten emails.",
+      "sla": "EC intro email: 1–3 business days from assignment. Meeting agenda: at least 1 business day before the meeting. Recap email: within 24 hours after the meeting.",
+      "steps": [
+        {
+          "t": "Send the EC intro email to the client, using the template in the Email Templates Folder.",
+          "n": "Always copy the assigned Sales Rep. The SOP states this twice in §9.2, and the Add-on deck repeats it at slide 7."
+        },
+        {
+          "t": "Coordinate availability with the client and send the calendar invite, including your Sales Rep."
+        },
+        {
+          "t": "Schedule a kickoff call rather than gathering data over multiple emails.",
+          "n": "The SOP calls this strongly encouraged, not mandatory: it allows more efficient data gathering at the start of the project."
+        },
+        {
+          "t": "Send the meeting agenda at least 1 business day before the meeting."
+        },
+        {
+          "t": "On the call: get permission to record it."
+        },
+        {
+          "t": "Introduce your role, highlighting that ECs are not product experts.",
+          "n": "The complement of this rule is the escalation path in EC-06. \"You're not the SME but you can help gather the experts to resolve the issue.\" (Intro to Onboarding deck, slide 10)"
+        },
+        {
+          "t": "Discuss client readiness and targets, and confirm the takeover or closing date."
+        },
+        {
+          "t": "Go through each product ordered, covering deliverables needed, due dates, product dependencies, implementation timelines and forecast dates.",
+          "n": "This is where the dependency workflow becomes client-facing — see EC-ONESITE-01."
+        },
+        {
+          "t": "Check for any missing orders, and set the deliverable due dates in DataHub."
+        },
+        {
+          "t": "If consulting is needed, set expectations on the assignment wait time.",
+          "n": "Add-on deck, slide 8. Consulting Assignment Wait Time is named as a standing Add-On challenge at slide 14."
+        },
+        {
+          "t": "Set the schedule for weekly implementation updates to be sent via email."
+        },
+        {
+          "t": "Answer or note any questions, then close the meeting."
+        },
+        {
+          "t": "Send the recap email within 24 hours after the meeting."
+        }
+      ],
+      "scenario": {
+        "q": "You were assigned a PMC Add-On three business days ago. You sent the Sales Prep Questionnaire on day one and the Sales Rep has not replied, so you still cannot confirm the property count. What do you do about the intro email?",
+        "opts": [
+          {
+            "t": "Send the intro email now, copying the assigned Sales Rep, and flag the unanswered questionnaire to your leader and the Sales Rep as a readiness gap.",
+            "verdict": "best",
+            "fb": "This keeps both SOP obligations intact at once. The intro email has a 1–3 business day SLA, and flagging gaps to your leader, Sales Rep and/or CSM is itself a listed intake step — not something you do only after the deadline slips.",
+            "src": "EC SOP v3, §9.2 (SLA 1-3 business days; always copy assigned Sales Rep) and §9.1 (flag gaps, missing information, or readiness risks to leader, Sales Rep and/or CSM)"
+          },
+          {
+            "t": "Send the intro email now with the Sales Rep copied, and keep chasing the questionnaire yourself without raising it.",
+            "verdict": "ok",
+            "fb": "The SLA and the copy rule are both met, so the client is not left waiting. What is missing is the escalation: §9.1 treats a readiness gap as something to surface, and an unanswered Sales Prep Questionnaire on day three is one.",
+            "src": "EC SOP v3, §9.1 (flag gaps, missing information, or readiness risks) and §9.2 (always copy assigned Sales Rep)"
+          },
+          {
+            "t": "Hold the intro email until the Sales Prep Questionnaire comes back, so your first contact with the client is fully informed.",
+            "verdict": "poor",
+            "fb": "This breaches the intro email SLA of 1–3 business days from assignment. The SOP does not make the intro email conditional on the questionnaire; low client responsiveness and delayed information are risk indicators to escalate, not reasons to go quiet.",
+            "src": "EC SOP v3, §9.2 (SLA 1-3 business days from assignment) and §9.5 (common risk indicators)"
+          }
+        ]
+      },
+      "next": "EC-04, because the due dates you just agreed on the kickoff call are the ones you now have to track in DataHub and the Project Tracker."
+    },
+    {
+      "id": "EC-04",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "data",
+      "day": 4,
+      "delivery": "live",
+      "owner": "<TODO: module owner name>",
+      "source": "EC SOP v3, §9.4 Project Tracking & Documentation; SOP Review1 deck, slide 17; Add-on Projects and Processes Review deck, slide 9",
+      "review": "drafted — awaiting SME review",
+      "practice": null,
+      "title": "Data Collection, DataHub & Project Tracking",
+      "objective": "I can keep a project's record accurate enough that anyone picking it up cold knows where it stands.",
+      "sla": "Meeting notes and recaps sent to the client via email within 24 hours.",
+      "steps": [
+        {
+          "t": "Keep the Project Tracker organized and up to date."
+        },
+        {
+          "t": "Document and update as information becomes known or changes: assigned SC; deliverables due date; deliverables accepted date; forecasted go-live date; key decisions (for example ON HOLD, CANCELLED); action items; client dependencies.",
+          "n": "These seven fields are the SOP's list, not a summary of it. Key decisions and client dependencies are the two most often left blank."
+        },
+        {
+          "t": "Add due dates in DataHub based on the timelines agreed with the client.",
+          "n": "Add-on deck, slide 9."
+        },
+        {
+          "t": "Align with Solution Consultants on deliverables and timelines: provide client target dates, update on deliverable status, monitor progress, and follow up.",
+          "n": "Add-on deck, slide 9 states the follow-up expectation three times over: \"Follow up... Follow up.. Follow up..\""
+        },
+        {
+          "t": "Monitor deliverables completion. Most products collect through DataHub; a few do not.",
+          "n": "G5 Website uses Onboarder rather than DataHub. (Add-on deck, slide 11)"
+        },
+        {
+          "t": "Monitor order status in Salesforce: implementation comments, backlog reason, implementation items, and activation emails.",
+          "n": "Add-on deck, slide 11."
+        },
+        {
+          "t": "Ensure meetings are recorded and that meeting notes and recaps are sent to the client via email within 24 hours."
+        }
+      ],
+      "scenario": null,
+      "next": "EC-05, because tracked dates are only useful if the weekly update and the SC's calendar actually reflect them."
+    },
+    {
+      "id": "EC-05",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "scheduling",
+      "day": 3,
+      "delivery": "live",
+      "owner": "<TODO: module owner name>",
+      "source": "EC SOP v3, §9.2 Scheduling & Coordination (ongoing) and §9.3 Client Communication; SOP Review1 deck, slides 14-16",
+      "review": "drafted — awaiting SME review",
+      "practice": "decision",
+      "title": "Scheduling Implementations & Weekly Cadence",
+      "objective": "I can hold a schedule together across a client and several internal teams without over-promising a date I do not control.",
+      "sla": "Acknowledge client emails within 24 hours.",
+      "steps": [
+        {
+          "t": "Confirm the client's timing needs — go-live and readiness."
+        },
+        {
+          "t": "Affirm deliverable due dates to align with the client's requested go-lives, ensuring dependency alignment."
+        },
+        {
+          "t": "Confirm proposed timing with the SCs and Scheduling, then update the trackers based on confirmed dates."
+        },
+        {
+          "t": "Send weekly updates, mainly by email, using the PMC Weekly Update Template. Set up weekly calls if needed."
+        },
+        {
+          "t": "Monitor deliverables submission and changes in timing. Notify internal teams, update the project plan, and re-set client expectations on the impact of missed timelines or targets."
+        },
+        {
+          "t": "Respond to emails and inquiries, looping in the appropriate subject-matter experts as necessary.",
+          "n": "The source states this SLA two ways: §9.2 gives 24 hours to acknowledge, while §9.3 says respond or acknowledge within 1 business day. <TODO: confirm with SME which governs.>"
+        },
+        {
+          "t": "Before offering times to a client, coordinate the availability of any SC or RealPage stakeholder who must attend. As a best practice, place 2–3 tentative holds on their calendar and confirm alignment in advance.",
+          "n": "§9.3 states the rule flatly: confirm SC availability before providing schedule options to the clients."
+        },
+        {
+          "t": "Send calendar invites with a subject line naming the purpose of the call (for example \"PMC – RealPage | Payments Kick Off\"), a clear agenda, dial-in or Teams links, and all required attendees.",
+          "n": "The agenda can be general if the invite goes out well in advance, but must be refined or updated 24 hours before the call. Client name replaced with the placeholder PMC."
+        },
+        {
+          "t": "Identify the client's training needs and provide recommended training options and resources, with help from the implementation teams and SCs."
+        }
+      ],
+      "scenario": {
+        "q": "A client asks for a Payments configuration walkthrough. The assigned Solution Consultant has to be on that call. What do you do first?",
+        "opts": [
+          {
+            "t": "Coordinate the SC's availability first, place 2–3 tentative holds on their calendar, confirm alignment with them, and only then offer times to the client.",
+            "verdict": "best",
+            "fb": "This is the documented best practice, and the holds are the part that makes it work — they stop the SC's slot being taken while you wait for the client to pick.",
+            "src": "EC SOP v3, §9.2 (place 2–3 tentative holds and confirm alignment in advance prior to finalizing) and §9.3 (confirm SC availability before providing schedule options to the clients)"
+          },
+          {
+            "t": "Message the SC on Teams for their availability, then pass those times to the client as soon as the SC replies.",
+            "verdict": "ok",
+            "fb": "The order is right — the SC is consulted before the client sees options. What you lose is the safeguard: with no holds placed, the SC's availability can be booked out between their reply and the client's answer, and you are back to rescheduling.",
+            "src": "EC SOP v3, §9.2 (as a best practice, place 2–3 tentative holds on their calendar)"
+          },
+          {
+            "t": "Offer the client three times that are free on your own calendar, then ask the SC to make one of them work.",
+            "verdict": "poor",
+            "fb": "This inverts the documented order and sets an expectation you cannot keep. Repeated rescheduling is itself a named risk indicator in §9.5, so this is the move that manufactures the risk you are meant to be watching for.",
+            "src": "EC SOP v3, §9.3 (confirm SC availability before providing schedule options to the clients) and §9.5 (repeated rescheduling)"
+          }
+        ]
+      },
+      "next": "EC-06, because the schedule you are holding together is exactly what starts to slip when a risk goes unescalated."
+    },
+    {
+      "id": "EC-06",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "escalation",
+      "day": 7,
+      "delivery": "live",
+      "owner": "<TODO: module owner name>",
+      "source": "EC SOP v3, §9.5 Risk & Issue Escalation and §9.3 (Escalation Rule); SOP Review1 deck, slide 18; Add-on Projects and Processes Review deck, slide 12",
+      "review": "drafted — awaiting SME review",
+      "practice": "decision",
+      "title": "Issues, Questions & Escalations",
+      "objective": "I can tell the difference between a question I should route and a risk I must escalate, and I know who gets copied on each.",
+      "steps": [
+        {
+          "t": "Watch for the six common risk indicators: delayed client data or prerequisites; repeated rescheduling; low client responsiveness; confusion around scope or deliverables; delayed consulting assignment; delayed handoff and implementation.",
+          "n": "These six are the SOP's list. Five of them are things you notice rather than things you are told."
+        },
+        {
+          "t": "Document the issue clearly."
+        },
+        {
+          "t": "Notify the team lead with impact and context.",
+          "n": "Impact and context, not just the fact. Add-on deck, slide 12: notify your manager right away about any client escalation or possible client escalation."
+        },
+        {
+          "t": "Track the resolution status until closed, in the EC Action Item Tracker."
+        },
+        {
+          "t": "Apply the escalation rule: scope, timeline, or delivery concerns must be sent to the team leader, copying Sales and the CSM.",
+          "n": "EC SOP v3, §9.3. This is the one routing rule in the SOP with a named copy list."
+        },
+        {
+          "t": "Route product-related questions and post-go-live issues to the assigned SC, scheduling calls if needed.",
+          "n": "Add-on deck, slide 12. ECs are not product experts (§9.2) — \"stay within your swimlane\" and help gather the experts instead. (Intro to Onboarding deck, slide 10)"
+        },
+        {
+          "t": "Follow the proper escalation path if the SC is unresponsive or cannot meet the agreed go-live date.",
+          "n": "Add-on deck, slide 12. <TODO: extract the proper escalation path for an unresponsive SC — the deck names it but does not lay it out, and the SOP's escalation rule covers scope, timeline and delivery concerns rather than internal non-response.>"
+        }
+      ],
+      "scenario": {
+        "q": "A client emails you one message containing two things: a question about how a Payments setting should be configured, and a warning that their deliverables will be late so the go-live will slip. What do you do?",
+        "opts": [
+          {
+            "t": "Acknowledge the email within 24 hours, route the Payments configuration question to the assigned SC, and escalate the timeline slip to your team leader copying Sales and the CSM.",
+            "verdict": "best",
+            "fb": "The email contains two different things and they go to two different places. The configuration question belongs to the SC because ECs are not product experts; the timeline slip is a timeline concern, which the escalation rule routes to your team leader with Sales and the CSM copied.",
+            "src": "EC SOP v3, §9.3 (Escalation Rule: scope, timeline, or delivery concerns must be sent to team leader copying Sales and CSM), §9.2 (acknowledge client emails: 24 hours; EC introduction highlighting that we are not product experts)"
+          },
+          {
+            "t": "Acknowledge, send the Payments question to the SC, update the forecasted go-live in the Project Tracker, and raise the slip with your leader at your next 1:1.",
+            "verdict": "ok",
+            "fb": "The routing and the tracker update are both right, and nothing here is wrong on its own. The gap is timing: a delayed go-live is a timeline concern under the escalation rule, and waiting for the next 1:1 delays the notification that Sales and the CSM are meant to receive with it.",
+            "src": "EC SOP v3, §9.3 (Escalation Rule) and §9.4 (document forecasted go-live date and client dependencies)"
+          },
+          {
+            "t": "Answer the Payments configuration question yourself from what you learned in training, and reschedule the go-live to a date that gives the client more room.",
+            "verdict": "poor",
+            "fb": "Both halves step outside the role. The EC introduction explicitly sets the expectation that ECs are not product experts, and moving a go-live date is a timeline decision that the escalation rule sends to the team leader — it is not yours to re-set alone.",
+            "src": "EC SOP v3, §9.2 (EC introduction highlighting role and that we are not product experts) and §9.3 (Escalation Rule); Intro to Onboarding deck, slide 10 (stay within your swimlane)"
+          }
+        ]
+      },
+      "next": "EC-07, because engagements that were escalated cleanly are the ones that can be closed cleanly."
+    },
+    {
+      "id": "EC-07",
+      "role": "EC",
+      "type": "add-on",
+      "product": "any",
+      "stage": "eoe",
+      "day": 7,
+      "delivery": "self",
+      "owner": "<TODO: module owner name>",
+      "source": "EC SOP v3, §9.7 End of Engagement; SOP Review1 deck, slide 20; Add-on Projects and Processes Review deck, slide 13",
+      "review": "drafted — awaiting SME review",
+      "practice": null,
+      "title": "End of Engagement",
+      "objective": "I can close an engagement without leaving a pending order or an unanswered client behind me.",
+      "sla": "Notify the client 2 weeks prior to the estimated End of Engagement date.",
+      "steps": [
+        {
+          "t": "Start signalling your impending end of engagement to the client about half-way through the project.",
+          "n": "Add-on deck, slide 13. The 2-week notice is the formal step; the half-way signal is what stops it being a surprise."
+        },
+        {
+          "t": "Notify the client of the upcoming end of engagement 2 weeks prior to the estimated EoE date, including the Sales Rep and the CSM."
+        },
+        {
+          "t": "Give a summary of what is still pending, and ask about upcoming properties.",
+          "n": "Add-on deck, slide 13."
+        },
+        {
+          "t": "Notify the SCs and the Sales Rep of the upcoming EoE."
+        },
+        {
+          "t": "Confirm all pending orders are completed or accounted for."
+        },
+        {
+          "t": "Send the End of Engagement email, including any pending products with their assigned SC or point of contact, using the End of Engagement Resources."
+        },
+        {
+          "t": "Log all challenges, issues encountered and accomplishments in the EC Lessons Learned file."
+        }
+      ],
+      "scenario": null,
+      "next": "EC-01, because the lessons-learned entry you just wrote is what makes the next intake faster."
+    },
+    {
+      "id": "EC-ONESITE-01",
+      "role": "EC",
+      "type": "add-on",
+      "product": "onesite",
+      "stage": "scheduling",
+      "day": 9,
+      "delivery": "live",
+      "owner": "<TODO: module owner name>",
+      "source": "Product Dependency Workflow (EC Training Module), Core Principle through Phase 5; Product Dependency Workflow deck, slides 2-8; All about Leasing and Rents deck, slides 10-11; Project Planning Process deck, slides 1-3",
+      "review": "drafted — awaiting SME review",
+      "practice": "guardrail",
+      "title": "Sequencing OneSite-Dependent Go-Lives",
+      "objective": "I can build a go-live sequence from the dependencies rather than from the dates the client would prefer, and I can say why each product sits where it does.",
+      "steps": [
+        {
+          "t": "Start from the core principle: OneSite Leasing & Rents is the core product and the primary dependency for most products. Some products may be set up early, but activation may depend on OneSite or another product being live."
+        },
+        {
+          "t": "Separate setup from activation. Ask both questions for every product: \"Can we set it up now?\" and \"What must be live before we activate it?\"",
+          "n": "Product Dependency Workflow deck, slide 2. The three phases are Prepare, Activate, Integrate."
+        },
+        {
+          "t": "Use the early window for parallel work: Accounting Entity, Payments setup, Knock, Website setup, Contact Center Answer Automation and eSupply can all move while the OneSite timeline is still being finalized.",
+          "n": "Key watch-out from slide 3: early setup does not automatically mean early activation."
+        },
+        {
+          "t": "Schedule the OneSite go-live cluster together: ODEs and SDEs, Facilities, Maintenance Management and Screening go live with OneSite."
+        },
+        {
+          "t": "Before scheduling Screening, identify a property whose screening scoring model can be mirrored.",
+          "n": "This is a client-side readiness gate, not a product dependency — it can block a go-live that otherwise looks ready. (Product Dependency Workflow deck, slide 4)"
+        },
+        {
+          "t": "Follow the Payments path in order: Payments setup may begin early; OneSite must go live; Payments can be activated; Loft Leasing can go live after Payments is activated.",
+          "n": "Loft Living requires OneSite and may go live before Payments — but residents cannot pay online until Payments is activated."
+        },
+        {
+          "t": "Schedule Loft Loyalty and Loft Moving three to five days after Loft Living, provided Payments is activated."
+        },
+        {
+          "t": "Hold Business Intelligence and Performance Analytics setup until both gates are met: OneSite live, and the property date current.",
+          "n": "Product Dependency Workflow deck, slide 7: setup cannot start before both gates are met."
+        },
+        {
+          "t": "Leave the final G5 Website integration until OneSite, Loft Living, Loft Leasing and Knock are all live."
+        },
+        {
+          "t": "Determine the real OneSite go-live date before scheduling any ancillary product.",
+          "n": "For a self-start conversion, ask the client to notify you once they have completed their conversion — that is your OneSite go-live date. The ICD date in Salesforce is only the date the self-start email was sent. (All about Leasing and Rents deck, slide 10)"
+        },
+        {
+          "t": "Walk the Coordinator Validation Checklist before confirming an implementation or go-live date.",
+          "n": "All ten questions are in the Dependency Planner view of this artifact, computed against the products actually on the order."
+        }
+      ],
+      "scenario": {
+        "q": "A PMC Add-On order includes OneSite (self-start conversion), Screening and Loft Leasing. Salesforce shows an ICD date of the 3rd. The client asks you to confirm the full go-live schedule today. What do you do?",
+        "opts": [
+          {
+            "t": "Do not use the ICD date. Ask the client to tell you when their self-start conversion is complete — that is the OneSite go-live — and before scheduling Screening, confirm the property whose scoring model will be mirrored.",
+            "verdict": "best",
+            "fb": "Both gates in this order are client-side, and neither is visible in Salesforce. The ICD date is only when the self-start email went out, and Screening cannot be scheduled until a mirror property is identified. Confirming a full schedule today would mean committing to dates that depend on two things the client has not yet given you.",
+            "src": "All about Leasing and Rents deck, slide 10 (REMINDER: DO NOT use the ICD date as your OneSite go live date; if applicable provide property to mirror – for screening orders); Product Dependency Workflow deck, slide 4 (Screening readiness gate)"
+          },
+          {
+            "t": "Tell the client the ICD date is not the go-live date and ask them to confirm when conversion completes, then schedule Screening alongside OneSite on the strength of the dependency table.",
+            "verdict": "ok",
+            "fb": "You avoided the ICD trap, which is the bigger of the two errors. But Screening goes live with OneSite only once a property has been identified to mirror the scoring model. Scheduling it from the dependency table alone skips a readiness gate that the checklist asks about directly.",
+            "src": "Product Dependency Workflow (EC Training Module), Coordinator Validation Checklist (\"Has the property for mirroring the Screening scoring model been identified?\") and Phase 2"
+          },
+          {
+            "t": "Use the ICD date of the 3rd as the OneSite go-live, then sequence Screening with it and Loft Leasing after Payments, and send the client the confirmed schedule.",
+            "verdict": "poor",
+            "fb": "The dependency ordering is correct, which is what makes this tempting — but it is built on the wrong anchor date. The source is explicit that the ICD date is not the OneSite go-live for a self-start, so every downstream date inherits the error, and you have now confirmed them to the client.",
+            "src": "All about Leasing and Rents deck, slide 10 (ICD date in Salesforce is based on when the self-start email was sent; REMINDER: DO NOT use the ICD date as your OneSite go live date)"
+          }
+        ]
+      },
+      "next": "EC-RUM-01, because RUM/RUSM is usually the last product to be implemented and has a deliverable clock of its own."
+    },
+    {
+      "id": "EC-RUM-01",
+      "role": "EC",
+      "type": "add-on",
+      "product": "rum",
+      "stage": "data",
+      "day": 10,
+      "delivery": "self",
+      "owner": "<TODO: module owner name>",
+      "source": "RUM Onboarding deck, slides 3-9; Project Planning Process deck, slide 3",
+      "review": "drafted — awaiting SME review",
+      "practice": null,
+      "title": "RUM / RUSM Deliverables & Timeline",
+      "objective": "I can tell a client exactly which utility deliverables they owe, and work back from the 15th to a realistic first-bill date.",
+      "sla": "Deliverables are due the 15th of the current month, or the 15th of the following month if past that.",
+      "steps": [
+        {
+          "t": "Know what the acronym now is: RUM is RealPage Utility Management, now called RUSM — RealPage Utility and Sustainability Management.",
+          "n": "The source set uses RUM and RUSM interchangeably. Expect both in client and internal threads."
+        },
+        {
+          "t": "Know the three components: Resident Billing (RB, bill back), Utility Expense Management (UEM, bill pay), and Vacant Cost Recovery (VCR)."
+        },
+        {
+          "t": "For Resident Billing, collect: DataHub Questionnaire; Lease with Utilities Addendum; the utility bills the client wants to bill back; and supporting information — submeter information for SUBS, or the amount for RUBS."
+        },
+        {
+          "t": "For Utility Expense Management, collect: DataHub Questionnaire; the utility bills the client wants RealPage to pay; the Recurring Debit Authorization Form (RDAF); and a Letter of Authorization on company letterhead."
+        },
+        {
+          "t": "For Vacant Cost Recovery, collect: DataHub Questionnaire; Lease with Utilities Addendum; and the utility bills the client wants transferred to the residents' names.",
+          "n": "All three components require the DataHub Questionnaire. (RUM Onboarding deck, slide 3, speaker notes)"
+        },
+        {
+          "t": "Work the timeline backwards from the deliverable due date: deliverables are due the 15th of the current month, or the 15th of the following month if past that. The build month is always a full month following the due month, despite the ICD date. First bills activate the 1st day of the month following the build month."
+        },
+        {
+          "t": "Ask the client the one question that sets the whole clock: \"When will you be able to provide utility bills and a lease with utility addendum?\"",
+          "n": "The answer tells the RUM Onboarding team when to reach out for deliverables. (RUM Onboarding deck, slide 4, speaker notes)"
+        },
+        {
+          "t": "For new construction, check that the utility bills are under the property name and not the construction company."
+        },
+        {
+          "t": "Do not vet the deliverables yourself — the RUM Onboarding team provides status updates.",
+          "n": "RUM Onboarding deck, slide 9. This is the same swimlane boundary as EC-06."
+        },
+        {
+          "t": "Expect RUM/RUSM to be last in the sequence, because transferring ownership of utility accounts takes time.",
+          "n": "<TODO: RUM/RUSM does not appear in the Product Dependency Reference table, and neither dependency document states a OneSite prerequisite for it. Its place in the sequence comes only from the Project Planning Process deck timeline. Confirm the dependency with SME before a learner relies on it.>"
+        },
+        {
+          "t": "<TODO: the training calendar lists \"RUM Onboarding with Manny\" under Additional Onboarding Recordings rather than as a numbered training day. Confirm where this module belongs in the 10-day agenda.>",
+          "n": "Day 10 is this module's working placement, not a value stated in the source."
+        }
+      ],
+      "scenario": null,
+      "next": "EC-04, because RUM/RUSM deliverables are tracked in DataHub like every other product's."
     }
   ]
 }

@@ -1,0 +1,99 @@
+Source: Onboarding Training Agenda_Calendar for EC Role V2.xlsx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Sheet: Agenda ===
+B:Training Agenda
+B:WEEK 1 — Foundations, Tools & Core Processes
+B:Day 1 — Role Orientation & Overview
+B:Day 2 — Orders Review & Kick Off
+B:Day 3 — Project Planning & Weekly Tasks
+B:Day 4 — DataHub and Deliverables Management
+B:Day 5 — Internal Workflows & Tools
+B:WEEK 2 — Weekly Routines, Reporting, Coordination & Execution
+B:Day 6 — All About Salesforce
+B:Day 7 — Handling Issues and Escalations + End of Engagement
+B:Day 8 — Add-on Process Review
+B:Day 9 — Intro to Front Office and G5
+B:Day 10 — Intro to Back office and Graduation
+
+=== Sheet: Calendar (Bekah) ===
+B:WEEK 1 — Foundations, Tools & Core Processes
+B:Sessions | C:MONDAY | D:TUESDAY | E:WEDNESDAY | F:THURSDAY | G:FRIDAY | H:NOTES/REMARKS
+C:Day 1 — Role Orientation & Overview | D:Day 2 — Orders Review and Kickoff | E:Day 3 — Project Planning & Weekly Tasks | F:Day 4 — DataHub and Deliverables Management | G:Day 5 — Internal Workflows & Tools | H:When not in Training: • Industry Primer Webinars (Teams map: EM Processes and Playbook → EM Onboarding Material → Industry Primer Webinars) • RealPage University Learning • Shadow EM (Daily Adhoc Tasks)
+C:EC Intro to Onboarding - Role responsibilities & internal-only workflow | D:Orders Review and Sales Prep Questionnaire (Recording) | E:Project Planning Process + Project Tracker Introduction | F:DataHub workflows (Recording) | G:RP Teams and How we Interact
+C:EC SOP Review | D:KO Email/Call + Follow Up | E:Weekly EC Tasks (Project and Internal) | F:Client <> EC <> SC Follow ups Deliverables due dates, follow ups. Identifying and Handling Delays | G:Tools for the Job (Recording)
+B:WEEK 2 — Weekly Routines, Reporting & Execution
+B:Sessions | C:MONDAY | D:TUESDAY | E:WEDNESDAY | F:THURSDAY | G:FRIDAY | H:NOTES/REMARKS
+C:Day 6 — All about Salesforce | D:Day 7 — End of Engagement Add-on Process Review | E:Day 8 — All About Conversions | F:Day 9 — Intro to RPA + Front Office + G5 | G:Day 10 — Intro to Backoffice + Graduation | H:Additional: Payments and Insurance with Ann RUM Onboarding with Manny
+C:Salesforce Training | D:End of Engagement (Recording) | E:Leasing and Rents Conversion | F:Product Dependencies Workflow | G:Intro to Back Office (Recording)
+C:Backlog Report Tips and Tricks + Backlog management & cleanup (Recording) | D:Add-on Projects and Processes Review (Recording) | E:Data Migrations and Takeovers (Recording) | F:Intro to Front Office + Intro to G5 (Recording) | G:Graduation
+C:Additional Onboarding Recordings
+C:EM Onboarding Intro to G5.mp4
+C:Payments With Ann
+C:Insurance with Ann
+C:RUMOnboarding with Manny
+
+=== Sheet: Calendar ===
+B:WEEK 1 — Foundations, Tools & Core Processes
+B:Sessions | C:MONDAY | D:TUESDAY | E:WEDNESDAY | F:THURSDAY | G:FRIDAY | H:NOTES/REMARKS
+C:Day 1 — Role Orientation & Overview | D:Day 2 — Orders Review and Kickoff | E:Day 3 — Project Planning & Weekly Tasks | F:Day 4 — DataHub and Deliverables Management | G:Day 5 — Internal Workflows & Tools | H:When not in Training: • Industry Primer Webinars (Teams map: EM Processes and Playbook → EM Onboarding Material → Industry Primer Webinars) • RealPage University Learning • Shadow EM (Daily Adhoc Tasks)
+C:EC Intro to Onboarding - Role responsibilities & internal-only workflow | D:Orders Review and Sales Prep Questionnaire | E:Project Planning Process + Project Tracker Introduction | F:DataHub workflows | G:Handling product specific inquiries Setting up SC/Client calls Handling Escalations
+C:EC SOP Review | D:KO Email/Call + Follow Up | E:Weekly EC Tasks (Project and Internal) | F:Client <> EC <> SC Follow ups Deliverables due dates, follow ups. Identifying and Handling Delays
+B:WEEK 2 — Weekly Routines, Reporting & Execution
+B:Sessions | C:MONDAY | D:TUESDAY | E:WEDNESDAY | F:THURSDAY | G:FRIDAY | H:NOTES/REMARKS
+C:Day 6 — All about Salesforce | D:Day 7 — End of Engagement Add-on Process Review | E:Day 8 — All About Conversions | F:Day 9 — Intro to RPA + Front Office + G5 | G:Day 10 — Intro to Backoffice + Graduation | H:Additional: Payments and Insurance with Ann RUM Onboarding with Manny
+C:Salesforce Training | D:End of Engagement (Recording) | E:Leasing and Rents Conversion | F:Accounting Setup Orders + Accounting Data Migrations | G:Intro to Back Office (Recording)
+C:Backlog Report Tips and Tricks + Backlog management & cleanup (Recording) | D:Add-on Projects and Processes Review | E:Data Migrations and Takeovers (Recording) | F:Intro to Front Office + Intro to G5 (Recording) | G:Graduation
+F:EM Onboarding Intro to G5.mp4
+F:Payments With Ann
+F:Insurance with Ann
+F:RUMOnboarding with Manny
+
+=== Sheet: Checklist ===
+B:Onboarding Checklist:
+B:Tools | C:Ticket Justification | D:Status
+B:MS Teams | D:0
+B:Outlook | D:0
+B:EM SharePoint Access | D:0
+B:Training Calendar | D:0
+B:Salesforce Access | C:Needed to update EM Orders Forecast date and Backlog Status, track client/PMC orders, and have visibility on product/order/implementation statuses, reports, and PMC portfolios. | D:0
+B:New Hire Direct Line | C:Allows clients to reach us/EMs directly in case of urgent or real-time concerns. | D:0
+B:OMS | D:0
+B:Unified Platform | C:Admin access is required to enable and manage implementation questionnaires, track completion, and address issues related to deliverables. | D:0
+B:Datahub | D:0
+B:Dayforce (payroll) | D:0
+B:RP Branding (Outlook Signature) | D:0
+B:RealPage University | D:0
+B:UKG Access | D:0
+B:Snagit | C:Used to annotate screenshots for clearer documentation, support, and communication. | D:0
+B:Smartsheet | D:0
+B:RealPage University Courses
+B:O.S.H. Compliance Training | D:0
+B:Info Sec Awareness Compliance Training | D:0
+B:RP Antitrust Compliance Training | D:0
+B:Anti Harassment Compliance Training | D:0
+B:Meeting Recording & Transcription | D:0
+
+=== Sheet: Onboarding Links ===
+B:Onboarding Links
+B:EM Playbook Review Part 1
+B:EM Playbook Review Part 2
+B:Orders Review
+B:Project Tracker, SS Toolkit, Dashboard
+B:Unified Platform, Sharepoint, DataHub
+B:Kick-off Call Follow Up
+B:Add-on Projects and Processes
+B:Salesforce Training
+B:Intro to G5
+B:Tools for the Job
+B:End of Engagement
+B:Weekly Project Management Tasks
+B:Internal Weekly Tasks
+B:Orders Review
+B:Orders Review (Cont'd)
+B:RealPage Teams and How We Interact
+B:Internal Sales Prep
+B:Intro to Back Office
+B:All Things Screening

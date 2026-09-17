@@ -1,0 +1,228 @@
+Source: PH EC - All about Leasing and Rents.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+All About Leasing and Rents
+
+=== Slide 2 ===
+Agenda
+OneSite
+Self-Start Conversion
+RO Assisted Conversion
+Conversion Scheduling Weeks
+Different Conversion Types
+Conversion Timelines
+[Speaker notes]
+High-level; no more than 30 seconds!
+
+=== Slide 3 ===
+ONESITE
+PROPERTY MANAGEMENT SOFTWARE
+®
+This software simplifies the entire management process, giving clients the confidence on their business policies being integrated into daily workflows across their properties.
+OneSite Affordable
+Rent Stabilization
+Senior Living
+Student Living
+manages the entire renter lifecycle, simply and seamlessly, from the moment they enter the system as prospects until the day they move out.
+Seamlessly stay in compliance with HUD, Tax Credits, Rural Housing regulations and the 50058 Public Housing program.
+Manage and automate the renter lifecycle for properties under Rent regulation laws (New York)
+integrates and automates every functionality to make the most of clients’ senior living property assets
+Simplifying renter services for students with the ability to manage their living experience 24-hours a day on this platform
+OneSite Leasing and Rents
+[Speaker notes]
+This is an example of the conversion and go live timeline. The prior slide was intended to give a macro view on how all products are onboarding. This slide is a zoomed in view on the actual go live month. The site(s) will go into conversion on a Monday and they will be delivered back to you the following Wednesday. During the conversion period, the site staff will need to track activity manually. They will not have access to a property management system or any other functions that previously lived within your prop mgmt system, such as Screening. No data such as payments, move-ins/outs, or background checks should be done in your old system during the dark period. . Your site staff will begin catch up work once the conversion is complete and the site is delivered back you. And we will "go live" will all products in Phase 1 from prior slide, the following day.
+**If the property is a COMBO property (ex. HUD/Tax combo), they will have an extra week of conversions, so that property wouldn't come out of conversion until the following Wednesday (22nd in the example above)
+*If we happen to know the true conversion dates, update the calendar to reflect those specific dates.*
+19
+
+=== Slide 4 ===
+[Speaker notes]
+20
+
+=== Slide 5 ===
+
+=== Slide 6 ===
+
+=== Slide 7 ===
+
+=== Slide 8 ===
+
+=== Slide 9 ===
+Self-Start Conversion
+
+=== Slide 10 ===
+Self-Start Conversion
+Clients will do the conversion themselves
+EC to ask clients when they would like to receive the self-start email
+EC to reach out to Scheduling team to schedule self-start
+If applicable provide property to mirror – for screening orders
+Conversion Support conversions@realpage.com
+Client dependent Timelines
+EC to ask for client’s target go live
+ICD date in Salesforce is based on when the self-start email was sent
+REMINDER: DO NOT use the ICD date as your OneSite go live date
+Where to check OneSite go live:
+Engagement Management Self Starts
+Digital Dashboard
+OneSite go live date on any SF Order (Order details)
+
+=== Slide 11 ===
+Standard Data/+Upgraded Conversion
+RP will do the conversion
+Reach out to scheduling for available conversion schedules
+Conversion Scheduling Weeks in Salesforce
+Limited slots per schedule
+Special reminders on some schedules
+Realpage.Migrations RealpageMigrations2@RealPage.com
+Determine assigned Implementation Analyst
+Deliverables in DataHub
+Close coordination is crucial as delays in submitting and validating deliverables may result to upto 2 weeks delay in completion
+Remind clients that they should be available to respond to inquiries from the Migrations team
+Starts on a Monday and usually takes 8 business days to complete
+Day 1-3 Data Validation
+Day 4-8 Conversion
+
+=== Slide 12 ===
+
+=== Slide 13 ===
+
+=== Slide 14 ===
+
+=== Slide 15 ===
+
+=== Slide 16 ===
+Conversion Types
+Conventional
+Affordable
+Tax Credit
+Combo (Aff + TC)
+Self-Start
+Standard Data Conversion
+Conversion Upgrade
+OneSite Transfer
+OneSite Transfer with Retrofit
+OneSite Conversion
+Standard Data Conversion
+OneSite Transfer
+OneSite Transfer with Retrofit
+OneSite Conversion
+Self-Start (Conv) + TC Layering
+Standard Data Conversion + TC Layering
+Standard + Upgrade + TC Layering
+TIC Entry Services*
+Standard Data Conversion + TC Layering
+OS Transfer
+OS Transfer with Retrofit
+OneSite Conversion
+** New Business Model will require consulting orders **
+
+=== Slide 17 ===
+Conversion/Transfer
+Self-Start
+Standard Data Conversion
+Conversion Upgrade
+OneSite Transfer
+Client
+RP Utility Tool
+Conversion Support
+Screening Scoring Model
+Go live depends on client
+SF ICD is the date we sent the self-start email
+RealPage Migrations
+DataHub + Data Source File
+Scheduled
+Typically 8 business days but depends on deliverables submission
+RealPage Migrations
+Should always be sold with Standard Data Conversion
+Scheduled****
+Cannot be used for HUD
+DSF not needed
+DataHub + Reports
+Copy and Paste from exiting PMC
+Debbie Estes or Staci Yancy
+Done in a day
+Needs Cancellation Effective Date
+
+=== Slide 18 ===
+Conversion/Transfer
+OneSite Transfer with Retrofit or Full Retrofit
+OneSite Conversion
+Tax Credit Layering
+TIC Entry
+Copy and Paste + map to Business Model
+Debbie Estes or Staci Yancy
+1 day transfer + 5 business days Retrofit
+Needs Cancellation Effective Date
+Hands off until retrofit is completed
+Beginning Balances, Demographics, Unit setup and floorplan info
+RealPage Migrations
+Debbie and Staci
+Data Source File***
+Typically 8 business days but can be shorter
+Needs cancellation eff date
+RealPage Migrations
+Self-start/RP Assisted
+Scheduled
+DataHub + TC Workbook
+If Self-start –SS must be completed before TC Schedule
+If RP Assisted – can be scheduled at the same time or separately
+Separate – recommend to be done mid-month (dark period)
+Should be scheduled 2 weeks before TC Layering
+Most recent certification for all occupied/qualified units.
+TC Workbook completed (General - Unit List tabs).
+Any Demographic reports/documents for the property (if not in TIC).
+
+=== Slide 19 ===
+GO-LIVE PLANNING
+SUNDAY
+MONDAY
+TUESDAY
+WEDNESDAY
+THURSDAY
+FRIDAY
+SATURDAY
+28
+5
+12
+19
+26
+29
+6
+13
+20
+27
+30
+7
+14
+21
+28
+1
+8
+15
+22
+29
+2
+9
+16
+23
+30
+3
+10
+17
+24
+31
+4
+11
+18
+25
+1
+Property Management Conversion Period
+Property Management Conversion Period
+Start Catch-up Work
+Go Live with Phase 1 Products
+
+=== Slide 20 ===
+Thank You

@@ -1,0 +1,86 @@
+Source: PH EC - RUM Onboarding.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+RUM
+FOR ENGAGEMENT MANAGERS AND
+ENGAGEMENT COORDINATORS
+[Speaker notes]
+It’s important that our solutions paint a picture in your mind that allows you to develop a framework that work as one with the clients.
+RealPage tie all our services together beautifully begins with OneSite. This is the software where they manage their resident records with move-ins, move-outs, annual recertifications, evictions, etc.
+After OneSite, We have resident portals. These are commonly known as LOFT Living, LOFT Leasing and Online Renewals. Now, in these portals, residents need to make Payments. To make this possible, we are implementing RealPage Payments. Payments and these resident portals become a powerful tool for the clients to make it convenient for them to collect rent and utility payments.
+One of the group of solutions that our clients are interested in are the Utility Management Services also known as RUM or RUSM.
+2
+
+=== Slide 2 ===
+What is RealPage?
+RP is a software company providing solutions for the real estate landscape.
+What are RP services that work together as a healthy ecosystem of solutions that solve property management company problems?
+[Speaker notes]
+There are three main solutions in the RUM group:
+Resident Billing – we simply divide the large client bill to bill the residents back.
+For example, water will be billed back in two most convenient methods.
+One is SUBS or submetered utility billing system. The client has to have a submetered system installed and ofcourse we have to be able to read these submeters. In the deliverables portion I will tell you what the client needs to provide.
+Another is RUBS or ratio utility billing system – like 5 people is 50$ per month. Or 800sq ft of apartment is 40$ of water bill.
+Utility Expense Management also called as bill pay when implemented allows us to pay all client utility bills enrolled in this solution. There are also clients that want us to just organize their bills for us and they will pay it to the utility providers directly.
+VCR is where we make sure that all utility bills that need a name transfer like electricity commonly is under the name of the resident and doesn’t remain under the name of the property.
+3
+
+=== Slide 3 ===
+What is RUM?
+RealPage Utility Management
+Now called RUSM: RealPage Utility and Sustainability Management.
+We organize the utility bills, collect it from the utility providers and bill the client and residents for their consumptions.
+Resident Billing (RB, bill back)
+Utility Expense Mangement (UEM, bill pay)
+Vacant Cost Recovery (VCR)
+[Speaker notes]
+All of the solutions require DatHub Questionnaire.
+4
+
+=== Slide 4 ===
+DELIVERABLES - RB
+Datahub Questionnaire
+Lease with Utilities Addendum
+Utility Bills clients want to bill back
+Supporting Information
+SUBS: Submeter information
+RUBS: Amount
+[Speaker notes]
+1st question: Asking this allows you to communicate with the RUM Onboarding team when they should reach out to the client to follow up for deliverables.
+8
+
+=== Slide 5 ===
+DELIVERABLES - UEM
+DataHub Questionnaire
+Utility bills clients want RealPage to pay
+Recurring Debit Authorization Form (RDAF)
+Letter of Authorization with company letterhead
+
+=== Slide 6 ===
+DELIVERABLES – VCR
+Datahub Questionnaire
+Lease with Utilities Addendum
+Utility Bills clients want to make sure is transferred to the residents’ name.
+
+=== Slide 7 ===
+IMPLEMENTATION TIMELINE
+WHEN ARE DELIVERABLES DUE?
+Always on the 15th of a current month; if past that, it should be the 15th of the following month.
+WHEN IS THE IMPLEMENTATION/BUILD MONTH?
+Always a full month following the due month despite ICD date.
+WHEN IS THE FIRST BILLS DUE ACTIVATION?
+This is the 1st day of the month following the build month.
+
+=== Slide 8 ===
+AN IMPORTANT QUESTION TO CLIENTS
+When will you be able to provide utility bills and a lease with utility addendum?
+Notes:
+Utility bills should be under the property not the construction company (for new construction)
+
+=== Slide 9 ===
+GOOD NEWS!
+You are not to vet deliverables.
+RUM Onboarding should be able to give you updates.

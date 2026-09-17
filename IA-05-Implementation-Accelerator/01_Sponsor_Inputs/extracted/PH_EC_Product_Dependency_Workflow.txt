@@ -1,0 +1,169 @@
+Source: PH EC - Product Dependency Workflow.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+PH Engagement Coordinator
+Product dependency
+workflow
+How to sequence setup, activation, go-live, and integrations across the product ecosystem.
+OneSite
+the core product
+SET UP EARLY
+ACTIVATE AFTER ONESITE
+Use this workflow to build realistic implementation timelines and avoid sequencing risks.
+Engagement Coordinator Training
+01
+
+=== Slide 2 ===
+01 / THE RULE
+Separate setup from activation
+A product may be prepared early even when its activation depends on another product.
+1
+Prepare
+Configuration, data gathering, and readiness work can begin.
+→
+2
+Activate
+The product becomes usable once its required dependency is live.
+→
+3
+Integrate
+Connect the product to OneSite or other required products.
+Coordinator mindset
+Always ask: “Can we set it up now?” and “What must be live before we activate it?”
+Engagement Coordinator Training
+02
+
+=== Slide 3 ===
+02 / BEFORE ONESITE
+Use the early window for parallel work
+These products can move forward while the OneSite timeline is still being finalized.
+Accounting Entity
+Create anytime → integrate with OneSite
+Payments
+Setup can begin early → activate after OneSite is live
+Knock
+Can go live early → integrate with OneSite later
+Website
+Set up early → complete integrations later
+Contact Center Answer Automation
+Can go live prior to OneSite
+eSupply
+No product dependencies → go live anytime
+Key watch-out: early setup does not automatically mean early activation.
+Engagement Coordinator Training
+03
+
+=== Slide 4 ===
+03 / ONESITE MILESTONE
+OneSite unlocks the main go-live cluster
+Schedule the products below with OneSite and confirm their readiness criteria before launch.
+ODEs + SDEs
+Go live with OneSite
+Facilities
+Go live with OneSite
+Maintenance Management
+Go live with OneSite
+Screening
+Go live with OneSite
+Screening readiness gate
+Identify a property whose screening scoring model can be mirrored before scheduling the go-live.
+Engagement Coordinator Training
+04
+
+=== Slide 5 ===
+04 / PAYMENTS PATH
+Payments can be prepared early—but activation waits for OneSite
+This is the most important sequencing distinction for resident-facing functionality.
+1
+Payments setup
+May begin early
+→
+2
+OneSite live
+Required activation gate
+→
+3
+Payments activated
+Online payment capability enabled
+→
+4
+Loft Leasing live
+Requires activated Payments
+Loft Living note
+Loft Living requires OneSite and may go live before Payments. Residents cannot pay online until Payments is activated.
+Engagement Coordinator Training
+05
+
+=== Slide 6 ===
+05 / POST-ONESITE SEQUENCING
+Once OneSite is live, activate the next layer in order
+Use the dependency, not the preferred date, as the scheduling rule.
+Loft Living
+OneSite
+Online Renewals
+OneSite
+Syndication
+OneSite
+Business Intelligence
+OneSite + current property date
+Performance Analytics
+OneSite + current property date
+After Payments is activated
+•
+Loft Leasing can go live.
+•
+Loft Loyalty and Loft Moving go live 3–5 days after Loft Living.
+•
+The 3–5 day timing still requires Payments to be live.
+Engagement Coordinator Training
+06
+
+=== Slide 7 ===
+06 / INTEGRATIONS AND ANALYTICS
+Finish the timeline with integration gates
+Some products can be live early but are not complete until the required connections are in place.
+Website
+Setup early
+Final integration after all are live:
+•
+OneSite
+•
+Loft Living
+•
+Loft Leasing
+•
+Knock
+BI + Performance Analytics
+Setup begins only when:
+•
+OneSite is live
+•
+The property date is current
+Can not start setup before both gates are met.
+Engagement Coordinator Training
+07
+
+=== Slide 8 ===
+07 / APPLY THE WORKFLOW
+Coordinator checklist
+Use these questions before confirming an implementation or go-live date.
+✓
+What can be set up in parallel before OneSite?
+✓
+Is OneSite live before activating Payments?
+✓
+Has the Screening scoring-model property been identified?
+✓
+Is Payments activated before Loft Leasing?
+✓
+Are Loft Loyalty and Loft Moving scheduled 3–5 days after Loft Living?
+✓
+Is the property date current before BI or Performance Analytics setup?
+✓
+Are all Website integration prerequisites live?
+Outcome: a timeline that is executable, dependency-aware, and clear to the customer and internal teams.
+Engagement Coordinator Training
+08

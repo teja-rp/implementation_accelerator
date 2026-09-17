@@ -1,0 +1,78 @@
+Source: PH EC - Project Planning Process.pptx
+Extracted by: 02_Working/tools/extract-text.js
+(Plain-text extraction. The original in originals/ is authoritative.)
+---
+
+=== Slide 1 ===
+01
+02
+03
+04
+Project Planning Process
+Core Products & Dependencies
+Identify your Core Products and Product Dependencies​
+Client Readiness & Priorities
+Identify what the clients need now vs later​
+Deliverables they have right now or that would take them time to collect​
+Identify Standalones
+Standalones are those that don’t depend on other products​
+*Take note of integrations!​
+Implementation Timelines
+Understand different implementation timelines. Match it with client desired dates so you can set deliverables due dates​
+A
+B
+D
+C
+
+=== Slide 2 ===
+OneSite Leasing & Rents
+Payments
+Payment information flow into OSLR through transaction codes​
+Syndication
+Floor plan information and availabilty are all coming from OneSite​
+Loft Living
+Resident Information (email address, names etc) used are coming fromOneSite​
+Accounting
+All payments collected come intoOneSite and flow to Accounting​
+Note: Acctg entity can be setupprior to OneSite​
+Loft Leasing
+Floor plan information, units and availability are all coming from OneSite​
+Business Intelligence
+All Data used for reporting are coming from Onesite​
+A
+A
+D
+E
+F
+B
+C
+
+=== Slide 3 ===
+Timeline
+Renter Engagement
+Loft Living​
+Loft Leasing​
+Online Renewals​
+Financial Suite
+RP Accounting Entity -can go live prior toOneSite but will needto be integrated withOS once it’s live​
+OneSite Leasing and Rents​
+Core​ Houses all resident and property information​
+Payments
+Collect Resident and Application payments​
+Dependent on OneSite going live​
+Marketing and Lead Management​
+Knock**​
+G5 Website**​
+Contact Center**​
+Syndication​
+Reporting Revenue Management
+Needs OS live andproperty date set to current​
+A
+B
+D
+F
+C
+E
+H
+RUM
+Usually the last to be implemented because transferring ownership for utility accounts takes time​

@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "1.1",
+  "sources": [
+    {
+      "doc": "EC SOP - V3 (1).docx",
+      "version": "V3; <TODO: Document Control block reads \"Effective Date: [Insert Date]\" — blank in the source. Confirm version and effective date with SME.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01", "EC-03", "EC-04", "EC-05", "EC-06", "EC-07"]
+    },
+    {
+      "doc": "Job Description_Engagement Coordinator (1).docx",
+      "version": "<TODO: DATE field in the job description header is blank in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01"]
+    },
+    {
+      "doc": "PH EC - Product Dependencies Workflow.docx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-ONESITE-01"]
+    },
+    {
+      "doc": "PH EC - Product Dependency Workflow.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-ONESITE-01"]
+    },
+    {
+      "doc": "PH EC - RUM Onboarding.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-RUM-01"]
+    },
+    {
+      "doc": "Onboarding Training Agenda_Calendar for EC Role V2.xlsx",
+      "version": "V2",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01", "EC-02", "EC-03", "EC-04", "EC-05", "EC-06", "EC-07", "EC-ONESITE-01", "EC-RUM-01"]
+    },
+    {
+      "doc": "PH EC Intro to Onboarding, Team Channels.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01"]
+    },
+    {
+      "doc": "PH EC - Intro to EM Onboarding, Team Channels.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01"]
+    },
+    {
+      "doc": "PH EC - Add-on Projects and Processes Review.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01", "EC-02", "EC-03", "EC-04", "EC-06", "EC-07"]
+    },
+    {
+      "doc": "PH EC - All about Leasing and Rents.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-05", "EC-ONESITE-01"]
+    },
+    {
+      "doc": "PH EC - Orders Review & Sales Prep Questionnaire.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-02"]
+    },
+    {
+      "doc": "PH EC - Project Planning Process.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-ONESITE-01", "EC-RUM-01"]
+    },
+    {
+      "doc": "PH EC - Salesforce Training.pptx",
+      "version": "<TODO: no version or date block in the source.>",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-02"]
+    },
+    {
+      "doc": "PH EC - SOP Review1.pptx",
+      "version": "Slide 1 is dated July 5, 2026",
+      "mode": "extracted-text",
+      "sponsorProvided": true,
+      "usedByModules": ["EC-01", "EC-03", "EC-04", "EC-05", "EC-06", "EC-07"]
+    },
+    {
+      "doc": "04_Implementation_Accelerator_Brief.pdf",
+      "version": "Hackathon use case brief; <TODO: no version number in the source.>",
+      "mode": "pdf-text",
+      "sponsorProvided": true,
+      "usedByModules": []
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-01",
+      "doc": "EC SOP - V3 (1).docx",
+      "where": "§8 Project Assignment and Capacity Tracking",
+      "finding": "Marked \"(Coming soon)\". The section lists four constraints the future process must satisfy (alphabetical assignment will not work; a queue is needed; the leader assigns by current EC capacity; the leader must manually assign applicable orders to the EC's name) but states no current process. Confirmed present in the deck too: SOP Review1 deck, slide 10 reads \"Coming Soon\".",
+      "affects": "assignment stage"
+    },
+    {
+      "id": "GAP-02",
+      "doc": "EC SOP - V3 (1).docx",
+      "where": "Document Control block",
+      "finding": "Reads \"Effective Date: [Insert Date]\" — literally blank in the source. Owner and review cycle are filled in; the effective date is not.",
+      "affects": "every module citation"
+    },
+    {
+      "id": "GAP-03",
+      "doc": "Onboarding Training Agenda_Calendar for EC Role V2.xlsx",
+      "where": "Checklist sheet",
+      "finding": "20 tools and compliance courses are listed with a Status column. Only 4 carry a ticket justification: Salesforce Access, New Hire Direct Line, Unified Platform, and Snagit. The other 16 have an empty justification cell — MS Teams, Outlook, EM SharePoint Access, Training Calendar, OMS, Datahub, Dayforce (payroll), RP Branding (Outlook Signature), RealPage University, UKG Access, Smartsheet, Meeting Recording & Transcription, and the four RealPage University compliance courses (O.S.H., Info Sec Awareness, RP Antitrust, Anti Harassment).",
+      "affects": "day 1 access modules"
+    },
+    {
+      "id": "GAP-04",
+      "doc": "Onboarding Training Agenda_Calendar for EC Role V2.xlsx",
+      "where": "Onboarding Links sheet",
+      "finding": "19 session titles are listed in a single column with no URLs or destinations of any kind. \"Orders Review\" appears twice (once plain, once as \"Orders Review (Cont'd)\").",
+      "affects": "facilitated session references in every stage"
+    },
+    {
+      "id": "GAP-05",
+      "doc": "Onboarding Training Agenda_Calendar for EC Role V2.xlsx",
+      "where": "Agenda sheet vs Calendar sheets",
+      "finding": "The Agenda sheet and the two Calendar sheets disagree on days 7-9. Agenda: Day 7 \"Handling Issues and Escalations + End of Engagement\", Day 8 \"Add-on Process Review\", Day 9 \"Intro to Front Office and G5\". Calendar: Day 7 \"End of Engagement Add-on Process Review\", Day 8 \"All About Conversions\", Day 9 \"Intro to RPA + Front Office + G5\". The two Calendar sheets also disagree with each other on which sessions are recordings.",
+      "affects": "module day and delivery fields"
+    },
+    {
+      "id": "GAP-06",
+      "doc": "PH EC - Product Dependencies Workflow.docx",
+      "where": "Product Dependency Reference table",
+      "finding": "The Reference table lists 21 products. RUM / RUSM is not among them, and neither dependency document states a OneSite prerequisite for it. Its position in the sequence comes only from the Project Planning Process deck, slide 3.",
+      "affects": "rum product entry, EC-RUM-01"
+    }
+  ],
+  "gapsNote": "These six are observed directly in the source documents. They are not resolved, softened or worked around anywhere in this package. GAP-01 to GAP-04 correspond to the four questions in 00_Admin/SME_QUESTIONS.md."
+}
