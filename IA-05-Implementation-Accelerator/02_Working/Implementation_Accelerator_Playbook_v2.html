@@ -726,11 +726,11 @@
       .top-context .context-chip:nth-child(2) { display: none; }
       .grid-4 { grid-template-columns: repeat(2,1fr); }
       .module-grid { grid-template-columns: repeat(2,1fr); }
-      .hero-panel, .field-hero { grid-template-columns: 1fr; }
+      .hero-panel, .field-hero { grid-template-columns: minmax(0,1fr); }
       .hero-side { border-left: 0; border-top: 1px solid var(--line); }
       .stage-timeline { grid-template-columns: repeat(3,1fr); }
       .stage:nth-child(3)::after, .stage:nth-child(6)::after { display: none; }
-      .knowledge-layout { grid-template-columns: 1fr; }
+      .knowledge-layout { grid-template-columns: minmax(0,1fr); }
     }
     @media (max-width: 900px) {
       :root { --sidebar: 0px; }
@@ -743,10 +743,10 @@
       .brand-divider { display: none; }
       .product-name { display: none; }
       .top-context .context-chip:not(.guardrail) { display: none; }
-      .playbook-layout, .practice-layout, .lesson-layout, .ask-layout { grid-template-columns: 1fr; }
+      .playbook-layout, .practice-layout, .lesson-layout, .ask-layout { grid-template-columns: minmax(0,1fr); }
       .module-rail { position: static; }
       .selectors { grid-template-columns: repeat(2,1fr); }
-      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .grid-3, .grid-2 { grid-template-columns: minmax(0,1fr); }
       .journey-strip { grid-template-columns: repeat(2,1fr); }
       .project-facts { grid-template-columns: repeat(2,1fr); }
       .rule-grid { grid-template-columns: repeat(2,1fr); }
@@ -756,13 +756,13 @@
     @media (max-width: 620px) {
       .topbar { padding: 0 12px; gap: 10px; }
       .top-context .context-chip { display: none !important; }
-      .module-grid, .grid-4, .selectors, .journey-strip, .stage-timeline, .rule-grid { grid-template-columns: 1fr; }
+      .module-grid, .grid-4, .selectors, .journey-strip, .stage-timeline, .rule-grid { grid-template-columns: minmax(0,1fr); }
       .stage::after { display: none; }
-      .scenario-context { grid-template-columns: 1fr; }
+      .scenario-context { grid-template-columns: minmax(0,1fr); }
       .module-hero-top { flex-direction: column; }
-      .outcome-box { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: 1fr; }
-      .dep-path { grid-template-columns: 1fr; }
+      .outcome-box { grid-template-columns: minmax(0,1fr); }
+      .hero-stats { grid-template-columns: minmax(0,1fr); }
+      .dep-path { grid-template-columns: minmax(0,1fr); }
       .dep-path-label { padding-top: 0; }
       .dep-sequence { flex-wrap: wrap; }
       .dep-caveat { grid-column: 1; }
