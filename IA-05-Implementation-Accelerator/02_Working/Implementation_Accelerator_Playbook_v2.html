@@ -722,6 +722,18 @@
     .sort-arrow { color: var(--line-dark); font-size: 9px; }
     th[aria-sort] > button { color: var(--navy); }
     th[aria-sort] .sort-arrow { color: var(--blue); }
+    .lens-note { margin-top: 10px; padding: 10px; border: 1px solid var(--line); background: var(--blue-pale); border-radius: 9px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .lens-note strong { color: var(--navy); }
+    .rail-clear { margin-top: 8px; background: none; border: 0; padding: 0; color: var(--blue); font: inherit; font-size: 11px; font-weight: 800; cursor: pointer; text-decoration: underline; }
+    .rail-clear:hover { color: var(--navy); }
+    .ask-suggest { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0 2px; }
+    .ask-suggest-label { color: var(--muted); font-size: 11px; font-weight: 800; width: 100%; }
+    .ask-chip { cursor: pointer; border: 1px dashed var(--line-dark); background: var(--surface); }
+    .ask-chip:hover { border-color: var(--blue); background: var(--blue-pale); color: var(--navy); }
+    .gap-row { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .gap-row:last-child { border-bottom: 0; }
+    .gap-row strong { display: block; font-size: 13px; }
+    .gap-row span { color: var(--muted); font-size: 11px; }
     .source-status-note { padding: 14px; background: var(--orange-soft); border: 1px solid #f5c9ba; border-radius: 10px; color: #71321f; font-size: 12px; margin-top: 14px; }
 
     .toast {
@@ -918,7 +930,7 @@
 
       <div class="card selector-panel">
         <div class="selectors">
-          <div><label class="field-label" for="roleSelect">Role</label><select id="roleSelect" disabled><option>Engagement Coordinator</option></select></div>
+          <div><label class="field-label" for="roleSelect">Role</label><select id="roleSelect"><option>Engagement Coordinator</option><option data-future>Engagement Manager (future)</option><option data-future>New-logo EC (future)</option></select></div>
           <div><label class="field-label" for="typeSelect">Implementation type</label><select id="typeSelect"><option>Add-on</option><option data-future>Expansion (future)</option><option data-future>New logo (future)</option></select></div>
           <div><label class="field-label" for="productSelect">Product lens</label><select id="productSelect"><option>Cross-product planning</option><option>OneSite</option><option>Payments</option><option>Loft Living</option><option>Loft Leasing</option><option>Screening</option></select></div>
           <div><label class="field-label" for="stageSelect">Project stage</label><select id="stageSelect"><option>Assignment and readiness</option><option>Kickoff</option><option selected>Plan and schedule</option><option>Deliverables and execution</option><option>Activation and close</option></select></div>
@@ -931,6 +943,8 @@
             <div><label class="field-label" for="railSearch">Search the playbook</label><input id="railSearch" type="text" placeholder="Search steps and checklists" autocomplete="off"></div>
             <div><label class="field-label" for="railModality">Modality</label><select id="railModality"><option value="">All modalities</option></select></div>
             <span class="rail-count" id="railCount" role="status" aria-live="polite"></span>
+          <button type="button" class="rail-clear" id="railClear" hidden>Clear all filters</button>
+          <p class="lens-note" id="lensNote" hidden></p>
           </div>
           <div id="moduleRail"></div>
           <p class="rail-empty" id="railEmpty" hidden>No module matches that search. Clear the search or modality filter to see all six.</p>
@@ -1113,6 +1127,15 @@
           </div>
           <button class="btn secondary" style="width:100%;margin-top:18px" id="requestChange">Preview change request</button>
         </aside>
+      </div>
+
+      <div class="card pad" style="margin-top:18px">
+        <div class="card-title-row">
+          <div><h2>Unanswered questions</h2><p class="muted small">Questions the playbook could not answer from approved text</p></div>
+          <span class="pill amber" id="gapCount">0 questions</span>
+        </div>
+        <p class="muted small" style="margin:10px 0 0">Each entry is guidance a learner looked for and did not find. Route these to the accountable owner; they are the highest-value candidates for the next content update, and they form the evaluation set for any future assisted answering.</p>
+        <div id="gapLog" style="margin-top:12px"></div>
       </div>
 
       <div class="card pad" style="margin-top:18px">
@@ -1360,6 +1383,37 @@
       $('#overallProgressText').textContent = `${completed.length} of ${modules.length} modules complete`;
     }
 
+    let railProduct = '';
+    let railStage = '';
+
+    // Full approved text of a module, cached. Used by the product and stage
+    // lenses so their results are derived from what the modules actually say,
+    // never from a mapping written by hand.
+    const moduleTextCache = new Map();
+    function moduleText(i) {
+      if (!moduleTextCache.has(i)) {
+        const m = modules[i];
+        moduleTextCache.set(i, [m.title, m.short, m.outcome]
+          .concat(m.steps.flat(), m.checklist.flat(),
+                  [m.scenario.prompt], m.scenario.options, [m.scenario.good, m.scenario.bad])
+          .join(' ').toLowerCase());
+      }
+      return moduleTextCache.get(i);
+    }
+
+    // "Assignment and readiness" -> ["assignment","readiness"]; trailing s trimmed
+    // so "Deliverables" also matches "deliverable".
+    function lensTerms(label) {
+      return label.toLowerCase().split(/[^a-z]+/)
+        .filter(w => w.length > 3 && w !== 'and')
+        .map(w => w.endsWith('s') ? w.slice(0, -1) : w);
+    }
+
+    function lensHits(label) {
+      const terms = lensTerms(label);
+      if (!terms.length) return modules.map((_, i) => i);
+      return modules.map((_, i) => i).filter(i => terms.some(t => moduleText(i).includes(t)));
+    }
     let railQuery = '';
     let railModality = '';
 
@@ -1403,8 +1457,12 @@
 
     function railMatches() {
       const q = railQuery.trim().toLowerCase();
-      return modules.map((m, i) => ({ m, i })).filter(({ m }) => {
+      const productOk = railProduct ? lensHits(railProduct) : null;
+      const stageOk = railStage ? lensHits(railStage) : null;
+      return modules.map((m, i) => ({ m, i })).filter(({ m, i }) => {
         if (railModality && !m.modality.includes(railModality)) return false;
+        if (productOk && !productOk.includes(i)) return false;
+        if (stageOk && !stageOk.includes(i)) return false;
         if (!q) return true;
         const hay = [m.title, m.short, m.outcome, m.days, m.duration]
           .concat(m.steps.flat(), m.checklist.flat(), m.modality).join(' ').toLowerCase();
@@ -1412,6 +1470,43 @@
       });
     }
 
+    function activeFilterLabels() {
+      const on = [];
+      if (railQuery.trim()) on.push('search “' + railQuery.trim() + '”');
+      if (railModality) on.push('modality ' + railModality);
+      if (railProduct) on.push('product lens ' + railProduct);
+      if (railStage) on.push('project stage ' + railStage);
+      return on;
+    }
+
+    function renderLensNote() {
+      const note = $('#lensNote');
+      if (!note) return;
+      if (!railProduct && !railStage) { note.hidden = true; return; }
+      note.hidden = false;
+      const parts = [];
+      if (railProduct) parts.push(railProduct + ' → ' + lensHits(railProduct).length + ' of ' + modules.length);
+      if (railStage) parts.push(railStage + ' → ' + lensHits(railStage).length + ' of ' + modules.length);
+      note.innerHTML = '<strong>Derived from module text, not an SME-authored mapping.</strong> '
+        + askEscape(parts.join(' · ')) + '. A module matches when its approved step, checklist or scenario text mentions the term. '
+        + 'Validate with the accountable SME before relying on it.';
+    }
+
+    function renderFilterChrome() {
+      const clear = $('#railClear');
+      if (clear) clear.hidden = activeFilterLabels().length === 0;
+      renderLensNote();
+    }
+
+    function clearAllFilters() {
+      railQuery = ''; railModality = ''; railProduct = ''; railStage = '';
+      const si = $('#railSearch'); if (si) si.value = '';
+      const mo = $('#railModality'); if (mo) mo.value = '';
+      const pr = $('#productSelect'); if (pr) pr.selectedIndex = 0;
+      const st = $('#stageSelect'); if (st) st.selectedIndex = 0;
+      renderRail();
+      showToast('Filters cleared. All ' + modules.length + ' modules shown.');
+    }
     function renderRail() {
       const list = railMatches();
       const q = railQuery.trim();
@@ -1424,8 +1519,47 @@
       if (count) count.textContent = list.length === modules.length
         ? 'All ' + modules.length + ' modules'
         : list.length + ' of ' + modules.length + ' modules';
+      renderFilterChrome();
     }
 
+    // --- Content-gap log -----------------------------------------------------
+    // Every question the retrieval layer cannot answer is recorded. This is the
+    // most useful signal the prototype produces: it names the guidance that is
+    // missing, and it is the corpus an evaluation set would later be built from.
+    function gapLog() {
+      try { return JSON.parse(storage.getItem('ia-unanswered') || '[]'); } catch (e) { return []; }
+    }
+    function gapLogAdd(question, moduleIndex) {
+      const log = gapLog();
+      log.unshift({ q: question, module: modules[moduleIndex].title, at: new Date().toISOString() });
+      storage.setItem('ia-unanswered', JSON.stringify(log.slice(0, 50)));
+      renderGapLog();
+    }
+    function renderGapLog() {
+      const host = $('#gapLog');
+      if (!host) return;
+      const log = gapLog();
+      const pill = $('#gapCount');
+      if (pill) pill.textContent = log.length + (log.length === 1 ? ' question' : ' questions');
+      if (!log.length) {
+        host.innerHTML = '<p class="muted small" style="margin:0">No unanswered questions recorded yet. Ask something the playbook does not cover and it will appear here.</p>';
+        return;
+      }
+      host.innerHTML = log.slice(0, 8).map(e => '<div class="gap-row"><strong>' + askEscape(e.q) + '</strong>'
+        + '<span>Asked from ' + askEscape(e.module) + ' · ' + askEscape((e.at || '').slice(0, 10)) + '</span></div>').join('');
+    }
+
+    // --- Suggested questions -------------------------------------------------
+    // Built from the module's own step headings, so a suggestion can only ever
+    // point at guidance the module actually contains.
+    function renderAskSuggestions() {
+      const host = $('#askSuggest');
+      if (!host) return;
+      const m = modules[selectedModule];
+      host.innerHTML = '<span class="ask-suggest-label">Try one of this module\u2019s steps:</span>'
+        + m.steps.slice(0, 4).map(([head]) =>
+            '<button type="button" class="tag ask-chip" data-ask-suggest="' + askEscape(head) + '">' + askEscape(head) + '</button>').join('');
+    }
     function cmpCells(a, b, asc) {
       const ta = ((a && a.textContent) || '').trim();
       const tb = ((b && b.textContent) || '').trim();
@@ -1524,7 +1658,7 @@
         <section class="module-tab-panel" data-panel="practice">${scenarioHtml(m.scenario,'module')}</section>
         <section class="module-tab-panel" data-panel="ask">
           <div class="ask-layout">
-            <div class="card ask-card"><h3>Ask a source-grounded question</h3><p class="muted">Try: “What should I verify before I confirm the implementation sequence?”</p><div class="ask-box"><input id="askInput" type="text" placeholder="Ask about this module"><button class="btn primary" id="askButton">Ask</button></div><div class="answer-box" id="answerBox"><strong>Source-grounded response</strong><div id="answerText"></div><div class="answer-citations" id="answerCitations"></div></div></div>
+            <div class="card ask-card"><h3>Ask a source-grounded question</h3><p class="muted">Try: “What should I verify before I confirm the implementation sequence?”</p><div class="ask-suggest" id="askSuggest"></div><div class="ask-box"><input id="askInput" type="text" placeholder="Ask about this module"><button class="btn primary" id="askButton">Ask</button></div><div class="answer-box" id="answerBox"><strong>Source-grounded response</strong><div id="answerText"></div><div class="answer-citations" id="answerCitations"></div></div></div>
             <aside class="card ask-card"><h3>What the assistant will not do</h3><div class="key-steps" style="margin-top:12px"><div class="key-step"><div class="key-step-num">1</div><div><strong>Invent a product rule</strong><span>Unclear guidance is routed to the SME.</span></div></div><div class="key-step"><div class="key-step-num">2</div><div><strong>Approve readiness</strong><span>Managers and SMEs make the decision.</span></div></div><div class="key-step"><div class="key-step-num">3</div><div><strong>Commit a customer date</strong><span>The EC validates dependencies and owners first.</span></div></div></div></aside>
           </div>
         </section>`;
@@ -1608,6 +1742,7 @@
         if (!matches.length) {
           answerEl.innerHTML = '<p class="ask-note">No approved step or checklist text in this playbook matches that question.</p>'
             + '<p>Treat this as a gap, not an answer. Route the question to the accountable SME and record the outcome before acting on it.</p>';
+          gapLogAdd(question, selectedModule);
           const m = modules[selectedModule];
           $('#answerCitations').innerHTML = m.sources.slice(0, 3)
             .map(k => '<a class="tag" href="' + sources[k].url + '" target="_blank" rel="noopener">' + askEscape(sources[k].title) + '</a>').join('');
@@ -1623,6 +1758,7 @@
         }
         $('#answerBox').classList.add('show');
       });
+      renderAskSuggestions();
       wireScenario($('#moduleDetail'));
     }
 
@@ -1705,8 +1841,41 @@
     });
     $('#mobileMenu').addEventListener('click', () => $('#sidebar').classList.toggle('open'));
     $('#requestChange').addEventListener('click', () => showToast('Change request preview: source, proposed change, affected role/product/stage, owner, SME, effective date, and learner impact.'));
-    $('#productSelect').addEventListener('change', () => showToast(`Product lens changed to ${$('#productSelect').value}. The prototype keeps the same cross-product lesson while the checklist and sources would adapt in production.`));
-    $('#stageSelect').addEventListener('change', () => showToast(`Stage context changed to ${$('#stageSelect').value}.`));
+    $('#productSelect').addEventListener('change', (e) => {
+      const v = e.target.value;
+      railProduct = (e.target.selectedIndex === 0) ? '' : v;
+      renderRail();
+      const n = railProduct ? lensHits(railProduct).length : modules.length;
+      showToast(railProduct
+        ? n + ' of ' + modules.length + ' modules reference ' + v + ' in their approved text.'
+          + (n === 0 ? ' That is a content gap, not an error — raise it in Knowledge health.' : '')
+        : 'Product lens cleared. All ' + modules.length + ' modules shown.');
+    });
+    $('#stageSelect').addEventListener('change', (e) => {
+      const v = e.target.value;
+      railStage = (e.target.selectedIndex === 0) ? '' : v;
+      renderRail();
+      const n = railStage ? lensHits(railStage).length : modules.length;
+      showToast(railStage
+        ? n + ' of ' + modules.length + ' modules reference the ' + v + ' stage in their approved text.'
+        : 'Project stage cleared. All ' + modules.length + ' modules shown.');
+    });
+    $('#roleSelect')?.addEventListener('change', (e) => {
+      const opt = e.target.selectedOptions[0];
+      if (opt && opt.dataset.future !== undefined) {
+        showToast(opt.value + ' is out of scope for this phase. The playbook covers the Engagement Coordinator only, so the selector stays there.');
+        e.target.selectedIndex = 0;
+      }
+    });
+    $('#railClear')?.addEventListener('click', clearAllFilters);
+    document.addEventListener('click', (e) => {
+      const chip = e.target.closest('[data-ask-suggest]');
+      if (!chip) return;
+      const input = $('#askInput');
+      if (!input) return;
+      input.value = chip.dataset.askSuggest;
+      $('#askButton').click();
+    });
     // Populate the modality filter from the data itself, so the options can
     // never drift from what the modules actually declare.
     (() => {
@@ -1737,6 +1906,7 @@
     renderRail();
     renderModuleDetail();
     renderPractice();
+    renderGapLog();
     const savedView = storage.getItem('ia-view');
     if (savedView && document.getElementById('view-' + savedView)) setView(savedView);
   </script>
